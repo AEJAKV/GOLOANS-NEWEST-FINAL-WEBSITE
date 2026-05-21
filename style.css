@@ -638,10 +638,7 @@ h2 {
 }
 
 .step-card {
-  background:
-    radial-gradient(ellipse at top right, rgba(0,141,5,.07) 0%, transparent 60%),
-    radial-gradient(ellipse at bottom left, rgba(0,141,5,.05) 0%, transparent 60%),
-    rgba(244, 251, 245, 0.96);
+  background: rgba(244, 251, 245, 0.96);
   border: 1px solid rgba(0, 141, 5, 0.18);
   border-radius: 18px;
   padding: 28px 24px;
@@ -652,16 +649,14 @@ h2 {
   position: relative;
   box-shadow:
     0 20px 48px rgba(0, 0, 0, 0.08),
-    0 4px 16px rgba(0, 141, 5, 0.06),
-    inset 0 0 28px rgba(0, 141, 5, 0.03);
+    0 4px 16px rgba(0, 141, 5, 0.06);
   transition: transform .24s ease, box-shadow .24s ease;
 }
 .step-card:hover {
   transform: translateY(-4px);
   box-shadow:
     0 28px 64px rgba(0, 0, 0, 0.11),
-    0 6px 22px rgba(0, 141, 5, 0.09),
-    inset 0 0 28px rgba(0, 141, 5, 0.04);
+    0 6px 22px rgba(0, 141, 5, 0.09);
 }
 
 .step-num {
