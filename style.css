@@ -477,51 +477,45 @@ h1 .highlight {
   position: relative;
   animation: float 5s ease-in-out infinite;
 }
-.hero-img-card {
-  background: linear-gradient(145deg, #fff, #f0f5f0);
-  border-radius: 24px;
-  border: 1px solid rgba(0,141,5,.15);
-  box-shadow: var(--shadow), 0 0 0 1px rgba(0,0,0,.04);
-  padding: 32px;
-  position: relative;
+.hero-photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  border: 1.5px solid #d0d5d0;
   overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #e8ebe8 0px,
+      #e8ebe8 6px,
+      #f2f4f2 6px,
+      #f2f4f2 18px
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.hero-img-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, var(--green), #00d108, var(--orange));
+.hero-photo-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255,255,255,.82);
+  border: 1.5px solid #ccc;
+  border-radius: 12px;
+  padding: 24px 32px;
 }
-
-.hero-stat-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 20px;
+.hero-photo-inner svg {
+  width: 48px;
+  height: 48px;
 }
-.hero-stat {
-  background: #fff;
-  border-radius: 14px;
-  padding: 16px 18px;
-  border: 1px solid rgba(0,0,0,.07);
-  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+.hero-photo-inner span {
+  font-size: 12px;
+  font-weight: 600;
+  color: #999;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
-.hero-stat .stat-value {
-  font-family: 'Sora', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--green);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-.hero-stat .stat-label { font-size: 12px; color: var(--muted); font-weight: 500; }
-
-.hero-stat.accent {
-  background: linear-gradient(135deg, var(--green), #00b006);
-  border-color: transparent;
-}
-.hero-stat.accent .stat-value { color: #fff; }
-.hero-stat.accent .stat-label { color: rgba(255,255,255,.8); }
 
 .hero-cta-row {
   display: flex;
@@ -1326,5 +1320,4 @@ footer { background: var(--navy); color: #fff; }
   .cta-card .btn { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; gap: 22px; }
   .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .hero-stat-cards { grid-template-columns: 1fr 1fr; }
 }
