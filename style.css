@@ -82,8 +82,8 @@ h1, h2, h3, h4 {
 }
 
 .animate-up {
-  opacity: 0;
-  animation: fadeUp .65s ease forwards;
+  opacity: 1;
+  animation: none;
 }
 .delay-1 { animation-delay: .1s; }
 .delay-2 { animation-delay: .22s; }
@@ -155,20 +155,21 @@ h1, h2, h3, h4 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.97);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 2px 18px rgba(0,0,0,.05);
+  border-top: 2px solid #6f5a2a;
+  border-bottom: 1px solid rgba(0,0,0,.16);
+  box-shadow: none;
 }
 
 .nav {
-  max-width: 1280px;
+  max-width: 1560px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 220px 1fr auto;
+  grid-template-columns: 300px 1fr auto;
   align-items: center;
-  gap: 18px;
-  padding: 10px 24px;
+  gap: 14px;
+  padding: 10px 32px 9px;
 }
 
 .brand {
@@ -182,25 +183,31 @@ h1, h2, h3, h4 {
 }
 
 .brand-logo {
-  width: 40px;
+  width: 78px;
   height: 40px;
   background: linear-gradient(135deg, #00b006, #006b04);
-  border-radius: 10px;
+  border-radius: 0;
   display: grid;
   place-items: center;
   flex: none;
-  box-shadow: 0 4px 12px rgba(0,141,5,.3);
+  box-shadow: none;
 }
-.brand-logo svg { width: 22px; height: 22px; fill: #fff; }
+.brand-logo svg { width: 100%; height: 100%; color: #fff; }
 
-.brand-name { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: var(--text); }
+.brand-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+}
 
 .nav-links {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
-  font-size: 14px;
+  gap: 56px;
+  font-size: 16px;
   font-weight: 500;
 }
 .nav-links a {
@@ -232,9 +239,10 @@ h1, h2, h3, h4 {
   gap: 7px;
   color: var(--text);
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
+  white-space: nowrap;
 }
-.phone-link svg { color: var(--green); }
+.phone-link svg { color: var(--text); }
 
 /* ─── TICKER BAR ─── */
 .ticker-bar {
@@ -266,7 +274,7 @@ h1, h2, h3, h4 {
   background-image:
     radial-gradient(ellipse 700px 500px at 90% 50%, rgba(0,141,5,.065) 0%, transparent 70%),
     radial-gradient(ellipse 500px 400px at 10% 60%, rgba(0,141,5,.04) 0%, transparent 70%);
-  padding: 56px 24px 60px;
+  padding: 40px 24px 34px;
   position: relative;
   overflow: hidden;
 }
@@ -305,13 +313,14 @@ h1, h2, h3, h4 {
   font-family: 'Sora', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 h1 {
-  font-size: clamp(36px, 4.5vw, 58px);
+  font-size: clamp(38px, 4.3vw, 58px);
   letter-spacing: -.035em;
-  margin-bottom: 14px;
+  margin: 0 auto 10px;
+  max-width: 1380px;
   text-align: center;
 }
 h1 .highlight {
@@ -324,16 +333,20 @@ h1 .highlight {
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
-  gap: 40px;
-  align-items: center;
-  margin-top: 32px;
+  gap: 34px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+.hero-left {
+  padding-top: 12px;
 }
 
 /* PRODUCT CARDS */
 .product-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 16px;
 }
 
@@ -346,8 +359,9 @@ h1 .highlight {
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 5px;
-  padding: 18px 12px;
+  gap: 6px;
+  min-height: 106px;
+  padding: 16px 12px;
   box-shadow: 0 8px 24px rgba(0,100,5,.25);
   transition: transform .22s ease, box-shadow .22s ease;
   cursor: pointer;
@@ -367,17 +381,17 @@ h1 .highlight {
 .product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,100,5,.32); }
 
 .product-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
   background: rgba(255,255,255,.18);
   display: grid;
   place-items: center;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 .product-icon svg { width: 22px; height: 22px; fill: #fff; }
-.product-card strong { font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 700; }
-.product-card span { font-size: 11px; opacity: .82; }
+.product-card strong { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 700; }
+.product-card span { font-size: 12px; opacity: .9; }
 
 .product-card.coming-soon { opacity: .75; }
 .coming-badge {
@@ -386,10 +400,10 @@ h1 .highlight {
   right: 8px;
   background: var(--orange);
   color: #fff;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: .06em;
-  padding: 2px 6px;
+  padding: 3px 7px;
   border-radius: 999px;
 }
 
@@ -397,15 +411,16 @@ h1 .highlight {
 .loan-banner {
   border-radius: 16px;
   background: linear-gradient(135deg, #b35e00, #d07000);
-  border: 3px solid var(--orange);
+  border: 5px solid #ff7a00;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 14px;
   text-align: center;
-  gap: 10px;
-  padding: 20px 24px;
+  min-height: 118px;
+  padding: 18px 22px;
   margin-bottom: 18px;
   position: relative;
   overflow: hidden;
@@ -423,22 +438,21 @@ h1 .highlight {
 .loan-banner-icon {
   width: 52px;
   height: 52px;
-  background: rgba(255,255,255,.18);
-  border-radius: 14px;
+  background: transparent;
+  border-radius: 0;
   display: grid;
   place-items: center;
   flex: none;
 }
-.loan-banner-icon svg { width: 28px; height: 28px; fill: #fff; }
+.loan-banner-icon svg { width: 34px; height: 34px; fill: #fff; }
 .loan-banner-text strong {
   display: block;
   font-family: 'Sora', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 800;
-  margin-bottom: 3px;
+  margin-bottom: 0;
 }
 .loan-banner-text span { font-size: 12px; opacity: .85; }
-.loan-banner-label { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 800; }
 
 /* TRUST ROW */
 .trust-row {
@@ -470,10 +484,11 @@ h1 .highlight {
 .hero-visual {
   position: relative;
   animation: float 5s ease-in-out infinite;
+  padding-top: 4px;
 }
 .hero-photo-placeholder {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   border-radius: 16px;
   border: 1.5px solid #d0d5d0;
   overflow: hidden;
@@ -1275,7 +1290,7 @@ footer { background: var(--navy); color: #fff; }
 .legal-sep { color: rgba(255,255,255,.25); }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 1024px) {
+@media (max-width: 760px) {
   .nav { grid-template-columns: auto 1fr auto; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
