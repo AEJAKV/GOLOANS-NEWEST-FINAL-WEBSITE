@@ -188,24 +188,11 @@ h1, h2, h3, h4 {
   color: var(--text);
 }
 
-.brand-logo {
-  width: 78px;
+.brand-logo-img {
   height: 40px;
-  background: linear-gradient(135deg, #00b006, #006b04);
-  border-radius: 0;
-  display: grid;
-  place-items: center;
+  width: auto;
+  display: block;
   flex: none;
-  box-shadow: none;
-}
-.brand-logo svg { width: 100%; height: 100%; color: #fff; }
-
-.brand-name {
-  font-family: 'Sora', sans-serif;
-  font-size: 22px;
-  font-weight: 800;
-  color: var(--text);
-  line-height: 1;
 }
 
 .nav-links {
@@ -414,6 +401,7 @@ h1 .highlight {
   gap: 6px;
   min-height: 106px;
   padding: 16px 12px;
+  border: 2px solid rgba(110, 230, 75, 0.65);
   box-shadow: 0 8px 24px rgba(0,100,5,.25);
   transition: transform .22s ease, box-shadow .22s ease;
   cursor: pointer;
@@ -1343,8 +1331,7 @@ footer { background: var(--navy); color: #fff; }
 /* ─── RESPONSIVE ─── */
 @media (max-width: 760px) {
   .nav { grid-template-columns: auto 1fr auto; }
-  .brand-logo { width: 44px; height: 36px; }
-  .brand-name { font-size: 15px; white-space: nowrap; }
+  .brand-logo-img { height: 30px; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
   .match-box, .funding-grid, .security-grid, .areas-panel, .footer-grid, .cta-card {
