@@ -312,13 +312,13 @@ h1, h2, h3, h4 {
   margin: 0 auto;
   overflow: hidden;
   isolation: isolate;
-  background: rgba(232, 249, 234, 0.88);
-  border: 1px solid rgba(0, 141, 5, 0.18);
+  background: rgba(244, 251, 245, 0.94);
+  border: 1px solid rgba(0, 141, 5, 0.12);
   border-radius: 34px;
   box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.13),
-    0 10px 36px rgba(0, 141, 5, 0.10),
-    inset 0 0 50px rgba(0, 141, 5, 0.055);
+    0 36px 88px rgba(0, 0, 0, 0.10),
+    0 8px 28px rgba(0, 141, 5, 0.07),
+    inset 0 0 40px rgba(0, 141, 5, 0.03);
   padding: 38px 46px 42px;
   position: relative;
 }
@@ -331,13 +331,11 @@ h1, h2, h3, h4 {
   padding: 2px;
   background: conic-gradient(
     from var(--hero-border-angle, 0deg),
-    transparent 0deg 40deg,
-    #00c908 65deg,
-    #ffe600 90deg,
-    transparent 120deg 220deg,
-    #ff7a00 248deg,
-    #ffb300 268deg,
-    transparent 295deg 360deg
+    transparent 0deg 70deg,
+    rgba(0, 160, 8, 0.60) 95deg,
+    transparent 120deg 255deg,
+    rgba(255, 105, 0, 0.50) 280deg,
+    transparent 305deg 360deg
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -347,7 +345,7 @@ h1, h2, h3, h4 {
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: hero-border-spin 6s linear infinite;
+  animation: hero-border-spin 9s linear infinite;
   pointer-events: none;
   z-index: 0;
 }
