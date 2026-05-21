@@ -193,9 +193,7 @@ h1, h2, h3, h4 {
 }
 .brand-logo svg { width: 22px; height: 22px; fill: #fff; }
 
-.brand-name { display: flex; flex-direction: column; line-height: 1; }
-.brand-name span:first-child { font-size: 18px; }
-.brand-name span:last-child { font-size: 10px; font-weight: 500; color: var(--muted); letter-spacing: .04em; }
+.brand-name { font-family: 'Sora', sans-serif; font-size: 20px; font-weight: 800; color: var(--text); }
 
 .nav-links {
   display: flex;
@@ -301,28 +299,20 @@ h1, h2, h3, h4 {
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, var(--green), #00b006);
-  color: #fff;
+  display: block;
+  text-align: center;
+  color: var(--green);
   font-family: 'Sora', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 18px;
-  box-shadow: var(--shadow-green);
+  margin-bottom: 12px;
 }
-.eyebrow svg { width: 13px; height: 13px; fill: currentColor; }
 
 h1 {
   font-size: clamp(36px, 4.5vw, 58px);
   letter-spacing: -.035em;
   margin-bottom: 14px;
-  max-width: 560px;
+  text-align: center;
 }
 h1 .highlight {
   background: linear-gradient(135deg, var(--green), #00d108);
@@ -410,8 +400,11 @@ h1 .highlight {
   border: 3px solid var(--orange);
   color: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 18px;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
   padding: 20px 24px;
   margin-bottom: 18px;
   position: relative;
@@ -445,6 +438,7 @@ h1 .highlight {
   margin-bottom: 3px;
 }
 .loan-banner-text span { font-size: 12px; opacity: .85; }
+.loan-banner-label { font-family: 'Sora', sans-serif; font-size: 17px; font-weight: 800; }
 
 /* TRUST ROW */
 .trust-row {
