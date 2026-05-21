@@ -303,6 +303,7 @@ h1, h2, h3, h4 {
 .hero-container {
   max-width: var(--max);
   margin: 0 auto;
+  overflow: hidden;
   background: rgba(255,255,255,.92);
   border: 1px solid rgba(0,0,0,.06);
   border-radius: 34px;
@@ -1295,6 +1296,8 @@ footer { background: var(--navy); color: #fff; }
 /* ─── RESPONSIVE ─── */
 @media (max-width: 760px) {
   .nav { grid-template-columns: auto 1fr auto; }
+  .brand-logo { width: 44px; height: 36px; }
+  .brand-name { font-size: 15px; white-space: nowrap; }
   .hero-grid { grid-template-columns: 1fr; }
   .hero-visual { display: none; }
   .match-box, .funding-grid, .security-grid, .areas-panel, .footer-grid, .cta-card {
@@ -1316,10 +1319,12 @@ footer { background: var(--navy); color: #fff; }
   .nav-links { display: none; }
   .phone-link span { display: none; }
   .hero { padding: 40px 16px 48px; }
-  .hero-container { padding: 28px 20px 30px; border-radius: 26px; }
+  .hero-container { padding: 24px 16px 28px; border-radius: 22px; }
   .section { padding: 56px 16px; }
-  .product-row { grid-template-columns: 1fr 1fr; }
+  .product-row { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
   .product-row .product-card:last-child { grid-column: 1 / -1; }
+  .trust-row { flex-wrap: wrap; white-space: normal; gap: 8px; }
+  .trust-item { white-space: normal; }
   .hero-cta-row { justify-content: center; }
   .steps-grid { grid-template-columns: 1fr; }
   .match-box { padding: 24px; gap: 24px; }
