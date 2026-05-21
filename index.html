@@ -204,10 +204,27 @@
 
             <div style="margin-bottom:20px;">
               <div class="lender-row-label">Our Lending Partners</div>
-              <div class="lenders">
-                <div class="lender-chip"><div class="lender-dot" style="background:#1a73e8;"></div>Spring</div>
-                <div class="lender-chip"><div class="lender-dot" style="background:#e91e63;"></div>CoCash</div>
-                <div class="lender-chip"><div class="lender-dot" style="background:#ff6d00;"></div>Omni</div>
+              <div class="lender-carousel-outer">
+                <button class="lender-nav lender-prev" aria-label="Previous partners">
+                  <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                </button>
+                <div class="lender-carousel-wrap">
+                  <div class="lender-track" id="lenderTrack">
+                    <!-- set 1 -->
+                    <div class="lender-chip"><div class="lender-dot" style="background:#1a73e8;"></div>Spring Financial</div>
+                    <div class="lender-chip"><div class="lender-dot" style="background:#e91e63;"></div>CoCash</div>
+                    <div class="lender-chip"><div class="lender-dot" style="background:#ff6d00;"></div>Omni</div>
+                    <div class="lender-chip"><div class="lender-dot" style="background:#00897b;"></div>Bree</div>
+                    <!-- set 2 (duplicate for seamless loop) -->
+                    <div class="lender-chip" aria-hidden="true"><div class="lender-dot" style="background:#1a73e8;"></div>Spring Financial</div>
+                    <div class="lender-chip" aria-hidden="true"><div class="lender-dot" style="background:#e91e63;"></div>CoCash</div>
+                    <div class="lender-chip" aria-hidden="true"><div class="lender-dot" style="background:#ff6d00;"></div>Omni</div>
+                    <div class="lender-chip" aria-hidden="true"><div class="lender-dot" style="background:#00897b;"></div>Bree</div>
+                  </div>
+                </div>
+                <button class="lender-nav lender-next" aria-label="Next partners">
+                  <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                </button>
               </div>
             </div>
 
@@ -585,6 +602,36 @@
   </footer>
 
   <script>
+    // Lender carousel
+    (function () {
+      const track = document.getElementById('lenderTrack');
+      if (!track) return;
+      let x = 0;
+      const speed = 0.28;
+      let paused = false;
+      const halfW = () => track.scrollWidth / 2;
+      function tick() {
+        if (!paused) {
+          x += speed;
+          if (x >= halfW()) x -= halfW();
+        }
+        track.style.transform = 'translateX(-' + x + 'px)';
+        requestAnimationFrame(tick);
+      }
+      tick();
+      const wrap = track.closest('.lender-carousel-wrap');
+      wrap.addEventListener('mouseenter', () => { paused = true; });
+      wrap.addEventListener('mouseleave', () => { paused = false; });
+      document.querySelector('.lender-prev').addEventListener('click', () => {
+        x -= 110;
+        if (x < 0) x += halfW();
+      });
+      document.querySelector('.lender-next').addEventListener('click', () => {
+        x += 110;
+        if (x >= halfW()) x -= halfW();
+      });
+    })();
+
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(q => {
       q.addEventListener('click', () => {

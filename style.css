@@ -709,10 +709,10 @@ h2 {
   border-radius: 24px;
   border: 1px solid rgba(0,0,0,.08);
   box-shadow: var(--shadow);
-  padding: 40px;
+  padding: 56px 52px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 52px;
+  gap: 64px;
   align-items: center;
   max-width: 1060px;
   margin: 36px auto 0;
@@ -772,6 +772,10 @@ h2 {
   z-index: 1;
 }
 
+.match-content {
+  min-width: 0;
+  overflow: hidden;
+}
 .match-content h3 {
   font-size: 22px;
   font-weight: 700;
@@ -794,46 +798,82 @@ h2 {
 }
 .pill svg { width: 16px; height: 16px; fill: var(--green); flex: none; }
 
-/* LENDER ROW */
-.lender-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 18px 0 24px;
-}
+/* LENDER CAROUSEL */
 .lender-row-label {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: .06em;
+  letter-spacing: .08em;
   color: var(--muted);
   text-transform: uppercase;
   white-space: nowrap;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
-.lenders {
-  display: flex;
-  gap: 10px;
-  flex: 1;
-}
-.lender-chip {
-  flex: 1;
-  background: #f5f5f5;
-  border-radius: 10px;
-  padding: 8px 12px;
+
+/* Carousel outer (buttons + track) */
+.lender-carousel-outer {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  font-size: 13px;
+}
+.lender-nav {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,.12);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+  padding: 0;
+}
+.lender-nav:hover {
+  border-color: rgba(0,141,5,.4);
+  box-shadow: 0 2px 8px rgba(0,141,5,.18);
+  transform: scale(1.08);
+}
+.lender-nav svg {
+  width: 15px;
+  height: 15px;
+  fill: #555;
+}
+.lender-carousel-wrap {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%);
+}
+.lender-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  will-change: transform;
+}
+.lender-chip {
+  flex: none;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
   font-weight: 700;
   border: 1px solid rgba(0,0,0,.07);
+  white-space: nowrap;
   transition: background .2s;
 }
 .lender-chip:hover { background: var(--green-soft); }
 .lender-dot {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+  flex: none;
 }
 
 .match-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
