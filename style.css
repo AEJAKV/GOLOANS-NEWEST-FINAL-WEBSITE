@@ -633,8 +633,11 @@ h2 {
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 14px;
   position: relative;
+}
+@media (min-width: 761px) {
+  .steps-grid { gap: 30px; }
 }
 
 .step-card {
