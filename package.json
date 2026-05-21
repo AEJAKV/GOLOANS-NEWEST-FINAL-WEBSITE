@@ -1,0 +1,8 @@
+{
+  "name": "goloans-web",
+  "version": "1.0.0",
+  "description": "GoLoans Canada static website",
+  "scripts": {
+    "dev": "npx live-server --port=3000 --open=goloans-web.html"
+  }
+}
