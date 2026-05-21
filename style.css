@@ -502,7 +502,8 @@ h1 .highlight {
 .trust-row {
   display: flex;
   flex-wrap: nowrap;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
   font-size: 10px;
   color: #2d2d2d;
   margin-top: 10px;
@@ -511,22 +512,32 @@ h1 .highlight {
 .trust-item {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1;
   white-space: nowrap;
 }
 .trust-check {
-  width: 12px;
-  height: 12px;
-  background: transparent;
-  color: var(--green);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
+  width: 18px;
+  height: 18px;
+  background: transparent no-repeat;
+  background-size: 375% auto;
   flex: none;
+  align-self: center;
+  display: block;
 }
-.trust-check svg { width: 12px; height: 12px; fill: currentColor; }
+.trust-check.trust-icon-calendar {
+  background-image: url('img/logo/calendar-hero-icon.svg');
+  background-position: 50% 55%;
+}
+.trust-check.trust-icon-shield {
+  background-image: url('img/logo/hero-icons/shield-hero-icon.svg');
+  background-position: 50% 49%;
+}
+.trust-check.trust-icon-fb {
+  background-image: url('img/logo/hero-icons/fb-hero-icon.svg');
+  background-position: 50% 50%;
+}
 
 /* HERO VISUAL */
 .hero-visual {
@@ -1369,7 +1380,8 @@ footer { background: var(--navy); color: #fff; }
   .product-row { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
   .product-row .product-card:last-child { grid-column: 1 / -1; }
   .trust-row { flex-wrap: wrap; white-space: normal; gap: 8px; }
-  .trust-item { white-space: normal; }
+  .trust-item { white-space: normal; gap: 8px; font-size: 11px; }
+  .trust-check { width: 18px; height: 18px; }
   .hero-cta-row { justify-content: center; }
   .steps-grid { grid-template-columns: 1fr; }
   .match-box { padding: 24px; gap: 24px; }
