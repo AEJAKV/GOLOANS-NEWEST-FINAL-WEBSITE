@@ -123,9 +123,8 @@ h1, h2, h3, h4 {
   background: linear-gradient(135deg, #ff8c1a, #ff6600);
   color: #fff;
   box-shadow: 0 6px 22px rgba(255,122,0,.35);
-  animation: cta-glow 2.4s ease-in-out infinite;
 }
-.btn-orange:hover { filter: brightness(1.07); box-shadow: 0 10px 30px rgba(255,122,0,.5); animation: none; }
+.btn-orange:hover { filter: brightness(1.07); box-shadow: 0 10px 30px rgba(255,122,0,.5); }
 
 .btn-green {
   background: linear-gradient(135deg, #00a806, #006b04);
@@ -304,6 +303,11 @@ h1, h2, h3, h4 {
 .hero-container {
   max-width: var(--max);
   margin: 0 auto;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 34px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.08);
+  padding: 38px 46px 42px;
 }
 
 .eyebrow {
@@ -458,32 +462,33 @@ h1 .highlight {
 .trust-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  font-size: 12px;
-  color: #222;
-  margin-top: 6px;
+  gap: 16px;
+  font-size: 11px;
+  color: #2d2d2d;
+  margin-top: 10px;
 }
 .trust-item {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-weight: 600;
+  gap: 7px;
+  font-weight: 500;
+  line-height: 1.25;
 }
 .trust-check {
-  width: 18px;
-  height: 18px;
-  background: var(--green);
+  width: 12px;
+  height: 12px;
+  background: transparent;
+  color: var(--green);
   border-radius: 50%;
   display: grid;
   place-items: center;
   flex: none;
 }
-.trust-check svg { width: 10px; height: 10px; fill: #fff; }
+.trust-check svg { width: 12px; height: 12px; fill: currentColor; }
 
 /* HERO VISUAL */
 .hero-visual {
   position: relative;
-  animation: float 5s ease-in-out infinite;
   padding-top: 4px;
 }
 .hero-photo-placeholder {
@@ -571,19 +576,16 @@ h2 {
 
 /* ─── STEPS ─── */
 .steps-section { background: #fff; }
-.steps-section h2 { text-align: center; }
-
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 10px;
+  gap: 26px;
   position: relative;
 }
 .steps-grid::before {
   content: '';
   position: absolute;
-  top: 44px;
+.trust-check svg { width: 12px; height: 12px; fill: currentColor; }
   left: calc(16.6% + 20px);
   right: calc(16.6% + 20px);
   height: 2px;
@@ -1313,6 +1315,7 @@ footer { background: var(--navy); color: #fff; }
   .nav-links { display: none; }
   .phone-link span { display: none; }
   .hero { padding: 40px 16px 48px; }
+  .hero-container { padding: 28px 20px 30px; border-radius: 26px; }
   .section { padding: 56px 16px; }
   .product-row { grid-template-columns: 1fr 1fr; }
   .product-row .product-card:last-child { grid-column: 1 / -1; }
