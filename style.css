@@ -331,11 +331,11 @@ h1, h2, h3, h4 {
   padding: 2px;
   background: conic-gradient(
     from var(--hero-border-angle, 0deg),
-    transparent 0deg 70deg,
-    rgba(0, 160, 8, 0.60) 95deg,
-    transparent 120deg 255deg,
-    rgba(255, 105, 0, 0.50) 280deg,
-    transparent 305deg 360deg
+    transparent 0deg 38deg,
+    rgba(0, 185, 10, 0.70) 62deg,
+    rgba(155, 210, 0, 0.55) 95deg,
+    rgba(255, 140, 0, 0.65) 125deg,
+    transparent 150deg 360deg
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
