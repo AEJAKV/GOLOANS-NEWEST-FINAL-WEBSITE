@@ -129,16 +129,16 @@ h1, h2, h3, h4 {
 .btn-orange {
   background: linear-gradient(135deg, #ff8c1a, #ff6600);
   color: #fff;
-  box-shadow: 0 6px 22px rgba(255,122,0,.35);
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
 }
-.btn-orange:hover { filter: brightness(1.07); box-shadow: 0 10px 30px rgba(255,122,0,.5); }
+.btn-orange:hover { filter: brightness(1.07); box-shadow: 0 6px 20px rgba(0,0,0,.22); }
 
 .btn-green {
   background: linear-gradient(135deg, #00a806, #006b04);
   color: #fff;
-  box-shadow: var(--shadow-green);
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
 }
-.btn-green:hover { filter: brightness(1.08); box-shadow: 0 12px 30px rgba(0,141,5,.38); }
+.btn-green:hover { filter: brightness(1.08); box-shadow: 0 6px 20px rgba(0,0,0,.22); }
 
 .btn-light {
   background: #fff;
@@ -701,8 +701,8 @@ h2 {
 .step-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
 
 /* ─── PARTNER / MATCH ─── */
-.partner-section { background: var(--off-white); }
-.partner-section h2 { text-align: center; }
+.partner-section { background: var(--off-white); padding: 40px 24px 44px; }
+.partner-section h2 { text-align: center; margin-bottom: 20px; }
 
 .match-box {
   background: #fff;
