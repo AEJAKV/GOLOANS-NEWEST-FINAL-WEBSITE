@@ -267,12 +267,8 @@
     <section class="funding-section" aria-labelledby="funding-title">
       <div class="funding-grid">
         <div>
-          <div class="section-label">
-            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-            Funding Match
-          </div>
-          <h2 id="funding-title">GoLoans Shops Around to Find Your Best Funding Match</h2>
-          <p class="funding-subline">The right lender will reach out to you with tailored offers</p>
+          <h2 id="funding-title">GoLoans Sends Your Prescored Application to Secure Canadian Lenders</h2>
+          <p class="funding-subline">Over 12,000 people trust us every month to send their application to the best lenders!</p>
 
           <div class="benefit-row">
             <div class="benefit-card">
@@ -297,32 +293,37 @@
         </div>
 
         <div class="funding-visual">
-          <div class="funding-visual-inner">
-            <div style="font-family:'Sora',sans-serif; font-weight:700; font-size:14px; color:var(--green); margin-bottom:4px;">Lender Match Score</div>
-            <div class="funding-bar">
-              <div>
-                <div style="font-weight:700; font-size:13px;">Spring Financial</div>
-                <div class="bar-fill" style="width:92%;"></div>
+          <button class="fv-nav fv-prev" aria-label="Previous slide">&#8249;</button>
+          <div class="fv-track-wrap">
+            <div class="fv-track" id="fvTrack">
+              <!-- Slide 1 -->
+              <div class="fv-slide">
+                <div class="fv-img-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(0,141,5,.25)" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                  <span>Image 1</span>
+                </div>
               </div>
-              <div style="font-weight:800; color:var(--green);">92%</div>
-            </div>
-            <div class="funding-bar">
-              <div>
-                <div style="font-weight:700; font-size:13px;">CoCash</div>
-                <div class="bar-fill" style="width:87%; background:linear-gradient(90deg,#00a806,#7fce00);"></div>
+              <!-- Slide 2 -->
+              <div class="fv-slide">
+                <div class="fv-img-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(0,141,5,.25)" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                  <span>Image 2</span>
+                </div>
               </div>
-              <div style="font-weight:800; color:var(--green);">87%</div>
-            </div>
-            <div class="funding-bar">
-              <div>
-                <div style="font-weight:700; font-size:13px;">Omni Financial</div>
-                <div class="bar-fill" style="width:79%;"></div>
+              <!-- Slide 3 -->
+              <div class="fv-slide">
+                <div class="fv-img-placeholder">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(0,141,5,.25)" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                  <span>Image 3</span>
+                </div>
               </div>
-              <div style="font-weight:800; color:var(--green);">79%</div>
             </div>
-            <div style="text-align:center; padding-top:8px;">
-              <a class="btn btn-green" href="#claim" style="width:100%;">Get Matched Now</a>
-            </div>
+          </div>
+          <button class="fv-nav fv-next" aria-label="Next slide">&#8250;</button>
+          <div class="fv-dots">
+            <button class="fv-dot active" aria-label="Slide 1"></button>
+            <button class="fv-dot" aria-label="Slide 2"></button>
+            <button class="fv-dot" aria-label="Slide 3"></button>
           </div>
         </div>
       </div>
@@ -663,6 +664,32 @@
         x += 110;
         if (x >= halfW()) x -= halfW();
       });
+    })();
+
+    // Funding visual carousel
+    (function () {
+      const track = document.getElementById('fvTrack');
+      const dots  = document.querySelectorAll('.fv-dot');
+      const total = 3;
+      let current = 0;
+      let timer;
+
+      function goTo(idx) {
+        current = (idx + total) % total;
+        track.style.transform = 'translateX(-' + (current * (100 / total)) + '%)';
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      }
+
+      function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => goTo(current + 1), 5000);
+      }
+
+      document.querySelector('.fv-prev').addEventListener('click', () => { goTo(current - 1); startTimer(); });
+      document.querySelector('.fv-next').addEventListener('click', () => { goTo(current + 1); startTimer(); });
+      dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); startTimer(); }));
+
+      startTimer();
     })();
 
     // FAQ accordion
