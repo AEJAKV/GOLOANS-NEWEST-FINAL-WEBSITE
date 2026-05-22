@@ -1463,7 +1463,7 @@ footer { background: var(--navy); color: #fff; }
   .nav { grid-template-columns: auto 1fr auto; }
   .brand-logo-img { height: 30px; }
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-visual { display: flex; margin-top: 14px; }
+  .hero-visual { display: flex; margin-top: 8px; }
   .hero-photo-placeholder { aspect-ratio: 16 / 9; flex: unset; min-height: unset; }
   .match-box, .funding-grid, .security-grid, .areas-panel, .footer-grid, .cta-card {
     grid-template-columns: 1fr;
@@ -1533,8 +1533,8 @@ footer { background: var(--navy); color: #fff; }
   .product-row .product-card span { font-size: 11px; }
   .product-row .product-card:last-child { grid-column: 1 / -1; min-height: 68px; flex-direction: row; justify-content: center; gap: 10px; padding: 10px 16px; }
   .product-row .product-card:last-child .product-icon { margin-bottom: 0; width: 30px; height: 30px; }
-  .trust-row { flex-wrap: wrap; white-space: normal; gap: 8px; }
-  .trust-item { white-space: normal; gap: 8px; font-size: 11px; }
+  .trust-row { flex-wrap: wrap; white-space: normal; gap: 6px 12px; justify-content: center; }
+  .trust-item { white-space: normal; gap: 6px; font-size: 11px; }
   .trust-check { width: 18px; height: 18px; }
   .hero-cta-row { justify-content: center; }
   .steps-grid { grid-template-columns: 1fr; }
