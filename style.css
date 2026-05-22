@@ -1298,6 +1298,75 @@ h2 {
   color: #fff;
   transform: scale(1.1);
 }
+
+/* ── Province image lightbox ── */
+.prov-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10,30,10,.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.prov-lightbox.open { opacity: 1; pointer-events: all; }
+.prov-lb-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+}
+.prov-lb-inner {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 22px;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0px, rgba(255,255,255,.07) 1px, transparent 1px, transparent 14px),
+    linear-gradient(135deg, #1b5e20, #2e7d32);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  box-shadow: 0 32px 80px rgba(0,0,0,.45);
+  overflow: hidden;
+  transform: scale(.86);
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+}
+.prov-lightbox.open .prov-lb-inner { transform: scale(1); }
+.prov-lb-inner svg { width: 64px; height: 64px; }
+.prov-lb-inner span {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255,255,255,.8);
+  letter-spacing: .02em;
+}
+.prov-lb-close {
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,.12);
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text);
+  transition: background .18s ease, transform .18s ease;
+  z-index: 1;
+}
+.prov-lb-close:hover { background: var(--orange); color: #fff; transform: scale(1.1); }
+
 /* Card body */
 .testi-body {
   padding: 18px 20px 20px;
@@ -1491,11 +1560,28 @@ h2 {
 .areas-section { padding: 44px 24px; background: #fff; }
 .areas-section h2 { text-align: center; }
 
+/* animated gradient keyframes */
+@keyframes areas-gradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes province-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cta-shine {
+  0%   { left: -75%; }
+  100% { left: 125%; }
+}
+
 .areas-panel {
   max-width: var(--max);
   margin: 36px auto 0;
   border-radius: 26px;
-  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
+  background: linear-gradient(135deg, #14491a, #1b6b22, #228b2c, #1a7d24, #14491a);
+  background-size: 300% 300%;
+  animation: areas-gradient 12s ease infinite;
   color: #fff;
   padding: 52px 56px;
   display: grid;
@@ -1506,6 +1592,93 @@ h2 {
   position: relative;
   overflow: hidden;
 }
+.areas-bg-pattern {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 1;
+}
+/* glow orbs */
+.areas-panel::before {
+  content: '';
+  position: absolute;
+  top: -90px; right: -90px;
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(0,200,40,.22) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.areas-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -70px; left: 160px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(0,180,30,.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.areas-left { position: relative; z-index: 1; }
+
+.areas-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+}
+.areas-tag::before { content: ''; width: 8px; height: 8px; background: var(--orange); border-radius: 50%; }
+
+.areas-panel h2 { color: #fff; text-align: left; font-size: clamp(26px, 3vw, 38px); margin-bottom: 12px; }
+.areas-panel p { color: rgba(255,255,255,.82); font-size: 15px; margin-bottom: 24px; max-width: 390px; line-height: 1.65; }
+
+/* Orange CTA */
+.areas-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  box-shadow: 0 6px 24px rgba(255,122,0,.45);
+  position: relative;
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.areas-cta::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%; height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.35) 50%, transparent 100%);
+  animation: cta-shine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+.areas-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(255,122,0,.6);
+  background: #e06e00;
+}
+.areas-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(255,122,0,.4);
+}
+
+.areas-note { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 14px; }
+
 .areas-panel::before {
   content: '';
   position: absolute;
@@ -1545,15 +1718,18 @@ h2 {
 .areas-note { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 12px; }
 
 .province-list {
-  background: rgba(255,255,255,.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 18px;
-  padding: 22px;
+  background: rgba(255,255,255,.13);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 20px;
+  padding: 26px 24px;
   position: relative;
   z-index: 1;
   align-self: start;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.3),
+    0 8px 32px rgba(0,0,0,.12);
 }
 .province-list-title {
   font-size: 11px;
@@ -1572,21 +1748,72 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: background .2s, border-color .2s, transform .18s;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: background .2s, border-color .2s, transform .18s, box-shadow .18s;
 }
-.province:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.25); transform: translateY(-2px); }
+.province.visible {
+  animation: province-in .4s ease forwards;
+  animation-delay: calc(var(--i) * 80ms);
+}
+.province:hover {
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.28);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
 .province-pin {
-  width: 32px;
-  height: 32px;
-  background: rgba(255,221,72,.18);
-  border-radius: 8px;
+  display: none; /* replaced by province-img */
+}
+.province-img {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.1) 0px, rgba(255,255,255,.1) 1px, transparent 1px, transparent 8px),
+    linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.08));
+  border: 1px solid rgba(255,255,255,.22);
   display: grid;
   place-items: center;
-  flex: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform .32s cubic-bezier(.4,0,.2,1), box-shadow .22s ease;
+  position: relative;
 }
-.province-pin svg { width: 16px; height: 16px; fill: #f6d230; }
+.province-img:hover {
+  transform: scale(1.18);
+  box-shadow: 0 6px 22px rgba(0,0,0,.25);
+  border-color: rgba(255,255,255,.45);
+}
+.province-img:active {
+  transform: scale(1.06);
+}
+.province-img svg {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  z-index: 1;
+}
 .province strong { display: block; font-size: 13px; line-height: 1.1; }
 .province span { display: block; font-size: 10.5px; color: rgba(255,255,255,.65); margin-top: 2px; }
+
+/* Section fade-in on scroll */
+.areas-panel {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.areas-panel.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .areas-panel { animation: none; transition: none; opacity: 1; transform: none; }
+  .province { animation: none; opacity: 1; transform: none; }
+  .areas-cta::after { animation: none; }
+}
 
 /* ─── TESTIMONIALS ─── */
 .testimonials-section { background: var(--off-white); padding: 80px 24px; }
