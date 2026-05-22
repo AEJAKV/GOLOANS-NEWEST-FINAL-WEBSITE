@@ -1492,16 +1492,17 @@ h2 {
 .areas-section h2 { text-align: center; }
 
 .areas-panel {
-  max-width: 1040px;
+  max-width: var(--max);
   margin: 36px auto 0;
   border-radius: 26px;
-  background: linear-gradient(135deg, #1b5e20, #2e7d32, #388e3c);
+  background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
   color: #fff;
-  padding: 48px 44px;
+  padding: 52px 56px;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-  box-shadow: 0 20px 60px rgba(0,100,5,.3);
+  grid-template-columns: 1fr 1.15fr;
+  gap: 56px;
+  align-items: center;
+  box-shadow: 0 24px 70px rgba(0,80,5,.32);
   position: relative;
   overflow: hidden;
 }
@@ -1546,10 +1547,13 @@ h2 {
 .province-list {
   background: rgba(255,255,255,.1);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.15);
   border-radius: 18px;
   padding: 22px;
   position: relative;
   z-index: 1;
+  align-self: start;
 }
 .province-list-title {
   font-size: 11px;
@@ -1562,14 +1566,15 @@ h2 {
 .province-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .province {
   background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.1);
   border-radius: 12px;
-  padding: 12px 14px;
+  padding: 13px 14px;
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: background .2s;
+  transition: background .2s, border-color .2s, transform .18s;
 }
-.province:hover { background: rgba(255,255,255,.2); }
+.province:hover { background: rgba(255,255,255,.22); border-color: rgba(255,255,255,.25); transform: translateY(-2px); }
 .province-pin {
   width: 32px;
   height: 32px;
