@@ -1647,16 +1647,16 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--orange);
+  background: linear-gradient(135deg, #ff8c1a, #ff6600);
   color: #fff;
   font-weight: 800;
   font-size: 15px;
   padding: 14px 32px;
   border-radius: 999px;
-  box-shadow: 0 6px 24px rgba(255,122,0,.45);
+  box-shadow: 0 6px 24px rgba(255,102,0,.45);
   position: relative;
   overflow: hidden;
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 .areas-cta::after {
   content: '';
@@ -1669,12 +1669,12 @@ h2 {
 }
 .areas-cta:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 32px rgba(255,122,0,.6);
-  background: #e06e00;
+  box-shadow: 0 10px 32px rgba(255,102,0,.6);
+  filter: brightness(1.07);
 }
 .areas-cta:active {
   transform: translateY(0);
-  box-shadow: 0 4px 14px rgba(255,122,0,.4);
+  box-shadow: 0 4px 14px rgba(255,102,0,.4);
 }
 
 .areas-note { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 14px; }
