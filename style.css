@@ -1816,7 +1816,7 @@ h2 {
 }
 
 /* ─── TESTIMONIALS ─── */
-.testimonials-section { background: var(--off-white); padding: 80px 24px; }
+.testimonials-section { background: var(--off-white); padding: 44px 24px; }
 .testimonials-section h2 { text-align: center; }
 
 .testimonial-grid {
