@@ -1409,8 +1409,8 @@ h2 {
 
 /* ─── SECURITY ─── */
 .security-section {
-  background: var(--off-white);
-  padding: 80px 24px;
+  background: linear-gradient(135deg, #006b04 0%, #008d05 60%, #00a806 100%);
+  padding: 44px 24px;
 }
 .security-grid {
   display: grid;
@@ -1432,7 +1432,7 @@ h2 {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  border: 2px solid rgba(0,141,5,.15);
+  border: 2px solid rgba(255,255,255,.25);
   display: grid;
   place-items: center;
   position: relative;
@@ -1443,47 +1443,37 @@ h2 {
   position: absolute;
   inset: -22px;
   border-radius: 50%;
-  border: 1px dashed rgba(0,141,5,.2);
+  border: 1px dashed rgba(255,255,255,.2);
 }
 .shield-inner {
   width: 140px;
   height: 160px;
   clip-path: polygon(50% 0%, 100% 15%, 93% 72%, 50% 100%, 7% 72%, 0% 15%);
-  background: linear-gradient(145deg, #00b006, #005f03);
+  background: linear-gradient(145deg, rgba(255,255,255,.28), rgba(255,255,255,.12));
   display: grid;
   place-items: center;
-  box-shadow: 0 12px 40px rgba(0,141,5,.4);
+  box-shadow: 0 12px 40px rgba(0,0,0,.2);
   animation: spin-slow 20s linear infinite reverse;
 }
 .shield-inner svg { width: 52px; height: 52px; fill: #fff; }
-.security-badge {
-  background: #fff;
-  border-radius: 12px;
-  padding: 8px 14px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--green);
-  box-shadow: 0 4px 14px rgba(0,0,0,.1);
-  border: 1px solid rgba(0,141,5,.15);
-}
 
-.security-content h2 { text-align: left; margin-bottom: 16px; }
+.security-content h2 { text-align: left; margin-bottom: 16px; color: #fff; }
 .security-copy {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.08);
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: 18px;
   padding: 20px 24px;
   font-size: 14.5px;
   line-height: 1.7;
-  color: #444;
+  color: rgba(255,255,255,.88);
   margin-bottom: 24px;
 }
 .security-copy p + p { margin-top: 12px; }
 
 .security-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .security-feat {
-  background: #fff;
-  border: 1.5px solid rgba(0,141,5,.18);
+  background: rgba(255,255,255,.14);
+  border: 1.5px solid rgba(255,255,255,.25);
   border-radius: 14px;
   padding: 14px 16px;
   display: flex;
@@ -1491,10 +1481,11 @@ h2 {
   gap: 10px;
   font-size: 13px;
   font-weight: 700;
-  transition: transform .2s, box-shadow .2s;
+  color: #fff;
+  transition: transform .2s, box-shadow .2s, background .2s;
 }
-.security-feat:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,141,5,.12); }
-.security-feat svg { width: 18px; height: 18px; fill: var(--green); flex: none; }
+.security-feat:hover { transform: translateY(-2px); background: rgba(255,255,255,.22); box-shadow: 0 6px 18px rgba(0,0,0,.15); }
+.security-feat svg { width: 18px; height: 18px; fill: #fff; flex: none; }
 
 /* ─── AREAS ─── */
 .areas-section { padding: 80px 24px; background: #fff; }
