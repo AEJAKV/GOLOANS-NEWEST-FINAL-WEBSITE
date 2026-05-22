@@ -1713,8 +1713,8 @@ h2 {
 
 .areas-panel h2 { color: #fff; text-align: left; font-size: clamp(26px, 3vw, 38px); margin-bottom: 12px; }
 .areas-panel p { color: rgba(255,255,255,.85); font-size: 15px; margin-bottom: 22px; max-width: 390px; }
-.areas-panel .btn { background: #ffe143; color: #1b1b1b; border-radius: 999px; font-weight: 800; }
-.areas-panel .btn:hover { background: #ffd700; transform: translateY(-2px); }
+.areas-panel .btn { background: linear-gradient(135deg, #ff8c1a, #ff6600); color: #fff; border-radius: 999px; font-weight: 800; box-shadow: 0 6px 24px rgba(255,102,0,.45); }
+.areas-panel .btn:hover { filter: brightness(1.07); transform: translateY(-2px); }
 .areas-note { font-size: 11px; color: rgba(255,255,255,.55); margin-top: 12px; }
 
 .province-list {
