@@ -1519,8 +1519,14 @@ footer { background: var(--navy); color: #fff; }
   }
   .hero-container { padding: 24px 16px 28px; border-radius: 22px; }
   .section { padding: 56px 16px; }
-  .product-row { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
-  .product-row .product-card:last-child { grid-column: 1 / -1; }
+  .product-row { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+  .product-row .product-card { min-height: 76px; padding: 12px 8px; gap: 4px; }
+  .product-row .product-card .product-icon { width: 34px; height: 34px; margin-bottom: 2px; }
+  .product-row .product-card .product-icon svg { width: 16px; height: 16px; }
+  .product-row .product-card strong { font-size: 13px; }
+  .product-row .product-card span { font-size: 11px; }
+  .product-row .product-card:last-child { grid-column: 1 / -1; min-height: 68px; flex-direction: row; justify-content: center; gap: 10px; padding: 10px 16px; }
+  .product-row .product-card:last-child .product-icon { margin-bottom: 0; width: 30px; height: 30px; }
   .trust-row { flex-wrap: wrap; white-space: normal; gap: 8px; }
   .trust-item { white-space: normal; gap: 8px; font-size: 11px; }
   .trust-check { width: 18px; height: 18px; }
