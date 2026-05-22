@@ -2143,7 +2143,7 @@ footer { background: var(--navy); color: #fff; }
   .security-features { grid-template-columns: 1fr; }
   .testimonial-grid { grid-template-columns: 1fr; }
   .province-grid { grid-template-columns: 1fr; }
-  .areas-panel { grid-template-columns: 1fr; padding: 30px 22px; }
+  .areas-panel { grid-template-columns: 1fr; padding: 30px 22px; gap: 24px; }
   .match-buttons { grid-template-columns: 1fr; }
   .match-buttons .btn { width: 100%; }
   .match-buttons > div { display: flex; flex-direction: column; align-items: stretch; }
