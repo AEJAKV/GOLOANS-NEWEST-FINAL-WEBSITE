@@ -707,6 +707,11 @@ h2 {
   .steps-grid { gap: 30px; }
 }
 
+/* Testimonial carousel — 2 cards on tablet */
+@media (min-width: 761px) and (max-width: 1040px) {
+  .testi-card { flex: 0 0 calc((100% - 20px) / 2); }
+}
+
 .step-card {
   background: rgba(244, 251, 245, 0.96);
   border: 1px solid rgba(0, 141, 5, 0.18);
@@ -1089,6 +1094,313 @@ h2 {
 .fv-dot.active {
   background: var(--green);
   transform: scale(1.25);
+}
+
+/* ─── TESTIMONIALS ─── */
+.testi-section {
+  background: linear-gradient(180deg, #f5faf5 0%, #ffffff 100%);
+  padding: 80px 0 72px;
+  overflow: hidden;
+}
+.testi-header {
+  text-align: center;
+  padding: 0 24px;
+  margin-bottom: 48px;
+}
+.testi-eyebrow {
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.testi-section h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 14px;
+  line-height: 1.15;
+}
+.testi-sub {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+/* Carousel shell */
+.testi-carousel-outer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.testi-viewport {
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+.testi-track {
+  display: flex;
+  gap: 20px;
+  padding: 16px 4px 20px;
+  transition: transform .45s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+/* Cards */
+.testi-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-width: 0;
+  background: #fff;
+  border: 1px solid rgba(0,141,5,.10);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.07);
+  transition: transform .22s ease, box-shadow .22s ease;
+  cursor: pointer;
+}
+.testi-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 40px rgba(0,0,0,.12);
+}
+.testi-card:hover .testi-play {
+  background: var(--green);
+  box-shadow: 0 0 0 10px rgba(0,141,5,.18), 0 6px 20px rgba(0,141,5,.35);
+}
+/* Video placeholder area */
+.testi-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,141,5,.04) 0px, rgba(0,141,5,.04) 1px,
+    transparent 1px, transparent 10px
+  ), linear-gradient(135deg, #e8f5e9 0%, #d0ead1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .38s cubic-bezier(.4,0,.2,1);
+}
+.testi-video-wrap:hover {
+  transform: scale(1.07);
+}
+.testi-video-wrap:active {
+  transform: scale(1.03);
+}
+.testi-video-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(0,141,5,.06) 0%, transparent 70%);
+}
+.testi-play {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,.15);
+  position: relative;
+  transition: background .22s ease, box-shadow .22s ease, transform .18s ease;
+}
+.testi-play svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--green);
+  margin-left: 3px;
+  transition: fill .22s ease;
+}
+.testi-card:hover .testi-play svg { fill: #fff; }
+
+/* ── Testimonial lightbox ── */
+.testi-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10,18,10,.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.testi-lightbox.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.testi-lb-inner {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,141,5,.05) 0px, rgba(0,141,5,.05) 1px, transparent 1px, transparent 14px),
+    linear-gradient(135deg, #e8f5e9 0%, #c8e6ca 100%);
+  border-radius: 22px;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 32px 80px rgba(0,0,0,.45);
+  transform: scale(.88);
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1);
+  overflow: hidden;
+}
+.testi-lightbox.open .testi-lb-inner {
+  transform: scale(1);
+}
+.testi-lb-play {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.92);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 18px rgba(0,141,5,.14), 0 8px 32px rgba(0,0,0,.20);
+}
+.testi-lb-play svg {
+  width: 36px;
+  height: 36px;
+  fill: var(--green);
+  margin-left: 5px;
+}
+.testi-lb-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,.12);
+  box-shadow: 0 4px 14px rgba(0,0,0,.18);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text);
+  transition: background .18s ease, transform .18s ease;
+  z-index: 1;
+}
+.testi-lb-close:hover {
+  background: var(--green);
+  color: #fff;
+  transform: scale(1.1);
+}
+/* Card body */
+.testi-body {
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.testi-stars {
+  color: #f5a623;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.testi-quote {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+  min-height: 44px;
+}
+.testi-client {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  border-top: 1px solid rgba(0,141,5,.08);
+  padding-top: 12px;
+}
+.testi-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), #00b808);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  flex-shrink: 0;
+}
+.testi-client > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.testi-client strong {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+.testi-client span {
+  font-size: 11px;
+  color: var(--muted);
+}
+/* Nav arrows */
+.testi-nav {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,.13);
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.10);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--text);
+  z-index: 2;
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+  margin: 0 8px;
+}
+.testi-nav:hover {
+  border-color: rgba(0,141,5,.4);
+  box-shadow: 0 4px 16px rgba(0,141,5,.15);
+  transform: scale(1.08);
+}
+.testi-nav:disabled {
+  opacity: .35;
+  cursor: default;
+  transform: none;
+}
+/* Dots */
+.testi-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 28px;
+  padding: 0 24px;
+}
+.testi-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0,141,5,.22);
+  cursor: pointer;
+  padding: 0;
+  transition: background .2s, transform .2s, width .2s;
+}
+.testi-dot.active {
+  background: var(--green);
+  transform: scale(1.25);
+  width: 22px;
+  border-radius: 999px;
 }
 
 /* ─── SECURITY ─── */
@@ -1612,4 +1924,8 @@ footer { background: var(--navy); color: #fff; }
   .cta-card .btn { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; gap: 22px; }
   .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  /* Testimonial carousel — 1 card on mobile */
+  .testi-section { padding: 52px 0 48px; }
+  .testi-card { flex: 0 0 calc(100% - 0px); }
+  .testi-nav { width: 36px; height: 36px; font-size: 20px; margin: 0 4px; }
 }
