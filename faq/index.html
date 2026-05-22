@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions — GoLoans Canada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #008d05;
+      --green-dark: #006b04;
+      --green-soft: #e8f5e9;
+      --orange: #ff7a00;
+      --navy: #1e2f42;
+      --text: #131313;
+      --muted: #5a5f65;
+      --off-white: #f5f7f5;
+      --radius: 20px;
+      --max: 860px;
+      --shadow-green: 0 12px 40px rgba(0,141,5,.22);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid rgba(0,0,0,.07);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-logo {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--green);
+      text-decoration: none;
+      letter-spacing: -.3px;
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 600;
+      font-size: 13.5px;
+      color: var(--green);
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(0,141,5,.3);
+      transition: background .18s, color .18s;
+    }
+    .nav-back:hover { background: var(--green); color: #fff; }
+    .nav-back svg { width: 15px; height: 15px; fill: currentColor; }
+
+    /* ── HERO ── */
+    .faq-hero {
+      background: linear-gradient(135deg, #14491a, #1b6b22, #228b2c);
+      padding: 56px 24px 48px;
+      text-align: center;
+      color: #fff;
+    }
+    .faq-hero h1 {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -.5px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .faq-hero p {
+      font-size: 16px;
+      color: rgba(255,255,255,.75);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .faq-count {
+      display: inline-block;
+      margin-top: 18px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+      padding: 5px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,.9);
+      letter-spacing: .03em;
+    }
+
+    /* ── MAIN ── */
+    .faq-main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+
+    /* ── CATEGORY ── */
+    .faq-category {
+      margin-bottom: 40px;
+    }
+    .faq-category-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .faq-category-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(0,141,5,.18);
+    }
+
+    /* ── ITEM ── */
+    .faq-item {
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 14px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      background: #fff;
+      transition: box-shadow .22s;
+    }
+    .faq-item:hover { box-shadow: 0 6px 22px rgba(0,141,5,.1); }
+    .faq-item.open { border-color: rgba(0,141,5,.28); }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 14.5px;
+      cursor: pointer;
+      padding: 17px 20px;
+      user-select: none;
+    }
+    .faq-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--green-soft);
+      border-radius: 6px;
+      padding: 2px 7px;
+      flex-shrink: 0;
+      letter-spacing: .02em;
+    }
+    .faq-q-text { flex: 1; }
+    .faq-toggle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      border: 1.5px solid rgba(0,141,5,.25);
+      display: grid;
+      place-items: center;
+      flex: none;
+      transition: background .2s;
+    }
+    .faq-toggle svg { width: 13px; height: 13px; fill: var(--green); transition: transform .3s; }
+    .faq-item.open .faq-toggle { background: var(--green); }
+    .faq-item.open .faq-toggle svg { fill: #fff; transform: rotate(45deg); }
+
+    .faq-answer {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .38s ease, padding .38s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 600px;
+      padding: 0 20px 18px;
+    }
+    .faq-answer p { margin-bottom: 8px; }
+    .faq-answer p:last-child { margin-bottom: 0; }
+    .faq-answer ul {
+      padding-left: 18px;
+      margin: 6px 0 8px;
+    }
+    .faq-answer ul li { margin-bottom: 4px; }
+    .faq-answer strong { color: var(--text); }
+
+    /* ── STAGE LIST ── */
+    .stage-list { list-style: none; padding: 0; margin: 8px 0; }
+    .stage-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 7px 12px;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      background: var(--off-white);
+      font-size: 13.5px;
+    }
+    .stage-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      padding: 2px 8px;
+      border-radius: 999px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .stage-badge.doc    { background: #fff3cd; color: #856404; }
+    .stage-badge.val    { background: #d1ecf1; color: #0c5460; }
+    .stage-badge.eval   { background: #e2d9f3; color: #4a1a9e; }
+    .stage-badge.sig    { background: #d4edda; color: #155724; }
+    .stage-badge.denied { background: #f8d7da; color: #721c24; }
+    .stage-badge.cancel { background: #fde8d8; color: #8a3800; }
+    .stage-badge.expire { background: #e2e3e5; color: #383d41; }
+
+    /* ── CONTACT GRID ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .contact-item {
+      background: var(--off-white);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+    .contact-item strong { display: block; color: var(--text); font-size: 12px; letter-spacing: .03em; margin-bottom: 2px; }
+    .contact-item a { color: var(--green); text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* ── BACK CTA ── */
+    .faq-back-bar {
+      text-align: center;
+      padding: 0 24px 56px;
+    }
+    .btn-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: var(--shadow-green);
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .btn-green:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 16px 48px rgba(0,141,5,.3); }
+
+    /* ── FOOTER ── */
+    .faq-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      font-size: 13px;
+      padding: 20px 24px;
+    }
+    .faq-footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .faq-hero { padding: 40px 20px 36px; }
+      .faq-main { padding: 32px 16px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-logo" href="../index.html"><img src="../img/logo/goloans-logo.svg" alt="GoLoans Canada" style="height:36px;display:block;"></a>
+    <a class="nav-back" href="../index.html">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back to Home
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="faq-hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know about GoLoans and how our service works.</p>
+    <span class="faq-count">50 Questions &amp; Answers</span>
+  </header>
+
+  <!-- FAQ CONTENT -->
+  <main class="faq-main">
+
+    <!-- ── Application & Status ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Application &amp; Status</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">01</span>
+          <span class="faq-q-text">What is the status of my application?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Your application has been received and is being processed. You should hear back within the day.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">02</span>
+          <span class="faq-q-text">What do the loan request stages mean?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Log in to your account to check your request status. Here is what each stage means:</p>
+          <ul class="stage-list">
+            <li><span class="stage-badge doc">Document</span><span>GoLoans has not received your verified bank statement. You need to access the Instant Bank Verification link.</span></li>
+            <li><span class="stage-badge val">Validation</span><span>Your application will be reviewed by an underwriter within the day. They may contact you if they need more information.</span></li>
+            <li><span class="stage-badge eval">Evaluation</span><span>Your loan request has been reviewed. GoLoans has contacted you for more information or documents — check your email or phone.</span></li>
+            <li><span class="stage-badge sig">Signature</span><span>You have been approved. Check your email for your loan agreement, review it, and sign it so funds can be sent.</span></li>
+            <li><span class="stage-badge denied">Denied</span><span>GoLoans cannot grant you a loan today. You may reapply after 30 days.</span></li>
+            <li><span class="stage-badge cancel">Cancelled</span><span>Refer to the approvals, denials, and cancellations section for more details.</span></li>
+            <li><span class="stage-badge expire">Expired</span><span>Your loan request has expired. You may reapply at any time.</span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Applying / Starting a Loan ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Applying / Starting a Loan</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">03</span>
+          <span class="faq-q-text">How do I apply for a loan?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Go to the GoLoans website and click <strong>"Claim your cash"</strong> at the top-right side of the page.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">04</span>
+          <span class="faq-q-text">What type of loans do you offer?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>GoLoans endorses short-term installment loans provided by its partner lender.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Eligibility & Requirements ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Eligibility &amp; Requirements</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">05</span>
+          <span class="faq-q-text">What are your requirements?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <ul>
+            <li>18 years old and above</li>
+            <li>Canadian citizen or permanent resident for more than 2 years</li>
+            <li>Residing in Alberta, British Columbia, New Brunswick, Prince Edward Island, Ontario, or Newfoundland and Labrador</li>
+            <li>Active Canadian bank account with more than 3 months of history</li>
+            <li>Stable job for more than 3 months</li>
+            <li>Monthly income above $1,800</li>
+            <li>Few or no NSFs/OPPs in the account</li>
+            <li>Low short-term debt ratio</li>
+            <li>No Koho bank account (incompatible with their payment system)</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">06</span>
+          <span class="faq-q-text">Can I apply if I just started a new job?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>No. GoLoans requires employment for more than 3 months.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">07</span>
+          <span class="faq-q-text">Do you accept child tax, ODSP, or government assistance?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">08</span>
+          <span class="faq-q-text">Do you provide loans for newcomers to Canada?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>No. GoLoans only endorses Canadian citizens or permanent residents of more than 2 years.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">09</span>
+          <span class="faq-q-text">Are there loans for people with past bankruptcy?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, as long as you can provide your discharge document.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">10</span>
+          <span class="faq-q-text">Can I get a loan if I have an existing loan with another lender?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, as long as your debt ratio is within their threshold.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">11</span>
+          <span class="faq-q-text">Which provinces do you serve?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Alberta, British Columbia, New Brunswick, Prince Edward Island, Ontario, and Newfoundland and Labrador.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">12</span>
+          <span class="faq-q-text">Do I need to use a suretyship?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Suretyship is not mandatory. You may opt out, but additional evaluation and a credit check may be required. GoLoans says suretyship provides added protection if you default, and they offer cashback on the surety fee once the loan is fully paid and in good standing.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Documents, IBV & Profile ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Documents, IBV &amp; Profile</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">13</span>
+          <span class="faq-q-text">How do I upload documents or ID?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Log into your account, click your active loan request, and use the upload button. You may also use their secure upload link.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">14</span>
+          <span class="faq-q-text">What are Flinks, Inverite, and other IBVs?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>They are trusted Instant Bank Verification (IBV) providers. IBV lets GoLoans securely view a read-only copy of recent statements and helps verify identity, address, and other information.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">15</span>
+          <span class="faq-q-text">I cannot access Flinks or Inverite. What should I do?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Try the other IBV provider. If both fail, send GoLoans a screenshot of the error message so they can contact the provider.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">16</span>
+          <span class="faq-q-text">How do I change or update my profile details?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>After submitting your application, you cannot change profile details yourself. You must email GoLoans support to request changes.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">17</span>
+          <span class="faq-q-text">How do I reset my password?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Click <strong>"Login"</strong> on the GoLoans website, then click <strong>"Forgot password."</strong> You can also email support to request a password reset.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Decisions: Approvals, Denials & Cancellations ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Decisions: Approvals, Denials &amp; Cancellations</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">18</span>
+          <span class="faq-q-text">Why was my loan denied or cancelled?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>The decision is based on specific criteria, not your overall financial worth. You may reapply in 30 days.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">19</span>
+          <span class="faq-q-text">Why do you keep cancelling my application?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>You must wait at least 30 days before reapplying if your previous loan request was denied or cancelled.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">20</span>
+          <span class="faq-q-text">Why was I approved for less than I requested?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>GoLoans lends responsibly based on demonstrated capacity. On-time payments may increase eligible amounts over time.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Renewal & Increases ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Renewal &amp; Increases</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">21</span>
+          <span class="faq-q-text">Can I renew my loan?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, provided you do not have cancelled or denied loan requests in the last 30 days.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">22</span>
+          <span class="faq-q-text">Can I get a loan increase?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, you may ask a customer specialist, but an increase is not guaranteed.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">23</span>
+          <span class="faq-q-text">Can I repay early and renew?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. GoLoans says repaying early can save up to 70% on the guarantor/surety fee.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">24</span>
+          <span class="faq-q-text">Can I get another loan if I still have an active one?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Possibly, but GoLoans may require an advance payment to close out the active loan.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Rates, Fees & Terms ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Rates, Fees &amp; Terms</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">25</span>
+          <span class="faq-q-text">What is the interest rate?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>GoLoans says its partner lender's loans have an annual percentage rate of <strong>31%</strong>.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">26</span>
+          <span class="faq-q-text">What are guarantor fees or surety?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Suretyship means GoLoans acts as a guarantor for your loan. If you cannot meet repayment obligations, the surety may step in and cover the obligation to the lender, subject to the agreement.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">27</span>
+          <span class="faq-q-text">Is there a penalty for paying off early?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>No. GoLoans rewards early repayment and borrowers can save up to <strong>70%</strong> of guarantor/surety fees.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">28</span>
+          <span class="faq-q-text">Do you offer flexible payment plans?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes. Customers can speak with customer specialists about payment plans.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Payments ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Payments: Repay, Defer, Change Dates</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">29</span>
+          <span class="faq-q-text">How do I pay back the loan?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Repayments are auto-debited from your account according to the Pre-Authorized Debit Agreement. Advance payments may also be made by e-transfer.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">30</span>
+          <span class="faq-q-text">How do I pay off early?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Contact the lender's loan servicing team to request your payoff balance.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">31</span>
+          <span class="faq-q-text">Can I defer a payment?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>To request a deferral, contact the lender's loan servicing team at least <strong>48 hours</strong> before your repayment date.</p>
+          <p>Payment deferral is <strong>not available</strong> if:</p>
+          <ul>
+            <li>It is the first repayment of your first loan</li>
+            <li>Your previous repayment was already deferred</li>
+            <li>Your previous repayment bounced</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">32</span>
+          <span class="faq-q-text">Can I extend my loan payment date?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>You need to contact the lender's loan servicing team.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">33</span>
+          <span class="faq-q-text">How can I dispute or change payment dates?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Contact the lender's loan servicing team at least <strong>48 hours</strong> before the repayment date.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">34</span>
+          <span class="faq-q-text">What should I do if I cannot make my next payment?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Contact the lender's loan servicing team at least <strong>48 hours</strong> before the repayment date to explore options. Otherwise, you may incur an NSF fee.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">35</span>
+          <span class="faq-q-text">What happens after a missed payment or NSF?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Contact GoLoans immediately after a missed payment. If you can send the missed payment by e-transfer, they may waive the error fee.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Funding & Disbursement ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Funding &amp; Disbursement</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">36</span>
+          <span class="faq-q-text">Why do they say "funds as fast as today"?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>After you submit your application and complete IBV, GoLoans evaluates the request. If pre-approved, you complete your profile, receive the loan agreement, sign it, and funds are deposited through your chosen method. The process can take as little as <strong>30 minutes</strong> depending on how fast you provide information.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">37</span>
+          <span class="faq-q-text">How long do e-transfer and direct deposit take?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p><strong>E-transfer</strong> can arrive within minutes after signing, though bank issues may cause delays.</p>
+          <p><strong>Direct deposit</strong> may arrive the same day if signed before the daily cutoff, otherwise the next banking day. Bank processing times vary.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">38</span>
+          <span class="faq-q-text">What if the loan amount was not credited?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>If 24 hours have passed and you still have not received your loan, contact GoLoans support.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">39</span>
+          <span class="faq-q-text">When will my loan be deposited?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Bank processing times vary. Refer to question 37 for typical timelines by method.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Balances & Payouts ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Balances &amp; Payouts</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">40</span>
+          <span class="faq-q-text">Where can I locate my payout figure?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Log in to your dashboard to view your balance, or message GoLoans for the payout amount.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">41</span>
+          <span class="faq-q-text">How much is my remaining balance?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Contact the lender's loan servicing team for your accurate remaining balance.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Operational Info ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Operational Info</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">42</span>
+          <span class="faq-q-text">What is GoLoans?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>GoLoans is a co-signor service that helps match borrowers with an available lender for their loan request.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">43</span>
+          <span class="faq-q-text">What are the operating hours?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Online applications are accepted <strong>24/7</strong>. Live support is available from <strong>6:00 AM to 9:00 PM Mountain Time, Monday to Sunday</strong>.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">44</span>
+          <span class="faq-q-text">Where is the nearest store?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>GoLoans has no physical branches and is <strong>100% online</strong>. Its corporate office is in Edmonton, Alberta.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">45</span>
+          <span class="faq-q-text">Will this affect my credit score?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>GoLoans does not conduct credit checks. However, if you opt out of suretyship, a credit check may be required.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">46</span>
+          <span class="faq-q-text">Is my information secure?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>GoLoans protects personal data using encryption, secure IBV providers like Flinks and Inverite, and multiple security layers. They do not share personal details without consent and handle data under Canadian privacy laws.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">47</span>
+          <span class="faq-q-text">How do I unsubscribe from marketing emails?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Click the <strong>unsubscribe</strong> button at the bottom of the marketing email.</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- ── Contact & Support ── -->
+    <div class="faq-category">
+      <div class="faq-category-title">Contact &amp; Support</div>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">48</span>
+          <span class="faq-q-text">Where can I reach GoLoans?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <div class="contact-grid">
+            <div class="contact-item"><strong>Customer Support</strong><a href="mailto:onyx-vip@goloans.ca">onyx-vip@goloans.ca</a></div>
+            <div class="contact-item"><strong>Toll-Free Hotline</strong><a href="tel:+18664784119">+1 (866) 478-4119</a></div>
+            <div class="contact-item"><strong>Renewal Customers</strong><a href="tel:+18252546545">+1 (825) 254-6545</a></div>
+            <div class="contact-item"><strong>New Customers</strong><a href="tel:+18252559261">+1 (825) 255-9261</a></div>
+            <div class="contact-item"><strong>Lender's Loan Servicing</strong><a href="mailto:support@fundedincanada.com">support@fundedincanada.com</a></div>
+            <div class="contact-item"><strong>E-Transfer Email</strong><a href="mailto:payment@fundedincanada.com">payment@fundedincanada.com</a></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">49</span>
+          <span class="faq-q-text">I want to make a complaint. What should I do?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>Email GoLoans support with the details. Their team will respond as quickly as possible.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <div class="faq-question" role="button" tabindex="0">
+          <span class="faq-num">50</span>
+          <span class="faq-q-text">How do I arrange a payment arrangement?</span>
+          <span class="faq-toggle"><svg viewBox="0 0 24 24"><path d="M19 13H13v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          <p>For payment arrangements, contact the lender's loan servicing team at <a href="mailto:support@fundedincanada.com" style="color:var(--green);">support@fundedincanada.com</a>.</p>
+        </div>
+      </article>
+    </div>
+
+  </main>
+
+  <!-- BACK CTA -->
+  <div class="faq-back-bar">
+    <a class="btn-green" href="../index.html">
+      <svg style="width:18px;height:18px;fill:#fff;" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back to GoLoans Home
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="faq-footer">
+    <p>&copy; 2026 GoLoans Canada. All rights reserved. &nbsp;|&nbsp; <a href="../index.html">goloans.ca</a></p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(q) {
+      q.addEventListener('click', function() {
+        var item = q.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+        if (!isOpen) item.classList.add('open');
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); }
+      });
+    });
+  </script>
+</body>
+</html>
