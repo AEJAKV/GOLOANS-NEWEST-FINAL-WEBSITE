@@ -1457,7 +1457,8 @@ footer { background: var(--navy); color: #fff; }
   .nav { grid-template-columns: auto 1fr auto; }
   .brand-logo-img { height: 30px; }
   .hero-grid { grid-template-columns: 1fr; }
-  .hero-visual { display: none; }
+  .hero-visual { display: flex; margin-top: 14px; }
+  .hero-photo-placeholder { aspect-ratio: 16 / 9; flex: unset; min-height: unset; }
   .match-box, .funding-grid, .security-grid, .areas-panel, .footer-grid, .cta-card {
     grid-template-columns: 1fr;
   }
@@ -1478,6 +1479,10 @@ footer { background: var(--navy); color: #fff; }
   .nav-actions { gap: 8px; }
   .hamburger { display: flex; }
   .phone-link { display: none; }
+  .loan-banner { flex-direction: row; text-align: left; padding: 12px 16px; min-height: unset; gap: 12px; align-items: center; }
+  .loan-banner-icon { width: 36px; height: 36px; }
+  .loan-banner-icon svg { width: 22px; height: 22px; }
+  .loan-banner-text strong { font-size: 14px; }
   .nav-cta { font-size: 13px; padding: 9px 16px; letter-spacing: .02em; }
   .nav-secondary {
     display: flex;
