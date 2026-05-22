@@ -436,7 +436,7 @@ h1 .highlight {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
   gap: 34px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 22px;
 }
 
@@ -601,10 +601,13 @@ h1 .highlight {
 .hero-visual {
   position: relative;
   padding-top: 4px;
+  display: flex;
+  flex-direction: column;
 }
 .hero-photo-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  flex: 1;
+  min-height: 160px;
   border-radius: 16px;
   border: 1.5px solid #d0d5d0;
   overflow: hidden;
