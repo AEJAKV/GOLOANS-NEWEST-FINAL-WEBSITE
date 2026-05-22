@@ -1462,8 +1462,8 @@ footer { background: var(--navy); color: #fff; }
 @media (max-width: 760px) {
   .nav { grid-template-columns: auto 1fr auto; }
   .brand-logo-img { height: 30px; }
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-visual { display: flex; margin-top: 8px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero-visual { display: flex; margin-top: 10px; padding-top: 0; }
   .hero-photo-placeholder { aspect-ratio: 16 / 9; flex: unset; min-height: unset; }
   .match-box, .funding-grid, .security-grid, .areas-panel, .footer-grid, .cta-card {
     grid-template-columns: 1fr;
