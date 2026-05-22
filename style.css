@@ -528,6 +528,12 @@ h1 .highlight {
   position: relative;
   overflow: hidden;
   box-shadow: 0 8px 28px rgba(180,100,0,.25);
+  cursor: pointer;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.loan-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(180,100,0,.38);
 }
 .loan-banner::after {
   content: '';
