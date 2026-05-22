@@ -1052,39 +1052,43 @@
         ? '0 4px 24px rgba(0,0,0,.1)'
         : '0 2px 18px rgba(0,0,0,.05)';
     });
+  </script>
 
+  <!-- Testimonial lightbox overlay — must be in DOM before the lightbox script runs -->
+  <div class="testi-lightbox" id="testiLightbox" role="dialog" aria-modal="true" aria-label="Video preview">
+    <div class="testi-lb-wrap">
+      <button class="testi-lb-close" id="testiLbClose" aria-label="Close">&times;</button>
+      <div class="testi-lb-inner">
+        <div class="testi-lb-play">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
     // Testimonial video placeholder lightbox
     (function () {
-      const lb = document.getElementById('testiLightbox');
+      const lb      = document.getElementById('testiLightbox');
       const lbClose = document.getElementById('testiLbClose');
 
-      document.querySelectorAll('.testi-video-wrap').forEach(wrap => {
-        wrap.addEventListener('click', () => {
+      document.querySelectorAll('.testi-video-wrap').forEach(function(wrap) {
+        wrap.addEventListener('click', function() {
           lb.classList.add('open');
           document.body.style.overflow = 'hidden';
         });
       });
 
-      function close() {
+      function closeLb() {
         lb.classList.remove('open');
         document.body.style.overflow = '';
       }
 
-      lbClose.addEventListener('click', close);
-      lb.addEventListener('click', e => { if (e.target === lb) close(); });
-      document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
     })();
   </script>
-
-  <!-- Testimonial lightbox overlay -->
-  <div class="testi-lightbox" id="testiLightbox" role="dialog" aria-modal="true" aria-label="Video preview">
-    <div class="testi-lb-inner">
-      <button class="testi-lb-close" id="testiLbClose" aria-label="Close">&times;</button>
-      <div class="testi-lb-play">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-    </div>
-  </div>
 
 </body>
 </html>

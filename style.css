@@ -1236,10 +1236,14 @@ h2 {
   opacity: 1;
   pointer-events: all;
 }
-.testi-lb-inner {
+.testi-lb-wrap {
   position: relative;
   width: 100%;
   max-width: 760px;
+}
+.testi-lb-inner {
+  position: relative;
+  width: 100%;
   background-image:
     repeating-linear-gradient(45deg, rgba(0,141,5,.05) 0px, rgba(0,141,5,.05) 1px, transparent 1px, transparent 14px),
     linear-gradient(135deg, #e8f5e9 0%, #c8e6ca 100%);
@@ -1273,8 +1277,8 @@ h2 {
 }
 .testi-lb-close {
   position: absolute;
-  top: -14px;
-  right: -14px;
+  top: -16px;
+  right: -16px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
