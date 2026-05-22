@@ -1006,27 +1006,6 @@
       goTo(0);
     })();
 
-    // Province image lightbox
-    (function () {
-      var lb       = document.getElementById('provLightbox');
-      var lbClose  = document.getElementById('provLbClose');
-      var lbLabel  = document.getElementById('provLbLabel');
-
-      document.querySelectorAll('.province-img').forEach(function(img) {
-        img.addEventListener('click', function() {
-          var name = img.closest('.province').querySelector('strong');
-          lbLabel.textContent = name ? name.textContent : '';
-          lb.classList.add('open');
-          document.body.style.overflow = 'hidden';
-        });
-      });
-
-      function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
-      lbClose.addEventListener('click', closeLb);
-      lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
-      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
-    })();
-
     // Areas panel scroll animation
     (function () {
       var panel = document.getElementById('areasPanel');
@@ -1140,6 +1119,27 @@
         document.body.style.overflow = '';
       }
 
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
+      document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
+    })();
+
+    // Province image lightbox
+    (function () {
+      var lb       = document.getElementById('provLightbox');
+      var lbClose  = document.getElementById('provLbClose');
+      var lbLabel  = document.getElementById('provLbLabel');
+
+      document.querySelectorAll('.province-img').forEach(function(img) {
+        img.addEventListener('click', function() {
+          var name = img.closest('.province').querySelector('strong');
+          lbLabel.textContent = name ? name.textContent : '';
+          lb.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; }
       lbClose.addEventListener('click', closeLb);
       lb.addEventListener('click', function(e) { if (e.target === lb) closeLb(); });
       document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
