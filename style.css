@@ -1525,6 +1525,8 @@ footer { background: var(--navy); color: #fff; }
   .province-grid { grid-template-columns: 1fr; }
   .areas-panel { grid-template-columns: 1fr; padding: 30px 22px; }
   .match-buttons { grid-template-columns: 1fr; }
+  .match-buttons .btn { width: 100%; }
+  .match-buttons > div { display: flex; flex-direction: column; align-items: stretch; }
   .cta-card { padding: 28px 20px; }
   .cta-card .btn { width: 100%; }
   .footer-grid { grid-template-columns: 1fr; gap: 22px; }
