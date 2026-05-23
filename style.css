@@ -1878,6 +1878,7 @@ h2 {
   flex: none;
 }
 .avatar svg { width: 22px; height: 22px; fill: rgba(255,255,255,.8); }
+.avatar img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; display: block; }
 .person strong { display: block; font-size: 15px; font-weight: 700; }
 .person span { font-size: 12px; color: var(--muted); }
 
