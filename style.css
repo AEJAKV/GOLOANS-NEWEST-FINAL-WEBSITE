@@ -498,6 +498,7 @@ h1 .highlight {
 
 .product-card.coming-soon { opacity: .42; filter: saturate(0.45); cursor: default; }
 .product-card.coming-soon:hover { transform: none; box-shadow: 0 8px 24px rgba(0,100,5,.25); }
+.coming-soon-mobile { display: none; }
 .coming-badge {
   position: absolute;
   top: 8px;
@@ -2149,8 +2150,10 @@ footer { background: var(--navy); color: #fff; }
   .product-row .product-card .product-icon svg { width: 16px; height: 16px; }
   .product-row .product-card strong { font-size: 13px; }
   .product-row .product-card span { font-size: 11px; }
-  .product-row .product-card:last-child { grid-column: 1 / -1; min-height: 68px; flex-direction: row; justify-content: center; gap: 10px; padding: 10px 16px; }
-  .product-row .product-card:last-child .product-icon { margin-bottom: 0; width: 30px; height: 30px; }
+  .product-row .product-card.coming-soon { display: none; }
+  .coming-soon-mobile { display: flex; min-height: 68px; flex-direction: row; justify-content: center; align-items: center; gap: 10px; padding: 10px 16px; margin-top: 8px; margin-bottom: 10px; }
+  .coming-soon-mobile .product-icon { margin-bottom: 0; width: 30px; height: 30px; }
+  .coming-soon-mobile .product-icon svg { width: 16px; height: 16px; }
   .trust-row { flex-wrap: wrap; white-space: normal; gap: 6px 12px; justify-content: center; }
   .trust-item { white-space: normal; gap: 6px; font-size: 11px; }
   .trust-check { width: 18px; height: 18px; }
