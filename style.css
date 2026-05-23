@@ -496,7 +496,8 @@ h1 .highlight {
 .product-card strong { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 700; }
 .product-card span { font-size: 12px; opacity: .9; }
 
-.product-card.coming-soon { opacity: .75; }
+.product-card.coming-soon { opacity: .42; filter: saturate(0.45); cursor: default; }
+.product-card.coming-soon:hover { transform: none; box-shadow: 0 8px 24px rgba(0,100,5,.25); }
 .coming-badge {
   position: absolute;
   top: 8px;
@@ -511,10 +512,14 @@ h1 .highlight {
 }
 
 /* LOAN BANNER */
+@keyframes wiper {
+  0%   { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(260%) skewX(-18deg); }
+}
 .loan-banner {
   border-radius: 16px;
-  background: linear-gradient(135deg, #b35e00, #d07000);
-  border: 5px solid #ff7a00;
+  background: linear-gradient(135deg, #d96400, #ff8c00, #ffa020);
+  border: 2px solid rgba(255,210,90,.45);
   color: white;
   display: flex;
   flex-direction: column;
@@ -527,20 +532,32 @@ h1 .highlight {
   margin-bottom: 18px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 28px rgba(180,100,0,.25);
+  box-shadow: 0 0 0 4px rgba(255,140,0,.22), 0 12px 36px rgba(200,90,0,.45);
   cursor: pointer;
   transition: transform .22s ease, box-shadow .22s ease;
 }
 .loan-banner:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(180,100,0,.38);
+  box-shadow: 0 0 0 5px rgba(255,160,0,.35), 0 20px 48px rgba(200,90,0,.55);
+}
+.loan-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+  transform: translateX(-120%) skewX(-18deg);
+  animation: wiper 2.8s ease-in-out infinite;
+  pointer-events: none;
 }
 .loan-banner::after {
   content: '';
   position: absolute;
   top: -30px; right: -30px;
   width: 120px; height: 120px;
-  background: rgba(255,255,255,.07);
+  background: rgba(255,255,255,.08);
   border-radius: 50%;
 }
 .loan-banner-icon {
