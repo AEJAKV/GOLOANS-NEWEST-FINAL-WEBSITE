@@ -696,7 +696,7 @@ h2 {
 /* ─── STEPS ─── */
 .steps-section {
   background: linear-gradient(135deg, #006b04 0%, #008d05 60%, #00a806 100%);
-  padding: 56px 24px 52px;
+  padding: 36px 24px 32px;
   position: relative;
   overflow: hidden;
 }
