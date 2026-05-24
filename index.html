@@ -606,38 +606,38 @@
             <div class="province-list-title">GoLoans Online Services are Available Here:</div>
             <div class="province-grid">
               <div class="province" style="--i:0">
-                <div class="province-img" aria-label="Alberta photo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <div class="province-img" aria-label="Alberta photo" data-img="img/logo/province-imgs/calgary-alberta.png">
+                  <img src="img/logo/province-imgs/calgary-alberta.png" alt="Calgary, Alberta" class="prov-icon-img">
                 </div>
                 <div><strong>Alberta</strong><span>AB</span></div>
               </div>
               <div class="province" style="--i:1">
-                <div class="province-img" aria-label="British Columbia photo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <div class="province-img" aria-label="British Columbia photo" data-img="img/logo/province-imgs/vancouver-british-columbia.png">
+                  <img src="img/logo/province-imgs/vancouver-british-columbia.png" alt="Vancouver, British Columbia" class="prov-icon-img">
                 </div>
                 <div><strong>British Columbia</strong><span>BC</span></div>
               </div>
               <div class="province" style="--i:2">
-                <div class="province-img" aria-label="New Brunswick photo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <div class="province-img" aria-label="New Brunswick photo" data-img="img/logo/province-imgs/moncton-new-brunswick.png">
+                  <img src="img/logo/province-imgs/moncton-new-brunswick.png" alt="Moncton, New Brunswick" class="prov-icon-img">
                 </div>
                 <div><strong>New Brunswick</strong><span>NB</span></div>
               </div>
               <div class="province" style="--i:3">
-                <div class="province-img" aria-label="Ontario photo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <div class="province-img" aria-label="Ontario photo" data-img="img/logo/province-imgs/toronto-ontario.png">
+                  <img src="img/logo/province-imgs/toronto-ontario.png" alt="Toronto, Ontario" class="prov-icon-img">
                 </div>
                 <div><strong>Ontario</strong><span>ON</span></div>
               </div>
               <div class="province" style="--i:4">
-                <div class="province-img" aria-label="Newfoundland photo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <div class="province-img" aria-label="Newfoundland photo" data-img="img/logo/province-imgs/st-johns-newfoundland-and-labrador.png">
+                  <img src="img/logo/province-imgs/st-johns-newfoundland-and-labrador.png" alt="St. Johns, Newfoundland" class="prov-icon-img">
                 </div>
                 <div><strong>Newfoundland &amp; Labrador</strong><span>NL</span></div>
               </div>
               <div class="province" style="--i:5">
-                <div class="province-img" aria-label="PEI photo">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                <div class="province-img" aria-label="PEI photo" data-img="img/logo/province-imgs/charlottetown-prince-edward-island.png">
+                  <img src="img/logo/province-imgs/charlottetown-prince-edward-island.png" alt="Charlottetown, PEI" class="prov-icon-img">
                 </div>
                 <div><strong>Prince Edward Island</strong><span>PEI</span></div>
               </div>
@@ -1128,7 +1128,7 @@
     <div class="prov-lb-wrap">
       <button class="prov-lb-close" id="provLbClose" aria-label="Close">&times;</button>
       <div class="prov-lb-inner">
-        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+        <img id="provLbImg" src="" alt="Province photo">
         <span id="provLbLabel"></span>
       </div>
     </div>
@@ -1204,11 +1204,13 @@
       var lb       = document.getElementById('provLightbox');
       var lbClose  = document.getElementById('provLbClose');
       var lbLabel  = document.getElementById('provLbLabel');
+      var lbImg    = document.getElementById('provLbImg');
 
       document.querySelectorAll('.province-img').forEach(function(img) {
         img.addEventListener('click', function() {
           var name = img.closest('.province').querySelector('strong');
           lbLabel.textContent = name ? name.textContent : '';
+          lbImg.src = img.dataset.img || '';
           lb.classList.add('open');
           document.body.style.overflow = 'hidden';
         });
