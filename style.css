@@ -652,7 +652,7 @@ h1 .highlight {
   gap: 14px;
   text-align: center;
   min-height: 118px;
-  padding: 18px 22px;
+  padding: 38px 22px 18px;
   margin-bottom: 18px;
   position: relative;
   overflow: hidden;
@@ -687,21 +687,48 @@ h1 .highlight {
 .loan-banner-icon {
   width: 52px;
   height: 52px;
-  background: transparent;
-  border-radius: 0;
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
   display: grid;
   place-items: center;
   flex: none;
 }
 .loan-banner-icon svg { width: 34px; height: 34px; fill: #fff; }
+.loan-banner-callout {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: #c45500;
+  font-family: 'Sora', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 5px 18px;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  z-index: 2;
+}
 .loan-banner-text strong {
   display: block;
   font-family: 'Sora', sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+  letter-spacing: 0.01em;
 }
-.loan-banner-text span { font-size: 12px; opacity: .85; }
+.loan-banner-amount {
+  display: block;
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.loan-banner-text span:not(.loan-banner-amount) { font-size: 12px; opacity: .85; }
 
 /* TRUST ROW */
 .trust-row {
@@ -2425,10 +2452,11 @@ footer { background: var(--navy); color: #fff; }
   .phone-link { display: none; }
   .nav-login { display: none; }
   .nav-sep { display: none; }
-  .loan-banner { flex-direction: row; text-align: left; padding: 12px 16px; min-height: unset; gap: 12px; align-items: center; }
+  .loan-banner { flex-direction: row; text-align: left; padding: 20px 16px 12px; min-height: unset; gap: 12px; align-items: center; }
   .loan-banner-icon { width: 36px; height: 36px; }
   .loan-banner-icon svg { width: 22px; height: 22px; }
-  .loan-banner-text strong { font-size: 14px; }
+  .loan-banner-text strong { font-size: 16px; }
+  .loan-banner-amount { font-size: 22px; }
   .nav-cta { font-size: 13px; padding: 9px 16px; letter-spacing: .02em; }
   .nav-secondary {
     display: flex;
