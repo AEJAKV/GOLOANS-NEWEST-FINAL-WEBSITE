@@ -34,6 +34,16 @@
       <div class="nav-links">
         <a href="blog/">Blogs</a>
         <a href="faq/">FAQs</a>
+        <div class="nav-dropdown" role="navigation">
+          <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Cashback/Discount
+            <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,4 6,8 10,4"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="loan-cashback/" class="nav-dropdown-item" role="menuitem">Loan Cashback</a>
+            <a href="#" class="nav-dropdown-item" role="menuitem">Early Repayment Program</a>
+          </div>
+        </div>
       </div>
 
       <div class="nav-actions">
@@ -41,6 +51,8 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
           <span>1-866-478-4119</span>
         </a>
+        <span class="nav-sep"></span>
+        <a class="nav-login" href="#claim">Login</a>
         <a class="btn btn-orange nav-cta" href="#claim">Claim Your Cash</a>
         <button class="hamburger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -60,6 +72,16 @@
     <div class="mobile-drawer" aria-label="Mobile navigation">
       <a class="drawer-link" href="blog/">Blogs</a>
       <a class="drawer-link" href="faq/">FAQs</a>
+      <div class="drawer-dropdown">
+        <button class="drawer-dropdown-toggle" aria-expanded="false">
+          Cashback/Discount
+          <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,4 6,8 10,4"/></svg>
+        </button>
+        <div class="drawer-dropdown-menu">
+          <a href="loan-cashback/" class="drawer-dropdown-item drawer-link">Loan Cashback</a>
+          <a href="#" class="drawer-dropdown-item drawer-link">Early Repayment Program</a>
+        </div>
+      </div>
       <a class="drawer-link phone-drawer" href="tel:18664784119">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
         1-866-478-4119
@@ -906,6 +928,31 @@
         });
       });
     }
+
+    // Nav dropdown — click to toggle (for touch/keyboard)
+    document.querySelectorAll('.nav-dropdown').forEach(dd => {
+      const toggle = dd.querySelector('.nav-dropdown-toggle');
+      toggle.addEventListener('click', e => {
+        e.stopPropagation();
+        const isOpen = dd.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+    });
+    // Drawer dropdown — click to expand/collapse
+    document.querySelectorAll('.drawer-dropdown').forEach(dd => {
+      const toggle = dd.querySelector('.drawer-dropdown-toggle');
+      toggle.addEventListener('click', () => {
+        const isOpen = dd.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+    });
+    // Close desktop dropdown on outside click
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+        dd.classList.remove('open');
+        dd.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+      });
+    });
 
     // Lender carousel
     (function () {

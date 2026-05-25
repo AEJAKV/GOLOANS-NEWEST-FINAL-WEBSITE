@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rebate Program Terms &amp; Conditions — GoLoans Canada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #008d05;
+      --green-dark: #006b04;
+      --green-soft: #e8f5e9;
+      --navy: #1e2f42;
+      --text: #131313;
+      --muted: #5a5f65;
+      --off-white: #f5f7f5;
+      --radius: 20px;
+      --max: 860px;
+      --shadow-green: 0 12px 40px rgba(0,141,5,.22);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--off-white); line-height: 1.65; }
+
+    /* ── NAV ── */
+    .nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid rgba(0,0,0,.07); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav-logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 20px; color: var(--green); text-decoration: none; letter-spacing: -.3px; }
+    .nav-back { display: inline-flex; align-items: center; gap: 7px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 13.5px; color: var(--green); text-decoration: none; padding: 8px 18px; border-radius: 999px; border: 1.5px solid rgba(0,141,5,.3); transition: background .18s, color .18s; white-space: nowrap; }
+    .nav-back:hover { background: var(--green); color: #fff; }
+    .nav-back svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+
+    /* ── HERO ── */
+    .rt-hero { background: linear-gradient(135deg, #14491a, #1b6b22, #228b2c); padding: 56px 24px 48px; text-align: center; color: #fff; }
+    .rt-hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(26px, 5vw, 40px); font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin-bottom: 12px; }
+    .rt-hero p { font-size: 15px; color: rgba(255,255,255,.75); max-width: 580px; margin: 0 auto; }
+
+    /* ── MAIN ── */
+    .rt-main { max-width: var(--max); margin: 0 auto; padding: 52px 24px 72px; }
+
+    /* ── INTRO BOX ── */
+    .rt-intro {
+      background: #fff;
+      border: 1.5px solid rgba(0,141,5,0.15);
+      border-radius: 16px;
+      padding: 28px 28px;
+      margin-bottom: 40px;
+    }
+    .rt-intro p { font-size: 14.5px; color: #2d3d2e; line-height: 1.75; margin-bottom: 10px; }
+    .rt-intro p:last-child { margin-bottom: 0; }
+    .rt-intro strong { color: #0a1a0b; }
+
+    /* ── SECTION ── */
+    .rt-section { margin-bottom: 36px; }
+    .rt-section-heading {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a1a0b;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(0,141,5,0.18);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rt-section-heading::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: var(--green);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .rt-section p { font-size: 14px; color: #2d3d2e; line-height: 1.75; margin-bottom: 10px; }
+    .rt-section p:last-child { margin-bottom: 0; }
+    .rt-section strong { color: #0a1a0b; }
+
+    /* ── LISTS ── */
+    .rt-list { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 8px; }
+    .rt-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #2d3d2e; line-height: 1.65; }
+    .rt-list li::before { content: ''; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin-top: 7px; }
+
+    /* ── NOTICE BOX ── */
+    .rt-notice {
+      background: rgba(0,141,5,0.06);
+      border-left: 3px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-size: 13.5px;
+      color: #2d3d2e;
+      line-height: 1.65;
+    }
+
+    /* ── DIVIDER ── */
+    .rt-divider { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 36px 0; }
+
+    /* ── FINAL DISCLOSURE ── */
+    .rt-disclosure {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .rt-disclosure h2 { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 700; color: #0a1a0b; margin-bottom: 12px; }
+    .rt-disclosure p { font-size: 13.5px; color: var(--muted); line-height: 1.75; margin-bottom: 8px; }
+    .rt-disclosure p:last-child { margin-bottom: 0; }
+
+    /* ── BACK CTA ── */
+    .rt-back-bar { text-align: center; padding: 8px 24px 56px; }
+    .btn-green { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: #fff; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 999px; text-decoration: none; box-shadow: var(--shadow-green); transition: background .2s, transform .2s, box-shadow .2s; }
+    .btn-green:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 16px 48px rgba(0,141,5,.3); }
+
+    /* ── FOOTER ── */
+    .rt-footer { background: var(--navy); color: rgba(255,255,255,.5); text-align: center; font-size: 13px; padding: 20px 24px; }
+    .rt-footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .rt-hero { padding: 40px 20px 36px; }
+      .rt-main { padding: 32px 16px 48px; }
+      .rt-intro, .rt-disclosure { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="../"><img src="../img/logo/goloans-logo.svg" alt="GoLoans Canada" style="height:36px;display:block;"></a>
+    <a class="nav-back" href="../loan-cashback/">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back to Cashback
+    </a>
+  </nav>
+
+  <header class="rt-hero">
+    <h1>GoLoans Rebates Terms and Conditions</h1>
+    <p>Rewarding On-Time &amp; Responsible Repayment</p>
+  </header>
+
+  <main class="rt-main">
+
+    <div class="rt-intro">
+      <p>Our Rebate Program is designed to reward customers who successfully complete their loan in full and on time, without payment issues or interruptions. This program provides an opportunity to receive a rebate on a portion of the surety/guarantor fee or interest after the loan has been fully repaid.</p>
+      <p><strong>This rebate is NOT automatic and is NOT guaranteed.</strong> Eligibility depends on meeting all program conditions outlined below.</p>
+    </div>
+
+    <!-- How It Works -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">How the Rebate Program Works</h2>
+      <ul class="rt-list">
+        <li>Your loan includes a surety / guarantor fee, which compensates the surety or guarantor for assuming the risk on the loan.</li>
+        <li>If your loan is paid in full, meets all eligibility requirements, and was offered a rebate at the time of loan issuance, you may qualify for a rebate on a portion of the surety / grantor fee or Interest.</li>
+        <li>Once your loan is fully completed, you can submit a rebate claim. The rebate is validated only after this process is complete.</li>
+      </ul>
+      <p>This program is intended to encourage consistent, reliable repayment behavior and does not change your original loan obligations.</p>
+    </div>
+
+    <!-- Eligibility -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">Eligibility Requirements</h2>
+      <p>To qualify for a surety / grantor fee rebate, all of the following conditions must be met:</p>
+      <ul class="rt-list">
+        <li>Loan is paid in Full</li>
+        <li>All scheduled payments were made on time</li>
+        <li>No missed payments</li>
+        <li>No deferrals, payment reductions, or payment rescheduling</li>
+        <li>No collection activity, enforcement action, or third-party involvement</li>
+      </ul>
+      <div class="rt-notice">Failure to meet any of the above conditions will result in ineligibility for the rebate.</div>
+    </div>
+
+    <!-- Rebate Amount -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">Rebate Amount</h2>
+      <ul class="rt-list">
+        <li>The rebate applies only to the type of rebate offered to you. (ex. Interest rebates are applicable only to the Interest while Guarantor rebates are only applicable to the Guarantor fee)</li>
+        <li>Rebate percentages, if applicable, are determined based on internal program criteria and promotional terms in effect at the time of loan completion.</li>
+      </ul>
+      <p>The exact rebate amount, if any, will be communicated after eligibility review.</p>
+    </div>
+
+    <!-- How to Claim -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">How to Claim the Rebate</h2>
+      <ul class="rt-list">
+        <li>SMS messages are sent only to clients who opt in. Complete your loan in full according to the agreed payment schedule.</li>
+        <li>Ensure no payment interruptions or issues occurred during the loan term.</li>
+        <li>Contact our Support team within ninety (90) days from the date of loan completion to claim for the rebate.</li>
+        <li>Our team will review your account and confirm eligibility.</li>
+      </ul>
+      <p>Approved rebates are issued according to internal processing timelines.</p>
+      <div class="rt-notice">Failure to request or claim the rebate within ninety (90) days from loan completion will result in forfeiture of the rebate, and no rebate will be issued thereafter.</div>
+    </div>
+
+    <!-- Personal Information -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">5. Use and Disclosure of Personal Information</h2>
+      <p>Goloans.ca may share client information with authorized parties for the purposes of:</p>
+      <ul class="rt-list">
+        <li>Loan processing (financial institutions, loan brokers, credit agencies, fraud and risk technology providers)</li>
+        <li>Debt collection (agencies, legal representatives)</li>
+        <li>Regulatory compliance (government authorities, legal obligations)</li>
+        <li>Business operations (marketing, administration, information technology providers, underwriting support, risk assessment services, and model monitoring services)</li>
+        <li>Debt Consolidation</li>
+        <li>Credit-Rebuilding Companies</li>
+      </ul>
+    </div>
+
+    <!-- Important Notes -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">Important Notes</h2>
+      <ul class="rt-list">
+        <li>Participation in this program is optional</li>
+        <li>Rebates are not guaranteed and are subject to eligibility review</li>
+        <li>Cannot be claimed when availing the Early Repayment Program</li>
+        <li>This program does not reduce your scheduled payment amounts during the loan term</li>
+        <li>The rebate does not affect interest calculations or the original cost of borrowing disclosure</li>
+      </ul>
+    </div>
+
+    <!-- Why We Offer -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">Why we Offer this Program</h2>
+      <p>We believe responsible repayment should be rewarded. The Surety / Grantor Fee Rebate Program is one way we recognize customers who demonstrate strong repayment behavior throughout their loan.</p>
+    </div>
+
+    <hr class="rt-divider">
+
+    <!-- Final Disclosure -->
+    <div class="rt-disclosure">
+      <h2>Final Disclosure</h2>
+      <p>The Surety / Grantor Fee Rebate Program is a post&#8209;completion incentive and does not alter the original loan structure, repayment obligations, or payment schedule. All loan terms remain governed by the original loan agreement.</p>
+      <p>Program terms may change or be withdrawn at any time without prior notice, subject to applicable laws.</p>
+    </div>
+
+  </main>
+
+  <div class="rt-back-bar">
+    <a class="btn-green" href="../loan-cashback/">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back to Loan Cashback
+    </a>
+  </div>
+
+  <footer class="rt-footer">
+    <p>&copy; 2025 GoLoans Canada. <a href="../privacy-policy/">Privacy Policy</a> &nbsp;·&nbsp; <a href="../terms-of-service/">Terms of Service</a></p>
+  </footer>
+
+</body>
+</html>

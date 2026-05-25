@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Cashback | GoLoans.ca</title>
+  <meta name="description" content="Learn how GoLoans.ca rewards responsible repayment through the Loan Cashback program, including eligibility, how to claim, timelines, and terms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    /* ── CASHBACK HERO ── */
+    .cb-hero {
+      background:
+        linear-gradient(135deg, rgba(247,253,248,0.60) 0%, rgba(237,247,239,0.60) 60%, rgba(240,250,242,0.60) 100%),
+        url('../img/logo/loan-casback-img-assets/cashback-hero-img.png') center / cover no-repeat;
+      padding: 64px 24px 72px;
+      overflow: hidden;
+      position: relative;
+    }
+    .cb-hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,141,5,0.07) 0%, transparent 70%);
+      top: -160px;
+      right: -120px;
+      pointer-events: none;
+    }
+    .cb-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 52px;
+      align-items: center;
+    }
+    .cb-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0,141,5,0.09);
+      color: #006b04;
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .cb-hero-badge svg { width: 14px; height: 14px; fill: #006b04; flex: none; }
+    .cb-hero h1 {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800;
+      color: #0a1a0b;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .cb-hero h1 span { color: var(--green); }
+    .cb-hero-lead {
+      font-size: 17px;
+      color: #3d4d3e;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      max-width: 540px;
+    }
+    .cb-hero-note {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin-bottom: 32px;
+      padding-left: 14px;
+      border-left: 3px solid rgba(0,141,5,0.25);
+    }
+    .cb-hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .btn-primary-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #008d05, #006b04);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,141,5,0.3);
+      transition: transform .22s ease, box-shadow .22s ease;
+      white-space: nowrap;
+    }
+    .btn-primary-green:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,141,5,0.38);
+    }
+    .btn-secondary-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #006b04;
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 13px 26px;
+      border-radius: 999px;
+      border: 2px solid rgba(0,141,5,0.35);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s ease, border-color .2s ease, color .2s ease;
+      white-space: nowrap;
+    }
+    .btn-secondary-outline:hover {
+      background: rgba(0,141,5,0.07);
+      border-color: rgba(0,141,5,0.6);
+    }
+
+    /* ── HERO CARD ── */
+    .cb-hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* ── Hero Card Carousel ── */
+    .cb-card-carousel {
+      width: 100%;
+      max-width: 380px;
+      position: relative;
+    }
+    .cb-card-carousel-track-wrap {
+      overflow: hidden;
+      border-radius: 24px;
+    }
+    .cb-card-carousel-track {
+      display: flex;
+      align-items: stretch;
+      transition: transform .5s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform;
+    }
+    .cb-card-carousel-slide {
+      flex: 0 0 100%;
+      width: 100%;
+      display: flex;
+    }
+    .cb-card-carousel-slide > * {
+      width: 100%;
+    }
+    .cb-card-carousel-slide .cb-card-img-placeholder {
+      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      border: 1.5px dashed rgba(255,255,255,0.3);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.65);
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      backdrop-filter: blur(6px);
+    }
+    .cb-card-carousel-slide .cb-card-img-placeholder svg {
+      width: 38px; height: 38px;
+      opacity: 0.5;
+      stroke: rgba(255,255,255,0.7);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    .cb-card-carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      display: grid;
+      place-items: center;
+      transition: background .18s, transform .18s;
+    }
+    .cb-card-carousel-arrow:hover { background: rgba(255,255,255,0.32); transform: translateY(-50%) scale(1.1); }
+    .cb-card-carousel-arrow svg { width: 16px; height: 16px; fill: #fff; }
+    .cb-card-carousel-arrow--prev { left: -16px; }
+    .cb-card-carousel-arrow--next { right: -16px; }
+    .cb-card-carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .cb-card-carousel-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: rgba(0,141,5,0.25);
+      transition: background .2s, transform .2s;
+      padding: 0;
+    }
+    .cb-card-carousel-dot.active { background: var(--green); transform: scale(1.3); }
+    .cb-reward-card {
+      background: linear-gradient(145deg, #006b04 0%, #008d05 55%, #00a806 100%);
+      border-radius: 24px;
+      padding: 36px 32px;
+      color: #fff;
+      width: 100%;
+      box-shadow: 0 24px 64px rgba(0,141,5,0.32), 0 4px 16px rgba(0,0,0,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes cb-float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .cb-reward-card::before {
+      content: '';
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      top: -70px;
+      right: -60px;
+    }
+    .cb-reward-card::after {
+      content: '';
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      bottom: -40px;
+      left: -40px;
+    }
+    .cb-card-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+    }
+    .cb-card-icon svg { width: 28px; height: 28px; fill: #fff; }
+    .cb-card-program {
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .cb-card-sub {
+      font-size: 13px;
+      opacity: 0.78;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .cb-card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,120,0,0.88);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      letter-spacing: .04em;
+      margin-bottom: 24px;
+    }
+    .cb-card-checks { display: flex; flex-direction: column; gap: 10px; }
+    .cb-card-check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      opacity: 0.9;
+    }
+    .cb-card-check-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+    .cb-card-check-icon svg { width: 12px; height: 12px; stroke: #fff; fill: none; }
+
+    /* ── SECTION SHARED ── */
+    .cb-section {
+      padding: 64px 24px;
+    }
+    .cb-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .cb-section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Sora', sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .cb-section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+    .cb-section h2 {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      color: #0a1a0b;
+      margin-bottom: 40px;
+      line-height: 1.15;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .cb-hiw { background: linear-gradient(135deg, #006b04 0%, #008d05 60%, #00a806 100%); position: relative; overflow: hidden; padding-top: 36px; padding-bottom: 36px; }
+    .cb-hiw::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 380px 380px at -5% -5%, rgba(255,255,255,0.08) 0%, transparent 65%),
+        radial-gradient(ellipse 300px 300px at 105% 105%, rgba(255,255,255,0.06) 0%, transparent 65%),
+        repeating-linear-gradient(-45deg, transparent, transparent 38px, rgba(255,255,255,0.02) 38px, rgba(255,255,255,0.02) 39px);
+      pointer-events: none;
+    }
+    .cb-hiw .cb-section-label { color: rgba(255,255,255,0.75); }
+    .cb-hiw .cb-section-label::before { background: rgba(255,255,255,0.5); }
+    .cb-hiw h2 { color: #fff; }
+    .cb-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .cb-step {
+      background: #fff;
+      border: 1.5px solid rgba(0,141,5,0.2);
+      border-radius: 16px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      transition: transform .28s cubic-bezier(0.34,1.56,0.64,1), box-shadow .28s ease;
+      animation: fadeUp .5s ease both;
+    }
+    .cb-step:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.14);
+    }
+    .cb-step:nth-child(1) { animation-delay: .05s; }
+    .cb-step:nth-child(2) { animation-delay: .12s; }
+    .cb-step:nth-child(3) { animation-delay: .19s; }
+    .cb-step:nth-child(4) { animation-delay: .26s; }
+    .cb-step-num {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(0,141,5,0.35);
+      line-height: 1;
+      user-select: none;
+      letter-spacing: 0.04em;
+    }
+    .cb-step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cb-step-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--green), #006b04);
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      box-shadow: 0 3px 8px rgba(0,141,5,0.25);
+    }
+    .cb-step-icon svg { width: 15px; height: 15px; fill: #fff; }
+    .cb-step h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0a1a0b;
+      line-height: 1.35;
+      margin: 0;
+    }
+    .cb-step p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── HOW IT WORKS — footer strip ── */
+    .cb-hiw-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 36px;
+      border-top: 1.5px solid rgba(255,255,255,0.18);
+      position: relative;
+      z-index: 1;
+    }
+    .cb-hiw-notes {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .cb-hiw-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 12px;
+      padding: 14px 18px;
+      backdrop-filter: blur(6px);
+    }
+    .cb-hiw-note-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      opacity: 0.85;
+    }
+    .cb-hiw-note-icon svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2; }
+    .cb-hiw-note p {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .cb-hiw-img-placeholder {
+      aspect-ratio: 4 / 3;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.10);
+      border: 1.5px dashed rgba(255,255,255,0.28);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .cb-hiw-img-placeholder svg { width: 36px; height: 36px; opacity: 0.5; stroke: #fff; fill: none; stroke-width: 1.5; }
+    @media (max-width: 768px) {
+      .cb-hiw-footer { grid-template-columns: 1fr; }
+      .cb-hiw-img-placeholder { aspect-ratio: 16/9; }
+    }
+
+    /* ── ELIGIBILITY ── */
+    .cb-elig { background: #fff; padding-top: 36px; padding-bottom: 36px; }
+    .cb-elig-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 52px;
+      align-items: start;
+    }
+    .cb-elig-card {
+      background: var(--off-white);
+      border: 1.5px solid rgba(0,141,5,0.15);
+      border-radius: 20px;
+      padding: 32px 28px;
+    }
+    .cb-elig-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0,141,5,0.1);
+      color: #006b04;
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+    .cb-elig-list { display: flex; flex-direction: column; gap: 14px; }
+    .cb-elig-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: #1a2e1b;
+      line-height: 1.5;
+    }
+    .cb-check-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #008d05, #006b04);
+      display: grid;
+      place-items: center;
+      flex: none;
+      margin-top: 1px;
+      box-shadow: 0 3px 8px rgba(0,141,5,0.22);
+    }
+    .cb-check-icon svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.5; }
+    .cb-elig-note {
+      margin-top: 22px;
+      padding: 14px 18px;
+      background: rgba(0,141,5,0.06);
+      border-left: 3px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      font-size: 13.5px;
+      color: #2a4a2c;
+      line-height: 1.6;
+    }
+    .cb-elig-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .cb-elig-stat {
+      background: linear-gradient(135deg, #006b04, #008d05);
+      border-radius: 18px;
+      padding: 28px 24px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .cb-elig-stat::after {
+      content: '';
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      bottom: -40px;
+      right: -40px;
+    }
+    .cb-elig-stat-value {
+      font-family: 'Sora', sans-serif;
+      font-size: 38px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .cb-elig-stat-value span { color: #ffb347; }
+    .cb-elig-stat-label {
+      font-size: 14px;
+      opacity: 0.82;
+      line-height: 1.5;
+    }
+    .cb-elig-info {
+      background: #fff;
+      border: 1.5px solid rgba(0,141,5,0.15);
+      border-radius: 18px;
+      padding: 22px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .cb-elig-info-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(0,141,5,0.08);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+    .cb-elig-info-icon svg { width: 20px; height: 20px; fill: var(--green); }
+    .cb-elig-info p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+
+    /* ── WHAT APPLIES ── */
+    .cb-applies { background: var(--off-white); padding-top: 36px; padding-bottom: 36px; }
+    .cb-applies-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .cb-applies-card {
+      border-radius: 20px;
+      padding: 30px 26px;
+    }
+    .cb-applies-card.eligible {
+      background: #fff;
+      border: 1.5px solid rgba(0,141,5,0.2);
+    }
+    .cb-applies-card.not-eligible {
+      background: #fff;
+      border: 1.5px solid rgba(220,50,50,0.15);
+    }
+    .cb-applies-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .cb-applies-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+    .cb-applies-card.eligible .cb-applies-card-icon { background: rgba(0,141,5,0.1); }
+    .cb-applies-card.not-eligible .cb-applies-card-icon { background: rgba(220,50,50,0.08); }
+    .cb-applies-card-icon svg { width: 20px; height: 20px; }
+    .cb-applies-card.eligible .cb-applies-card-icon svg { fill: var(--green); }
+    .cb-applies-card.not-eligible .cb-applies-card-icon svg { fill: #cc3333; }
+    .cb-applies-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0a1a0b;
+    }
+    .cb-applies-list { display: flex; flex-direction: column; gap: 12px; }
+    .cb-applies-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #2a3a2b;
+      line-height: 1.5;
+    }
+    .cb-applies-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex: none;
+      margin-top: 6px;
+    }
+    .eligible .cb-applies-dot { background: var(--green); }
+    .not-eligible .cb-applies-dot { background: #cc3333; }
+    .cb-applies-note {
+      margin-top: 28px;
+      padding: 16px 20px;
+      background: #fff;
+      border: 1.5px solid rgba(0,141,5,0.15);
+      border-radius: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* ── REMINDER ── */
+    .cb-reminder { background: #fff; padding-top: 36px; padding-bottom: 36px; }
+    .cb-reminder-card {
+      background: linear-gradient(135deg, #fffbf5 0%, #fff8ee 100%);
+      border: 2px solid rgba(255,122,0,0.2);
+      border-radius: 24px;
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cb-reminder-card::before {
+      content: '';
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,122,0,0.06) 0%, transparent 70%);
+      top: -100px;
+      right: -80px;
+      pointer-events: none;
+    }
+    .cb-reminder-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+    .cb-reminder-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: rgba(255,122,0,0.12);
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+    .cb-reminder-icon-wrap svg { width: 26px; height: 26px; fill: #ff7a00; }
+    .cb-reminder-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #0a1a0b;
+      margin-bottom: 4px;
+    }
+    .cb-reminder-sub { font-size: 14px; color: var(--muted); }
+    .cb-reminder-points { display: flex; flex-direction: column; gap: 20px; }
+    .cb-reminder-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 20px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid rgba(255,122,0,0.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .cb-reminder-point-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+    .cb-reminder-point-icon.orange { background: rgba(255,122,0,0.1); }
+    .cb-reminder-point-icon.green { background: rgba(0,141,5,0.1); }
+    .cb-reminder-point-icon svg { width: 18px; height: 18px; }
+    .cb-reminder-point-icon.orange svg { fill: #ff7a00; }
+    .cb-reminder-point-icon.green svg { fill: var(--green); }
+    .cb-reminder-point h4 {
+      font-family: 'Sora', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0a1a0b;
+      margin-bottom: 4px;
+    }
+    .cb-reminder-point p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .cb-reminder-point strong { color: #d96500; }
+    .cb-reminder-closing {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, rgba(0,141,5,0.06), rgba(0,141,5,0.03));
+      border-radius: 12px;
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #006b04;
+      text-align: center;
+    }
+
+    /* ── FINAL CTA ── */
+    .cb-cta {
+      background: linear-gradient(135deg, #006b04 0%, #008d05 60%, #00a806 100%);
+      padding: 44px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cb-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 400px 400px at 10% 50%, rgba(255,255,255,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 300px 300px at 90% 50%, rgba(255,255,255,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .cb-cta-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .cb-cta h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+    .cb-cta p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 36px;
+      line-height: 1.6;
+    }
+    .btn-orange-glow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(135deg, #ff7a00, #d96500);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 28px rgba(255,122,0,0.45);
+      transition: transform .22s ease, box-shadow .22s ease;
+      white-space: nowrap;
+    }
+    .btn-orange-glow:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 38px rgba(255,122,0,0.55);
+    }
+
+    /* ── TERMS ── */
+    .cb-terms {
+      background: var(--off-white);
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .cb-terms-inner {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .cb-terms-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #0a1a0b;
+      margin-bottom: 4px;
+    }
+    .cb-terms-subtitle {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+    .cb-terms p {
+      font-size: 14px;
+      color: #2d3d2e;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .cb-terms p strong {
+      color: #0a1a0b;
+    }
+    .cb-terms-section-heading {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a1a0b;
+      margin: 28px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid rgba(0,141,5,0.15);
+    }
+    .cb-terms ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .cb-terms ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #2d3d2e;
+      line-height: 1.65;
+    }
+    .cb-terms ul li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-top: 7px;
+    }
+    .cb-terms-divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin: 28px 0;
+    }
+    .cb-terms a {
+      color: var(--green);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(0,141,5,0.3);
+      transition: text-decoration-color .18s;
+    }
+    .cb-terms a:hover { text-decoration-color: var(--green); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .cb-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .cb-hero-visual { order: -1; }
+      .cb-reward-card { max-width: 340px; margin: 0 auto; }
+      .cb-steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .cb-elig-layout { grid-template-columns: 1fr; gap: 28px; }
+      .cb-elig-aside { flex-direction: row; flex-wrap: wrap; }
+      .cb-elig-stat, .cb-elig-info { flex: 1 1 220px; }
+    }
+    @media (max-width: 640px) {
+      .cb-hero { padding: 44px 20px 52px; }
+      .cb-hero-visual { order: 0; }
+      .cb-steps-grid { grid-template-columns: 1fr; }
+      .cb-applies-grid { grid-template-columns: 1fr; }
+      .cb-reminder-card { padding: 28px 20px; }
+      .cb-reminder-header { flex-direction: column; gap: 12px; }
+      .cb-elig-aside { flex-direction: column; }
+      .cb-hero-btns { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 390px) {
+      .cb-hero h1 { font-size: 26px; }
+      .cb-hero-lead { font-size: 15px; }
+      .cb-reward-card { padding: 26px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="../" aria-label="GoLoans Canada home">
+        <img src="../img/logo/goloans-logo.svg" alt="GoLoans Canada" class="brand-logo-img">
+      </a>
+
+      <div class="nav-links">
+        <a href="../blog/">Blogs</a>
+        <a href="../faq/">FAQs</a>
+        <div class="nav-dropdown" role="navigation">
+          <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Cashback/Discount
+            <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,4 6,8 10,4"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="../loan-cashback/" class="nav-dropdown-item" role="menuitem">Loan Cashback</a>
+            <a href="#" class="nav-dropdown-item" role="menuitem">Early Repayment Program</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a class="phone-link" href="tel:18664784119">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          <span>1-866-478-4119</span>
+        </a>
+        <span class="nav-sep"></span>
+        <a class="nav-login" href="#claim">Login</a>
+        <a class="btn btn-orange nav-cta" href="#cta">Claim Your Cash</a>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+    <!-- mobile secondary bar -->
+    <div class="nav-secondary">
+      <a class="nav-sec-phone" href="tel:18664784119">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        +1 (866) 478-4119
+      </a>
+      <span class="nav-sec-divider">|</span>
+      <a class="nav-sec-login" href="#cta">Login</a>
+    </div>
+    <!-- mobile drawer -->
+    <div class="mobile-drawer" aria-label="Mobile navigation">
+      <a class="drawer-link" href="../blog/">Blogs</a>
+      <a class="drawer-link" href="../faq/">FAQs</a>
+      <div class="drawer-dropdown">
+        <button class="drawer-dropdown-toggle" aria-expanded="false">
+          Cashback/Discount
+          <svg class="nav-dropdown-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,4 6,8 10,4"/></svg>
+        </button>
+        <div class="drawer-dropdown-menu">
+          <a href="../loan-cashback/" class="drawer-dropdown-item drawer-link">Loan Cashback</a>
+          <a href="#" class="drawer-dropdown-item drawer-link">Early Repayment Program</a>
+        </div>
+      </div>
+      <a class="drawer-link phone-drawer" href="tel:18664784119">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        1-866-478-4119
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ─── HERO ─── -->
+    <section class="cb-hero" aria-labelledby="cb-hero-title">
+      <div class="cb-hero-inner">
+        <div class="cb-hero-content">
+          <h1 id="cb-hero-title">
+            Get Rewarded for Completing Your Loan <span>the Right Way</span>
+          </h1>
+          <p class="cb-hero-lead">
+            At GoLoans, we reward responsible repayment.
+          </p>
+          <p class="cb-hero-note">
+            If you complete your loan in full and on time, without any payment issues, you may be eligible for a rebate on a portion of your surety / guarantor fee or interest — issued after your loan is completed.
+          </p>
+          <div class="cb-hero-btns">
+            <!-- TODO: connect to rebate claim destination -->
+            <a href="#cta" class="btn-primary-green">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Claim Your Rebate!
+            </a>
+            <a href="#eligibility" class="btn-secondary-outline">
+              View Eligibility
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="cb-hero-visual">
+          <div class="cb-card-carousel" id="cbCardCarousel">
+            <div class="cb-card-carousel-track-wrap">
+              <div class="cb-card-carousel-track" id="cbCardTrack">
+
+                <!-- Slide 1: reward card -->
+                <div class="cb-card-carousel-slide">
+                  <div class="cb-reward-card" aria-hidden="true">
+                    <div class="cb-card-icon">
+                      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div class="cb-card-program">Loan Cashback Program</div>
+                    <div class="cb-card-sub">Rewarded after successful completion</div>
+                    <div class="cb-card-tag">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                      Responsible Repayment Reward
+                    </div>
+                    <div class="cb-card-checks">
+                      <div class="cb-card-check">
+                        <div class="cb-card-check-icon"><svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor" fill="none"/></svg></div>
+                        Paid in full &amp; on time
+                      </div>
+                      <div class="cb-card-check">
+                        <div class="cb-card-check-icon"><svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor" fill="none"/></svg></div>
+                        No payment issues
+                      </div>
+                      <div class="cb-card-check">
+                        <div class="cb-card-check-icon"><svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor" fill="none"/></svg></div>
+                        Claim within 90 days
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Slide 2: image -->
+                <div class="cb-card-carousel-slide">
+                  <div class="cb-card-img-placeholder">
+                    <img src="../img/logo/loan-casback-img-assets/cashback-hero.png" alt="Loan Cashback" style="width:100%;height:100%;object-fit:cover;border-radius:24px;display:block;">
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Arrows -->
+            <button class="cb-card-carousel-arrow cb-card-carousel-arrow--prev" id="cbCardPrev" aria-label="Previous slide">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button class="cb-card-carousel-arrow cb-card-carousel-arrow--next" id="cbCardNext" aria-label="Next slide">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+
+            <!-- Dots -->
+            <div class="cb-card-carousel-dots" id="cbCardDots">
+              <button class="cb-card-carousel-dot active" aria-label="Slide 1"></button>
+              <button class="cb-card-carousel-dot" aria-label="Slide 2"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── HOW IT WORKS ─── -->
+    <section class="cb-section cb-hiw" aria-labelledby="cb-hiw-title">
+      <div class="cb-section-inner">
+        <h2 id="cb-hiw-title">How it Works</h2>
+        <div class="cb-steps-grid">
+
+          <article class="cb-step">
+            <div class="cb-step-header">
+              <div class="cb-step-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 11H7a2 2 0 0 0-2 2v7h14v-7a2 2 0 0 0-2-2h-2m-4-5v9m0 0l-3-3m3 3l3-3M12 3a3 3 0 0 1 3 3v1H9V6a3 3 0 0 1 3-3z"/></svg>
+              </div>
+              <div class="cb-step-num">STEP 1</div>
+            </div>
+            <h3>Complete Your Loan in Full</h3>
+          </article>
+
+          <article class="cb-step">
+            <div class="cb-step-header">
+              <div class="cb-step-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </div>
+              <div class="cb-step-num">STEP 2</div>
+            </div>
+            <h3>Make All Payments on Time</h3>
+          </article>
+
+          <article class="cb-step">
+            <div class="cb-step-header">
+              <div class="cb-step-icon">
+                <svg viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"/></svg>
+              </div>
+              <div class="cb-step-num">STEP 3</div>
+            </div>
+            <h3>Request Your Rebate Within 90 Days</h3>
+          </article>
+
+          <article class="cb-step">
+            <div class="cb-step-header">
+              <div class="cb-step-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <div class="cb-step-num">STEP 4</div>
+            </div>
+            <h3>We Review &amp; Confirm Eligibility</h3>
+          </article>
+
+        </div>
+
+        <!-- separator + notes + image -->
+        <div class="cb-hiw-footer">
+          <div class="cb-hiw-notes">
+            <div class="cb-hiw-note">
+              <div class="cb-hiw-note-icon"><svg viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/></svg></div>
+              <p>This rebate is a post-completion benefit and does not change your loan terms or payment schedule.</p>
+            </div>
+            <div class="cb-hiw-note">
+              <div class="cb-hiw-note-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+              <p>If approved, your rebate will be issued according to our processing timelines.</p>
+            </div>
+          </div>
+          <div class="cb-hiw-img-placeholder" role="img" aria-label="How it Works image">
+            <img src="../img/logo/loan-casback-img-assets/how-it-works-img.png" alt="How it Works" style="width:100%;height:100%;object-fit:cover;border-radius:20px;display:block;">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── ELIGIBILITY ─── -->
+    <section id="eligibility" class="cb-section cb-elig" aria-labelledby="cb-elig-title">
+      <div class="cb-section-inner">
+        <h2 id="cb-elig-title">Who is Eligible</h2>
+        <div class="cb-elig-layout">
+          <div>
+            <div class="cb-elig-card">
+              <div class="cb-elig-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                Responsible Repayment Reward
+              </div>
+              <ul class="cb-elig-list" role="list">
+                <li class="cb-elig-item">
+                  <div class="cb-check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor"/></svg>
+                  </div>
+                  Your loan is paid in full
+                </li>
+                <li class="cb-elig-item">
+                  <div class="cb-check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor"/></svg>
+                  </div>
+                  All payments were made on time
+                </li>
+                <li class="cb-elig-item">
+                  <div class="cb-check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor"/></svg>
+                  </div>
+                  No payment errors
+                </li>
+                <li class="cb-elig-item">
+                  <div class="cb-check-icon" aria-hidden="true">
+                    <svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor"/></svg>
+                  </div>
+                  No deferrals, payment changes, or collections activity
+                </li>
+              </ul>
+              <div class="cb-elig-note">
+                Validated claims of rebates are given after loan completion. This rebate is a post-completion benefit and does not change your loan terms or payment schedule.
+              </div>
+            </div>
+          </div>
+
+          <div class="cb-elig-aside">
+            <div class="cb-elig-stat">
+              <div class="cb-elig-stat-value"><span>90</span> Days</div>
+              <div class="cb-elig-stat-label">to submit your rebate claim after loan completion — don't miss the window</div>
+            </div>
+            <div class="cb-elig-info">
+              <div class="cb-elig-info-icon">
+                <svg viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+              </div>
+              <p>Rebates are processed and issued on <strong>Wednesdays</strong>. Submit your claim before the processing day to avoid a one-week delay.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── WHAT APPLIES ─── -->
+    <section class="cb-section cb-applies" aria-labelledby="cb-applies-title">
+      <div class="cb-section-inner">
+        <h2 id="cb-applies-title">What the Rebate Applies to</h2>
+        <div class="cb-applies-grid">
+
+          <div class="cb-applies-card eligible">
+            <div class="cb-applies-card-header">
+              <div class="cb-applies-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+              </div>
+              <h3>Eligible for Rebate</h3>
+            </div>
+            <ul class="cb-applies-list" role="list">
+              <li class="cb-applies-item">
+                <div class="cb-applies-dot" aria-hidden="true"></div>
+                Rebates apply only to what was offered to you. Either the surety/guarantor fee or interest
+              </li>
+              <li class="cb-applies-item">
+                <div class="cb-applies-dot" aria-hidden="true"></div>
+                Principal, bank fees, and third-party charges are not eligible
+              </li>
+              <li class="cb-applies-item">
+                <div class="cb-applies-dot" aria-hidden="true"></div>
+                Rebate amounts are confirmed after review
+              </li>
+            </ul>
+          </div>
+
+          <div class="cb-applies-card not-eligible">
+            <div class="cb-applies-card-header">
+              <div class="cb-applies-card-icon">
+                <svg viewBox="0 0 24 24"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+              </div>
+              <h3>Not Eligible for Rebate</h3>
+            </div>
+            <ul class="cb-applies-list" role="list">
+              <li class="cb-applies-item">
+                <div class="cb-applies-dot" aria-hidden="true"></div>
+                Principal loan amount
+              </li>
+              <li class="cb-applies-item">
+                <div class="cb-applies-dot" aria-hidden="true"></div>
+                Bank or transfer fees
+              </li>
+              <li class="cb-applies-item">
+                <div class="cb-applies-dot" aria-hidden="true"></div>
+                Third-party charges or service fees
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="cb-applies-note">
+          Rebate amounts are confirmed after review. Only fees or charges explicitly offered and applicable to your loan are eligible.
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── IMPORTANT REMINDER ─── -->
+    <section class="cb-section cb-reminder" aria-labelledby="cb-reminder-title">
+      <div class="cb-section-inner">
+        <h2 id="cb-reminder-title">Important Reminder</h2>
+        <div class="cb-reminder-card">
+          <div class="cb-reminder-header">
+            <div class="cb-reminder-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+            </div>
+            <div>
+              <div class="cb-reminder-title">Don't Miss Your Window</div>
+              <div class="cb-reminder-sub">Two things you need to know before claiming</div>
+            </div>
+          </div>
+
+          <div class="cb-reminder-points">
+            <div class="cb-reminder-point">
+              <div class="cb-reminder-point-icon orange" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+              </div>
+              <div>
+                <h4>90-Day Claim Deadline</h4>
+                <p>Rebates must be claimed within <strong>90 days</strong> from the date your loan is completed. If not claimed within this period, the rebate will be <strong>forfeited</strong>.</p>
+              </div>
+            </div>
+
+            <div class="cb-reminder-point">
+              <div class="cb-reminder-point-icon green" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"/></svg>
+              </div>
+              <div>
+                <h4>Wednesday Processing Schedule</h4>
+                <p>Rebates are sent every <strong style="color:#006b04;">Wednesday</strong>. Claims should be submitted before the processing day. Otherwise, the rebate may be sent the following Wednesday.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cb-reminder-closing">
+            Here at GoLoans, good customers are rewarded. 🎉
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FINAL CTA ─── -->
+    <section id="cta" class="cb-cta" aria-labelledby="cb-cta-title">
+      <div class="cb-cta-inner">
+        <h2 id="cb-cta-title">Ready to Claim your Rebate?</h2>
+        <p>You've done the hard part — complete your loan the right way and let us take care of the rest.</p>
+        <!-- TODO: connect href to rebate claim destination -->
+        <a href="#" class="btn-orange-glow" aria-label="Claim your rebate now">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Claim Your Rebate!
+        </a>
+      </div>
+    </section>
+
+    <!-- ─── TERMS ─── -->
+    <section class="cb-terms" aria-labelledby="cb-terms-title">
+      <div class="cb-terms-inner">
+        <h3 id="cb-terms-title">Terms &amp; Conditions</h3>
+        <p>This rebate program is subject to eligibility requirements and limitations. Approval is not guaranteed and is determined by GoLoans upon review of your account.</p>
+        <a href="../rebate-terms/" aria-label="View Rebate Program Terms and Conditions">Rebate Program Terms &amp; Conditions &rarr;</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-main">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="brand-logo">
+              <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <span class="brand-name" style="color:#fff;">Goloans Canada</span>
+          </div>
+          <div class="footer-disclaimer">
+            <strong>Disclaimer:</strong> All loans are subject to credit and underwriting approval. GoLoans is a loan distribution and lead assessment platform, not a lender. GoLoans helps evaluate, score, and route loan inquiries to third-party financial service providers for review. GoLoans does not guarantee approval, loan amounts, rates, fees, or terms. Final approval and loan terms are determined solely by the participating financing provider. GoLoans works to connect applicants with providers that operate in accordance with applicable Canadian laws and regulations.
+          </div>
+          <div class="footer-contact">
+            <span>📍 555-21, 10405 Jasper Ave, Edmonton, AB T5J 3S2, Canada</span>
+            <a href="tel:18664784119">📞 +1 (866) 478-4119</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Quick Links</h3>
+          <div class="footer-links">
+            <a href="../blog/">Blog</a>
+            <a href="../loan-cashback/">Loan Cashback</a>
+            <a href="#">Early Repayment</a>
+            <a href="../faq/">FAQs</a>
+            <a href="../privacy-policy/">Privacy Policy</a>
+            <a href="../terms-of-service/">Terms of Service</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Find Us On</h3>
+          <div class="social-links">
+            <a class="social-btn" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div>All rights reserved &copy; 2026 GoLoans.ca</div>
+        <div class="legal">
+          <a href="../privacy-policy/">Privacy Policy</a>
+          <span class="legal-sep">|</span>
+          <a href="../terms-of-service/">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Hero Card Carousel ──
+    (function () {
+      const track = document.getElementById('cbCardTrack');
+      const dots  = document.querySelectorAll('#cbCardDots .cb-card-carousel-dot');
+      const total = track ? track.children.length : 0;
+      let current = 0, timer;
+
+      function goTo(idx) {
+        current = (idx + total) % total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
+      }
+
+      if (track && total > 1) {
+        document.getElementById('cbCardPrev').addEventListener('click', function() { clearInterval(timer); goTo(current - 1); startAuto(); });
+        document.getElementById('cbCardNext').addEventListener('click', function() { clearInterval(timer); goTo(current + 1); startAuto(); });
+        dots.forEach(function(d, i) { d.addEventListener('click', function() { clearInterval(timer); goTo(i); startAuto(); }); });
+        function startAuto() { timer = setInterval(function() { goTo(current + 1); }, 5000); }
+        startAuto();
+      }
+    })();
+
+    // Hamburger / mobile drawer
+    const hamburger = document.querySelector('.hamburger');
+    const siteHeader = document.querySelector('.site-header');
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = siteHeader.classList.toggle('nav-open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+      document.querySelectorAll('.drawer-link').forEach(link => {
+        link.addEventListener('click', () => {
+          siteHeader.classList.remove('nav-open');
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+    // Nav dropdown — click to toggle
+    document.querySelectorAll('.nav-dropdown').forEach(dd => {
+      const toggle = dd.querySelector('.nav-dropdown-toggle');
+      toggle.addEventListener('click', e => {
+        e.stopPropagation();
+        const isOpen = dd.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+    });
+    // Drawer dropdown
+    document.querySelectorAll('.drawer-dropdown').forEach(dd => {
+      const toggle = dd.querySelector('.drawer-dropdown-toggle');
+      toggle.addEventListener('click', () => {
+        const isOpen = dd.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen);
+      });
+    });
+    // Close desktop dropdown on outside click
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.nav-dropdown.open').forEach(dd => {
+        dd.classList.remove('open');
+        dd.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Scroll-reveal animation
+    const revealEls = document.querySelectorAll('.cb-step, .cb-elig-card, .cb-applies-card, .cb-reminder-point');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealEls.forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+        el.style.transition = `opacity .5s ease ${i * 0.07}s, transform .5s ease ${i * 0.07}s`;
+        observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>
