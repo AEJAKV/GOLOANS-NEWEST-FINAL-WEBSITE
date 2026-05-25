@@ -387,7 +387,7 @@ h1, h2, h3, h4 {
   border-bottom: 1px solid rgba(0,0,0,.06);
 }
 .drawer-link:last-child { border-bottom: none; }
-.phone-drawer { color: var(--green); }
+.phone-drawer { display: none; }
 
 .phone-link {
   display: flex;
@@ -1002,6 +1002,32 @@ h2 {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+}
+
+/* ── Wistia video wrapper with animated green border ── */
+@keyframes glow-pulse {
+  0%,100% { box-shadow: 0 0 0 2px rgba(0,141,5,.35), 0 8px 32px rgba(0,0,0,.10); }
+  50%      { box-shadow: 0 0 0 4px rgba(0,141,5,.65), 0 12px 40px rgba(0,141,5,.18); }
+}
+.video-wistia-wrap {
+  background: none;
+  aspect-ratio: unset;
+  cursor: default;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 2px solid rgba(0,141,5,.5);
+  animation: glow-pulse 3s ease-in-out infinite;
+  position: relative;
+}
+.video-wistia-wrap::before { display: none; }
+.video-wistia-wrap::after  { display: none; }
+.video-wistia-wrap wistia-player {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 .video-placeholder::before {
   content: '';
