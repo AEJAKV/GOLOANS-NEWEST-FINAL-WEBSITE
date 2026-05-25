@@ -2305,6 +2305,8 @@ footer { background: var(--navy); color: #fff; }
   .nav-actions { gap: 8px; }
   .hamburger { display: flex; }
   .phone-link { display: none; }
+  .nav-login { display: none; }
+  .nav-sep { display: none; }
   .loan-banner { flex-direction: row; text-align: left; padding: 12px 16px; min-height: unset; gap: 12px; align-items: center; }
   .loan-banner-icon { width: 36px; height: 36px; }
   .loan-banner-icon svg { width: 22px; height: 22px; }
