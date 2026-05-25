@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Early Repayment Program Terms &amp; Conditions — GoLoans Canada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green: #008d05;
+      --green-dark: #006b04;
+      --green-soft: #e8f5e9;
+      --navy: #1e2f42;
+      --text: #131313;
+      --muted: #5a5f65;
+      --off-white: #f5f7f5;
+      --radius: 20px;
+      --max: 860px;
+      --shadow-green: 0 12px 40px rgba(0,141,5,.22);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--off-white); line-height: 1.65; }
+
+    /* ── NAV ── */
+    .nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid rgba(0,0,0,.07); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav-logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 20px; color: var(--green); text-decoration: none; letter-spacing: -.3px; }
+    .nav-back { display: inline-flex; align-items: center; gap: 7px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 13.5px; color: var(--green); text-decoration: none; padding: 8px 18px; border-radius: 999px; border: 1.5px solid rgba(0,141,5,.3); transition: background .18s, color .18s; white-space: nowrap; }
+    .nav-back:hover { background: var(--green); color: #fff; }
+    .nav-back svg { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+
+    /* ── HERO ── */
+    .rt-hero { background: linear-gradient(135deg, #14491a, #1b6b22, #228b2c); padding: 56px 24px 48px; text-align: center; color: #fff; }
+    .rt-hero h1 { font-family: 'Sora', sans-serif; font-size: clamp(26px, 5vw, 40px); font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin-bottom: 12px; }
+    .rt-hero p { font-size: 15px; color: rgba(255,255,255,.75); max-width: 580px; margin: 0 auto; }
+
+    /* ── MAIN ── */
+    .rt-main { max-width: var(--max); margin: 0 auto; padding: 52px 24px 72px; }
+
+    /* ── INTRO BOX ── */
+    .rt-intro {
+      background: #fff;
+      border: 1.5px solid rgba(0,141,5,0.15);
+      border-radius: 16px;
+      padding: 28px 28px;
+      margin-bottom: 40px;
+    }
+    .rt-intro p { font-size: 14.5px; color: #2d3d2e; line-height: 1.75; margin-bottom: 10px; }
+    .rt-intro p:last-child { margin-bottom: 0; }
+    .rt-intro strong { color: #0a1a0b; }
+
+    /* ── SECTION ── */
+    .rt-section { margin-bottom: 36px; }
+    .rt-section-heading {
+      font-family: 'Sora', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0a1a0b;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(0,141,5,0.18);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .rt-section-heading::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: var(--green);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .rt-section p { font-size: 14px; color: #2d3d2e; line-height: 1.75; margin-bottom: 10px; }
+    .rt-section p:last-child { margin-bottom: 0; }
+    .rt-section strong { color: #0a1a0b; }
+
+    /* ── LISTS ── */
+    .rt-list { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 8px; }
+    .rt-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #2d3d2e; line-height: 1.65; }
+    .rt-list li::before { content: ''; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin-top: 7px; }
+
+    /* ── NOTICE BOX ── */
+    .rt-notice {
+      background: rgba(0,141,5,0.06);
+      border-left: 3px solid var(--green);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-size: 13.5px;
+      color: #2d3d2e;
+      line-height: 1.65;
+    }
+
+    /* ── DIVIDER ── */
+    .rt-divider { border: none; border-top: 1px solid rgba(0,0,0,0.08); margin: 36px 0; }
+
+    /* ── FINAL DISCLOSURE ── */
+    .rt-disclosure {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .rt-disclosure h2 { font-family: 'Sora', sans-serif; font-size: 15px; font-weight: 700; color: #0a1a0b; margin-bottom: 12px; }
+    .rt-disclosure p { font-size: 13.5px; color: var(--muted); line-height: 1.75; margin-bottom: 8px; }
+    .rt-disclosure p:last-child { margin-bottom: 0; }
+
+    /* ── CONTACT ── */
+    .rt-contact-list { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-direction: column; gap: 8px; }
+    .rt-contact-list li { font-size: 14px; color: #2d3d2e; line-height: 1.65; }
+    .rt-contact-list a { color: var(--green); font-weight: 600; text-decoration: none; }
+    .rt-contact-list a:hover { text-decoration: underline; }
+
+    /* ── BACK CTA ── */
+    .rt-back-bar { text-align: center; padding: 8px 24px 56px; }
+    .btn-green { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: #fff; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 15px; padding: 14px 32px; border-radius: 999px; text-decoration: none; box-shadow: var(--shadow-green); transition: background .2s, transform .2s, box-shadow .2s; }
+    .btn-green:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 16px 48px rgba(0,141,5,.3); }
+
+    /* ── FOOTER ── */
+    .rt-footer { background: var(--navy); color: rgba(255,255,255,.5); text-align: center; font-size: 13px; padding: 20px 24px; }
+    .rt-footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .rt-hero { padding: 40px 20px 36px; }
+      .rt-main { padding: 32px 16px 48px; }
+      .rt-intro, .rt-disclosure { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav-logo" href="../"><img src="../img/logo/goloans-logo.svg" alt="GoLoans Canada" style="height:36px;display:block;"></a>
+    <a class="nav-back" href="../early-repayment/">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back to Early Repayment
+    </a>
+  </nav>
+
+  <header class="rt-hero">
+    <h1>Early Repayment Program</h1>
+    <p>Terms &amp; Conditions</p>
+  </header>
+
+  <main class="rt-main">
+
+    <!-- 1. Program Overview -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">1. Program Overview</h2>
+      <p>The Early Repayment Program ("Program") is an optional benefit offered by GoLoans that allows eligible customers to receive a discount on the unpaid portion of the surety / grantor fee if the loan is repaid early in accordance with these Terms &amp; Conditions.</p>
+      <p>This Program does not change the original loan structure, repayment obligations, or payment schedule set out in the loan agreement.</p>
+    </div>
+
+    <!-- 2. Eligibility -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">2. Eligibility</h2>
+      <p>To be eligible for an early repayment discount, all of the following conditions must be met:</p>
+      <ul class="rt-list">
+        <li>The loan must be repaid in full</li>
+        <li>Early repayment must be initiated by the customer</li>
+        <li>The payoff must occur within the applicable discount window</li>
+        <li>The account must be in good standing at the time of payoff</li>
+      </ul>
+      <p>GoLoans reserves the right to verify eligibility prior to applying any discount.</p>
+    </div>
+
+    <!-- 3. Discount Amounts -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">3. Discount Amounts</h2>
+      <p>Eligible customers may qualify for the following discounts on the unpaid portion of the surety / grantor fee only:</p>
+      <ul class="rt-list">
+        <li>Up to 100% discount if the loan is fully repaid within 7 days from the date of loan funding</li>
+        <li>Up to 70% discount if the loan is fully repaid within 15 days from the date of loan funding</li>
+        <li>Up to 50% discount if the loan is fully repaid within 30 days from the date of loan funding</li>
+      </ul>
+      <p>Discount percentages apply only to the unpaid and unearned portion of the surety/grantor fee at the time of payoff.</p>
+    </div>
+
+    <!-- 4. Fees Not Eligible for Discount -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">4. Fees Not Eligible for Discount</h2>
+      <p>The Early Repayment Program does not apply to:</p>
+      <ul class="rt-list">
+        <li>Principal amount borrowed</li>
+        <li>Interest already accrued</li>
+        <li>Interest payable under the loan agreement</li>
+        <li>Error fees or returned payment fees</li>
+        <li>Bank, processing, or third-party fees</li>
+        <li>Any fees already earned or charged</li>
+      </ul>
+      <p>Only the eligible portion of the surety/grantor fee may be discounted.</p>
+    </div>
+
+    <!-- 5. How to Request Early Repayment -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">5. How to Request Early Repayment</h2>
+      <p>To receive an early repayment discount:</p>
+      <ul class="rt-list">
+        <li>The customer must contact GoLoans prior to making an early payoff</li>
+        <li>A payoff quote will be provided reflecting any applicable discount</li>
+        <li>Payment must be completed by the quoted deadline to qualify</li>
+      </ul>
+      <div class="rt-notice">Discounts are not automatically applied and require confirmation prior to payment.</div>
+    </div>
+
+    <!-- 6. Optional Nature of the Program -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">6. Optional Nature of the Program</h2>
+      <p>Participation in the Early Repayment Program is entirely voluntary.</p>
+      <ul class="rt-list">
+        <li>Customers are not required to repay their loan early</li>
+        <li>Choosing not to repay early will not result in penalties, fees, or changes to the loan</li>
+        <li>Regular installment payments will continue as outlined in the loan agreement</li>
+      </ul>
+    </div>
+
+    <!-- 7. No Guarantee of Discount -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">7. No Guarantee of Discount</h2>
+      <p>Early repayment discounts are not guaranteed.</p>
+      <p>Eligibility and discount amounts are subject to verification and compliance with these Terms &amp; Conditions.</p>
+      <p>GoLoans reserves the right to deny or adjust discounts if eligibility criteria are not met.</p>
+    </div>
+
+    <!-- 8. No Payday Loan Classification -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">8. No Payday Loan Classification</h2>
+      <p>Early repayment and participation in this Program do not alter the classification of the loan.</p>
+      <p>The loan remains an installment-based consumer loan governed by the original loan agreement.</p>
+    </div>
+
+    <!-- 9. Changes or Termination of the Program -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">9. Changes or Termination of the Program</h2>
+      <p>GoLoans reserves the right to:</p>
+      <ul class="rt-list">
+        <li>Modify</li>
+        <li>Suspend</li>
+        <li>Or discontinue</li>
+      </ul>
+      <p>The Early Repayment Program at any time, subject to applicable laws. Changes will not affect discounts already confirmed in writing.</p>
+    </div>
+
+    <!-- 10. Governing Agreement -->
+    <div class="rt-section">
+      <h2 class="rt-section-heading">10. Governing Agreement</h2>
+      <p>These Terms &amp; Conditions supplement, but do not replace, the customer's loan agreement.</p>
+      <p>In the event of a conflict, the loan agreement shall prevail.</p>
+    </div>
+
+    <hr class="rt-divider">
+
+    <!-- 11. Contact Information -->
+    <div class="rt-disclosure">
+      <h2>11. Contact Information</h2>
+      <p>For questions regarding early repayment or eligibility, please contact:</p>
+      <ul class="rt-contact-list">
+        <li>📧 <a href="mailto:onyx-vip@goloans.ca">onyx-vip@goloans.ca</a></li>
+        <li>📞 <a href="tel:+18252546545">+1 (825) 254-6545</a></li>
+      </ul>
+    </div>
+
+  </main>
+
+  <div class="rt-back-bar">
+    <a class="btn-green" href="../early-repayment/">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Back to Early Repayment
+    </a>
+  </div>
+
+  <footer class="rt-footer">
+    <p>&copy; 2026 GoLoans Canada. <a href="../privacy-policy/">Privacy Policy</a> &nbsp;·&nbsp; <a href="../terms-of-service/">Terms of Service</a></p>
+  </footer>
+
+</body>
+</html>
