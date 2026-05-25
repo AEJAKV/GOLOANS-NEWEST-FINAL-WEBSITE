@@ -817,9 +817,8 @@ h2 {
 /* ─── STEPS ─── */
 .steps-section {
   background:
-    linear-gradient(180deg, rgba(207, 255, 146, 0.72) 0%, rgba(137, 241, 89, 0.56) 18%, rgba(42, 194, 67, 0.66) 52%, rgba(7, 128, 35, 0.88) 82%, rgba(3, 88, 21, 0.94) 100%),
-    url('img/logo/sec-2-bg.png') center / cover no-repeat,
-    linear-gradient(135deg, #0a7a1f 0%, #0ea32a 42%, #8fe95b 100%);
+    linear-gradient(160deg, rgba(5,78,17,0.88) 0%, rgba(9,122,28,0.86) 30%, rgba(12,165,38,0.84) 60%, rgba(60,200,70,0.80) 85%, rgba(100,220,80,0.76) 100%),
+    url('img/logo/sec-2-bg.png') center / cover no-repeat;
   padding: 36px 24px 32px;
   position: relative;
   overflow: hidden;
@@ -946,23 +945,7 @@ h2 {
   .steps-grid { gap: 28px; }
 }
 
-/* Connector line between the 3 step cards */
-.steps-grid::before {
-  content: '';
-  position: absolute;
-  top: 77px;
-  left: calc(33.33% - 6px);
-  right: calc(33.33% - 6px);
-  height: 1.5px;
-  background: linear-gradient(90deg,
-    rgba(255,255,255,0.0) 0%,
-    rgba(255,255,255,0.40) 20%,
-    rgba(255,255,255,0.40) 80%,
-    rgba(255,255,255,0.0) 100%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
+/* Connector line removed — row-layout cards */
 
 /* Testimonial carousel — 2 cards on tablet */
 @media (min-width: 761px) and (max-width: 1040px) {
@@ -976,12 +959,12 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-top: 1px solid rgba(255, 255, 255, 0.34);
   border-radius: 24px;
-  padding: 22px 22px 24px;
+  padding: 22px 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: left;
+  gap: 16px;
   position: relative;
   height: 100%;
   box-sizing: border-box;
@@ -1016,47 +999,55 @@ h2 {
 }
 
 .step-num {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: linear-gradient(135deg, rgba(255,255,255,0.26), rgba(255,255,255,0.07));
   border: 2px solid rgba(255, 255, 255, 0.42);
   display: grid;
   place-items: center;
   font-family: 'Sora', sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
   color: #fff;
   line-height: 1;
-  margin-bottom: 10px;
   position: relative;
   z-index: 1;
   flex: none;
   user-select: none;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.38);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.38);
   text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+
+.step-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  padding-top: 2px;
 }
 
 .step-body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 8px;
   flex: 1;
 }
 
 .step-icon {
-  width: 54px;
-  height: 54px;
+  width: 44px;
+  height: 44px;
   background: rgba(255, 255, 255, 0.13);
   border: 1.5px solid rgba(255, 255, 255, 0.26);
-  border-radius: 15px;
+  border-radius: 12px;
   display: grid;
   place-items: center;
   box-shadow: 0 4px 14px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.26);
   flex: none;
 }
-.step-icon svg { width: 26px; height: 26px; fill: #fff; }
+.step-icon svg { width: 22px; height: 22px; fill: #fff; }
 
 .step-card h3 {
   font-size: 16px;
