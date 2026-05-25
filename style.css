@@ -381,6 +381,11 @@ h1, h2, h3, h4 {
   white-space: nowrap;
 }
 
+/* Hero BBB badge — mobile only */
+.hero-bbb {
+  display: none;
+}
+
 /* Hamburger — hidden on desktop */
 .hamburger {
   display: none;
@@ -2498,6 +2503,46 @@ footer { background: var(--navy); color: #fff; }
   .nav-links { display: none; }
   .nav-actions { gap: 8px; }
   .nav-bbb { display: none; }
+  .hero-bbb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(27,78,139,0.14);
+    border-radius: 10px;
+    padding: 6px 14px 6px 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    align-self: center;
+    width: fit-content;
+  }
+  .hero-bbb-img {
+    height: 26px;
+    width: auto;
+    display: block;
+  }
+  .hero-bbb-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    line-height: 1;
+  }
+  .hero-bbb-stars {
+    font-size: 11px;
+    color: #e8a000;
+    letter-spacing: 1.5px;
+    line-height: 1.1;
+  }
+  .hero-bbb-score {
+    font-family: 'Sora', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1b4e8b;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
   .hamburger { display: flex; }
   .phone-link { display: none; }
   .nav-login { display: none; }
