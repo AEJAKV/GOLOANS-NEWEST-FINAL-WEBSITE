@@ -1341,6 +1341,26 @@ h2 {
   border-radius: 50%;
   flex: none;
 }
+.lender-logo-box {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  flex: none;
+  letter-spacing: 0;
+}
+.lender-logo-img {
+  height: 22px;
+  width: auto;
+  display: block;
+  flex: none;
+  object-fit: contain;
+}
 
 .match-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
 .express-note {
