@@ -57,152 +57,147 @@
     ════════════════════════════════ */
     .er-hero {
       background:
-        linear-gradient(135deg, rgba(247,253,248,0.88) 0%, rgba(237,247,239,0.85) 60%, rgba(240,250,242,0.88) 100%),
-        url('../img/logo/loan-casback-img-assets/cashback-hero-img.png') center / cover no-repeat;
-      padding: 68px 24px 76px;
+        radial-gradient(circle at 10% 18%, rgba(0,141,5,0.09) 0%, transparent 34%),
+        radial-gradient(circle at 88% 78%, rgba(0,141,5,0.07) 0%, transparent 28%),
+        linear-gradient(160deg, #f3fbf4 0%, #eaf6ec 52%, #f5fbf6 100%);
+      padding: 52px 24px 64px;
       overflow: hidden;
       position: relative;
     }
     .er-hero::before {
       content: '';
       position: absolute;
-      width: 520px; height: 520px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,141,5,0.07) 0%, transparent 70%);
-      top: -160px; right: -120px;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,141,5,0.09) 1px, transparent 1px);
+      background-size: 26px 26px;
       pointer-events: none;
+      opacity: 0.5;
     }
     .er-hero-inner {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 56px;
+      grid-template-columns: 1fr 520px;
+      gap: 48px;
       align-items: center;
+      text-align: left;
     }
+    /* Badge pill */
+    .er-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0,141,5,0.10);
+      border: 1.5px solid rgba(0,141,5,0.22);
+      color: var(--green);
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 6px 14px 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 16px;
+    }
+    .er-hero-badge svg { width: 13px; height: 13px; fill: var(--green); flex-shrink: 0; }
     .er-hero h1 {
       font-family: 'Sora', sans-serif;
-      font-size: clamp(28px, 4vw, 48px);
+      font-size: clamp(30px, 4.2vw, 52px);
       font-weight: 800;
       color: #0a1a0b;
-      line-height: 1.1;
-      margin-bottom: 6px;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+      text-align: left;
     }
-    .er-hero h1 span { color: var(--green); }
     .er-hero-tagline {
       font-family: 'Sora', sans-serif;
-      font-size: 18px;
+      font-size: clamp(18px, 2.2vw, 24px);
       font-weight: 700;
+      font-style: italic;
       color: var(--green);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      display: inline-block;
+      position: relative;
+    }
+    .er-hero-tagline::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--green), rgba(0,141,5,0.22));
+      border-radius: 2px;
     }
     .er-hero-lead {
-      font-size: 16px;
+      font-size: 15.5px;
       color: #3d4d3e;
-      line-height: 1.7;
-      margin-bottom: 28px;
+      line-height: 1.72;
+      margin-bottom: 14px;
       max-width: 520px;
     }
+    .er-hero-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(61,77,62,0.72);
+      line-height: 1.55;
+      max-width: 510px;
+      margin-bottom: 28px;
+    }
+    .er-hero-note svg { width: 15px; height: 15px; fill: rgba(0,141,5,0.55); flex-shrink: 0; margin-top: 1px; }
     .er-hero-btns {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
       align-items: center;
     }
     .btn-er-primary {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--green);
+      gap: 9px;
+      background: linear-gradient(135deg, #005a03, #008d05);
       color: #fff;
       font-family: 'Sora', sans-serif;
       font-weight: 700;
       font-size: 14.5px;
-      padding: 13px 26px;
+      padding: 14px 28px;
       border-radius: 999px;
       text-decoration: none;
-      box-shadow: 0 8px 28px rgba(0,141,5,0.28);
+      box-shadow: 0 8px 28px rgba(0,141,5,0.32);
       transition: background .2s, transform .2s, box-shadow .2s;
     }
-    .btn-er-primary:hover { background: #006b04; transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,141,5,0.32); }
+    .btn-er-primary svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
+    .btn-er-primary:hover { background: linear-gradient(135deg, #004302, #006b04); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(0,141,5,0.38); }
     .btn-er-outline {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: #0a1a0b;
+      color: var(--green);
       font-family: 'Sora', sans-serif;
       font-weight: 700;
       font-size: 14.5px;
-      padding: 12px 24px;
+      padding: 13px 24px;
       border-radius: 999px;
-      border: 2px solid rgba(0,141,5,0.35);
+      border: 2px solid rgba(0,141,5,0.38);
+      background: rgba(0,141,5,0.04);
       text-decoration: none;
-      transition: border-color .2s, color .2s, background .2s;
+      transition: border-color .2s, background .2s;
     }
-    .btn-er-outline:hover { border-color: var(--green); color: var(--green); background: rgba(0,141,5,0.04); }
+    .btn-er-outline svg { width: 16px; height: 16px; fill: var(--green); flex-shrink: 0; }
+    .btn-er-outline:hover { border-color: var(--green); background: rgba(0,141,5,0.10); }
 
-    /* Hero visual card */
-    .er-hero-visual { display: flex; justify-content: center; }
-    .er-savings-card {
-      background: linear-gradient(145deg, #006b04 0%, #008d05 55%, #00a806 100%);
-      border-radius: 24px;
-      padding: 36px 32px;
-      color: #fff;
+    /* Hero image */
+    .er-hero-visual { display: flex; justify-content: flex-end; align-items: center; }
+    .er-hero-img {
       width: 100%;
-      max-width: 380px;
-      box-shadow: 0 24px 64px rgba(0,141,5,0.32), 0 4px 16px rgba(0,0,0,0.12);
-      position: relative;
-      overflow: hidden;
+      max-width: 520px;
+      height: auto;
+      display: block;
+      border-radius: 24px;
+      object-fit: contain;
+      filter: drop-shadow(0 12px 40px rgba(0,0,0,0.20));
     }
-    .er-savings-card::before {
-      content: ''; position: absolute;
-      width: 220px; height: 220px; border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-      top: -70px; right: -60px;
-    }
-    .er-savings-card::after {
-      content: ''; position: absolute;
-      width: 140px; height: 140px; border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      bottom: -40px; left: -40px;
-    }
-    .er-card-icon {
-      width: 52px; height: 52px;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      border-radius: 16px;
-      display: grid; place-items: center;
-      margin-bottom: 18px;
-      position: relative; z-index: 1;
-    }
-    .er-card-icon svg { width: 26px; height: 26px; fill: #fff; }
-    .er-card-title {
-      font-family: 'Sora', sans-serif;
-      font-size: 19px; font-weight: 800;
-      margin-bottom: 4px;
-      position: relative; z-index: 1;
-    }
-    .er-card-sub {
-      font-size: 13px; color: rgba(255,255,255,0.72);
-      margin-bottom: 22px;
-      position: relative; z-index: 1;
-    }
-    .er-card-discounts {
-      display: flex; flex-direction: column; gap: 10px;
-      position: relative; z-index: 1;
-    }
-    .er-card-discount-row {
-      display: flex; align-items: center; justify-content: space-between;
-      background: rgba(255,255,255,0.10);
-      border-radius: 10px; padding: 10px 14px;
-    }
-    .er-card-discount-row .timeframe { font-size: 13px; color: rgba(255,255,255,0.85); }
-    .er-card-discount-row .pct {
-      font-family: 'Sora', sans-serif;
-      font-size: 18px; font-weight: 800; color: #fff;
-    }
-    .er-card-discount-row.top-row { background: rgba(255,165,0,0.22); border: 1px solid rgba(255,165,0,0.35); }
-    .er-card-discount-row.top-row .pct { color: #ffd166; }
 
     /* ════════════════════════════════
        2. DISCOUNTS
@@ -243,6 +238,25 @@
       letter-spacing: .08em;
       padding: 4px 10px; border-radius: 999px;
     }
+    /* Discount card icons */
+    .er-discount-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+    .er-discount-icon svg { width: 24px; height: 24px; }
+    .er-discount-icon--featured {
+      background: rgba(0,0,0,0.18);
+    }
+    .er-discount-icon--featured svg { fill: #fff; }
+    .er-discount-icon--outline {
+      background: rgba(0,141,5,0.08);
+      border: 2px solid rgba(0,141,5,0.22);
+    }
+    .er-discount-icon--outline svg { fill: var(--green); }
+
     .er-discount-pct {
       font-family: 'Sora', sans-serif;
       font-size: 56px; font-weight: 900;
@@ -287,44 +301,121 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      align-items: center;
+      align-items: start;
     }
+    /* Left column */
+    .er-savings-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .er-savings-heading-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(0,141,5,0.10);
+      border: 1.5px solid rgba(0,141,5,0.22);
+      border-radius: 12px;
+      display: grid; place-items: center;
+    }
+    .er-savings-heading-icon svg { width: 22px; height: 22px; fill: var(--green); }
+    .er-savings-heading h2 { margin: 0; }
+    .er-savings-info p { font-size: 14.5px; color: #3d4d3e; line-height: 1.75; margin-bottom: 12px; }
+    .er-savings-info p a { color: var(--green); font-weight: 700; text-decoration: none; }
+    .er-savings-contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 16px 0 20px;
+    }
+    .er-savings-contact-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(0,141,5,0.10);
+      border: 1.5px solid rgba(0,141,5,0.20);
+      border-radius: 50%;
+      display: grid; place-items: center;
+    }
+    .er-savings-contact-icon svg { width: 17px; height: 17px; fill: var(--green); }
+    .er-savings-contact-row p { font-size: 13.5px; color: #3d4d3e; line-height: 1.65; margin: 0; }
+    .er-savings-contact-row p a { color: var(--green); font-weight: 700; }
+    .er-savings-divider {
+      border: none;
+      border-top: 1.5px solid rgba(0,141,5,0.12);
+      margin: 20px 0;
+    }
+    .er-savings-sub {
+      font-family: 'Sora', sans-serif;
+      font-size: 18px; font-weight: 800; color: #0a1a0b;
+      margin-bottom: 10px;
+    }
+    .er-savings-fineprint {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 13px 16px;
+      background: rgba(0,141,5,0.05);
+      border: 1.5px solid rgba(0,141,5,0.18);
+      border-radius: 12px;
+      font-size: 13px; color: #3d4d3e; line-height: 1.6;
+    }
+    .er-savings-fineprint svg { width: 15px; height: 15px; fill: var(--green); flex-shrink: 0; margin-top: 1px; }
+    /* Right card */
     .er-savings-card-contact {
       background: #fff;
       border-radius: 24px;
-      padding: 40px 36px;
+      padding: 36px 32px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.07);
       border: 1.5px solid rgba(0,141,5,0.12);
     }
-    .er-savings-card-contact h3 {
-      font-family: 'Sora', sans-serif;
-      font-size: 20px; font-weight: 800; color: #0a1a0b;
-      margin-bottom: 8px;
+    .er-savings-card-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
     }
-    .er-savings-card-contact p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .er-savings-card-heading-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: linear-gradient(135deg, #005a03, #008d05);
+      border-radius: 11px;
+      display: grid; place-items: center;
+    }
+    .er-savings-card-heading-icon svg { width: 20px; height: 20px; fill: #fff; }
+    .er-savings-card-heading h3 {
+      font-family: 'Sora', sans-serif;
+      font-size: 19px; font-weight: 800; color: #0a1a0b;
+      margin: 0;
+    }
+    .er-savings-card-contact > p { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 18px; }
+    .er-savings-card-contact > p a { color: var(--green); font-weight: 700; }
     .er-savings-estimate {
-      display: flex; align-items: center; gap: 14px;
-      background: linear-gradient(135deg, rgba(0,141,5,0.06), rgba(0,141,5,0.03));
-      border: 1px solid rgba(0,141,5,0.15);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: rgba(0,141,5,0.05);
+      border: 1px solid rgba(0,141,5,0.14);
       border-radius: 14px;
-      padding: 16px 20px;
+      padding: 16px 18px;
       margin-bottom: 22px;
     }
     .er-savings-estimate-icon {
-      width: 44px; height: 44px; flex-shrink: 0;
-      background: var(--green); border-radius: 12px;
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: linear-gradient(135deg, #005a03, #008d05);
+      border-radius: 11px;
       display: grid; place-items: center;
     }
-    .er-savings-estimate-icon svg { width: 22px; height: 22px; fill: #fff; }
-    .er-savings-estimate p { margin: 0; font-size: 13.5px; color: #2d3d2e; line-height: 1.55; }
+    .er-savings-estimate-icon svg { width: 21px; height: 21px; fill: #fff; }
+    .er-savings-estimate p { margin: 0; font-size: 13px; color: #3d4d3e; line-height: 1.6; }
     .er-savings-estimate strong { color: #0a1a0b; }
-
-    .er-savings-info h3 {
-      font-family: 'Sora', sans-serif;
-      font-size: 22px; font-weight: 800; color: #0a1a0b;
-      margin-bottom: 14px;
+    .er-savings-security {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      font-size: 12.5px;
+      color: rgba(61,77,62,0.68);
+      line-height: 1.5;
     }
-    .er-savings-info p { font-size: 14.5px; color: #3d4d3e; line-height: 1.75; margin-bottom: 12px; }
+    .er-savings-security svg { width: 14px; height: 14px; fill: rgba(0,141,5,0.5); flex-shrink: 0; }
 
     /* ════════════════════════════════
        4. HOW TO REPAY EARLY
@@ -430,39 +521,206 @@
       line-height: 1.35; margin: 0;
     }
     .er-benefit-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+    .er-benefits-fineprint {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: rgba(0,141,5,0.05);
+      border: 1.5px solid rgba(0,141,5,0.15);
+      border-radius: 16px;
+      padding: 18px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .er-benefits-fineprint-icon {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(0,141,5,0.25);
+      background: rgba(0,141,5,0.07);
+      display: grid; place-items: center;
+    }
+    .er-benefits-fineprint-icon svg { width: 18px; height: 18px; fill: var(--green); }
+    .er-benefits-fineprint-divider {
+      width: 1.5px;
+      align-self: stretch;
+      background: rgba(0,141,5,0.18);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .er-benefits-fineprint p {
+      font-size: 13px;
+      color: #2d3d2e;
+      line-height: 1.65;
+      margin: 0;
+      flex: 1;
+    }
+    .er-benefits-fineprint p strong { color: var(--green); }
+    .er-benefits-fineprint-shield {
+      flex-shrink: 0;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .er-benefits-fineprint-shield svg { width: 52px; height: 52px; fill: var(--green); }
 
     /* ════════════════════════════════
        6. NOT READY
     ════════════════════════════════ */
-    .er-not-ready { background: #fff; }
+    .er-not-ready { background: var(--off-white); }
     .er-not-ready-card {
-      max-width: 760px; margin: 0 auto;
-      background: linear-gradient(135deg, rgba(0,141,5,0.04), rgba(0,141,5,0.02));
-      border: 1.5px solid rgba(0,141,5,0.15);
+      background: #fff;
+      border: 1.5px solid rgba(0,141,5,0.14);
       border-radius: 24px;
-      padding: 40px 44px;
+      padding: 44px 48px;
+      box-shadow: 0 4px 24px rgba(0,141,5,0.06);
     }
-    .er-not-ready-card h2 {
+    .er-not-ready-inner {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 56px;
+      align-items: center;
+    }
+    .er-not-ready-icon-heading {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 18px;
+    }
+    .er-not-ready-heading-icon {
+      flex-shrink: 0;
+      width: 52px; height: 52px;
+      background: rgba(0,141,5,0.08);
+      border: 1.5px solid rgba(0,141,5,0.2);
+      border-radius: 14px;
+      display: grid; place-items: center;
+      margin-top: 2px;
+    }
+    .er-not-ready-heading-icon svg { width: 26px; height: 26px; fill: var(--green); }
+    .er-not-ready-content h2 {
       font-family: 'Sora', sans-serif;
-      font-size: 22px; font-weight: 800; color: #0a1a0b;
-      margin-bottom: 12px;
+      font-size: clamp(22px, 3vw, 30px); font-weight: 800; color: #0a1a0b;
+      line-height: 1.2; margin: 0;
     }
-    .er-not-ready-card p { font-size: 14.5px; color: #3d4d3e; line-height: 1.75; margin-bottom: 14px; }
-    .er-not-ready-card ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
-    .er-not-ready-card ul li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #2d3d2e; line-height: 1.6; }
-    .er-not-ready-card ul li::before {
-      content: ''; flex-shrink: 0;
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--green); margin-top: 7px;
+    .er-not-ready-lead { font-size: 14.5px; color: #3d4d3e; line-height: 1.75; margin-bottom: 20px; }
+    .er-not-ready-list {
+      list-style: none; padding: 0;
+      display: flex; flex-direction: column; gap: 12px;
+      margin-bottom: 24px;
     }
-    .er-not-ready-card a { color: var(--green); font-weight: 600; }
+    .er-not-ready-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; color: #2d3d2e; line-height: 1.6;
+    }
+    .er-not-ready-check {
+      flex-shrink: 0;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green);
+      display: grid; place-items: center;
+      margin-top: 1px;
+    }
+    .er-not-ready-check svg { width: 13px; height: 13px; fill: #fff; }
+    .er-not-ready-note {
+      display: flex; align-items: flex-start; gap: 14px;
+      background: rgba(0,141,5,0.04);
+      border: 1.5px solid rgba(0,141,5,0.12);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+    }
+    .er-not-ready-note-icon {
+      flex-shrink: 0;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1.5px solid rgba(0,141,5,0.25);
+      background: rgba(0,141,5,0.07);
+      display: grid; place-items: center;
+    }
+    .er-not-ready-note-icon svg { width: 20px; height: 20px; fill: var(--green); }
+    .er-not-ready-note p { font-size: 13px; color: #3d4d3e; line-height: 1.65; margin: 0; }
+    .er-not-ready-note p a { color: var(--green); font-weight: 700; text-decoration: none; }
+    .er-not-ready-fineprint {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(0,141,5,0.05);
+      border: 1.5px solid rgba(0,141,5,0.15);
+      border-radius: 12px;
+      padding: 14px 18px;
+    }
+    .er-not-ready-fineprint-icon {
+      flex-shrink: 0;
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1.5px solid rgba(0,141,5,0.25);
+      background: rgba(0,141,5,0.07);
+      display: grid; place-items: center;
+    }
+    .er-not-ready-fineprint-icon svg { width: 15px; height: 15px; fill: var(--green); }
+    .er-not-ready-fineprint p { font-size: 12.5px; color: #3d4d3e; line-height: 1.6; margin: 0; }
+    .er-not-ready-fineprint p strong { color: var(--green); }
+    /* Right visual */
+    .er-not-ready-visual {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 300px;
+    }
+    .er-not-ready-visual-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 55% 45%, rgba(0,141,5,0.1) 0%, transparent 70%);
+      border-radius: 32px;
+      pointer-events: none;
+    }
+    .er-not-ready-cal-wrap {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+    }
+    .er-not-ready-cal-card {
+      width: 180px;
+      background: #fff;
+      border-radius: 20px;
+      border: 2px solid rgba(0,141,5,0.15);
+      box-shadow: 0 16px 48px rgba(0,141,5,0.14);
+      overflow: hidden;
+    }
+    .er-not-ready-cal-header {
+      background: var(--green);
+      padding: 10px 0;
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+    }
+    .er-not-ready-cal-header svg { width: 18px; height: 18px; fill: #fff; }
+    .er-not-ready-cal-header span {
+      font-family: 'Sora', sans-serif;
+      font-size: 12px; font-weight: 700; color: #fff; letter-spacing: 0.04em;
+    }
+    .er-not-ready-cal-body {
+      padding: 16px 18px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .er-not-ready-cal-row {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 12px; color: #3d4d3e; font-family: 'DM Sans', sans-serif;
+    }
+    .er-not-ready-cal-row svg { width: 16px; height: 16px; fill: var(--green); flex-shrink: 0; }
+    .er-not-ready-shield-badge {
+      position: absolute;
+      bottom: 28px; right: -10px;
+      width: 64px; height: 64px;
+      background: linear-gradient(135deg, #006b04, #008d05);
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(0,141,5,0.35);
+      display: grid; place-items: center;
+      border: 3px solid #fff;
+    }
+    .er-not-ready-shield-badge svg { width: 32px; height: 32px; fill: #fff; }
+    .er-not-ready-dot-1, .er-not-ready-dot-2 {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0,141,5,0.12);
+    }
+    .er-not-ready-dot-1 { width: 80px; height: 80px; top: 10px; left: 0; }
+    .er-not-ready-dot-2 { width: 48px; height: 48px; bottom: 20px; left: 20px; }
 
     /* ════════════════════════════════
        7. READY TO SAVE CTA
     ════════════════════════════════ */
     .er-cta {
       background: linear-gradient(135deg, #006b04 0%, #008d05 60%, #00a806 100%);
-      padding: 36px 24px;
+      padding: 72px 24px;
       text-align: center;
       position: relative; overflow: hidden;
     }
@@ -473,23 +731,56 @@
         radial-gradient(ellipse 300px 300px at 90% 50%, rgba(255,255,255,0.05) 0%, transparent 65%);
       pointer-events: none;
     }
-    .er-cta-inner { position: relative; z-index: 1; }
+    .er-cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
     .er-cta h2 {
       font-family: 'Sora', sans-serif;
-      font-size: clamp(24px, 4vw, 36px); font-weight: 800;
-      color: #fff; margin-bottom: 10px;
+      font-size: clamp(28px, 5vw, 46px); font-weight: 800;
+      color: #fff; margin-bottom: 18px; line-height: 1.15;
     }
-    .er-cta p { font-size: 15px; color: rgba(255,255,255,0.80); margin-bottom: 28px; line-height: 1.6; }
+    .er-cta-divider {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .er-cta-divider-line {
+      width: 48px; height: 1.5px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 2px;
+    }
+    .er-cta-divider-icon {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.10);
+      display: grid; place-items: center;
+    }
+    .er-cta-divider-icon svg { width: 16px; height: 16px; fill: #fff; }
+    .er-cta p { font-size: 15.5px; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 1.7; }
     .btn-er-orange {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; align-items: center; gap: 10px;
       background: #f57c00; color: #fff;
       font-family: 'Sora', sans-serif; font-weight: 800;
-      font-size: 15px; padding: 15px 34px;
+      font-size: 16px; padding: 17px 40px;
       border-radius: 999px; text-decoration: none;
       box-shadow: 0 8px 28px rgba(245,124,0,0.40);
       transition: background .2s, transform .2s, box-shadow .2s;
     }
     .btn-er-orange:hover { background: #e65100; transform: translateY(-2px); box-shadow: 0 14px 36px rgba(245,124,0,0.50); }
+    .er-cta-fineprint {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-top: 28px;
+      text-align: left;
+      max-width: 480px;
+      margin-left: auto; margin-right: auto;
+    }
+    .er-cta-fineprint-icon {
+      flex-shrink: 0;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.30);
+      display: grid; place-items: center;
+      margin-top: 1px;
+    }
+    .er-cta-fineprint-icon svg { width: 14px; height: 14px; fill: #fff; }
+    .er-cta-fineprint p { font-size: 12.5px; color: rgba(255,255,255,0.72); line-height: 1.6; margin: 0; }
 
     /* ════════════════════════════════
        8. FAQ
@@ -648,31 +939,91 @@
        RESPONSIVE
     ════════════════════════════════ */
     @media (max-width: 960px) {
-      .er-hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .er-hero-visual { order: -1; }
-      .er-savings-card { max-width: 340px; margin: 0 auto; }
-      .er-steps-grid { grid-template-columns: repeat(2, 1fr); }
-      .er-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      /* Hero */
+      .er-hero-inner { grid-template-columns: 1fr; gap: 36px; }
+      .er-hero-visual { order: -1; justify-content: center; }
+      .er-hero-img { max-width: 380px; }
+      /* Discounts */
       .er-discount-grid { grid-template-columns: repeat(3, 1fr); }
+      /* Savings */
       .er-savings-layout { grid-template-columns: 1fr; gap: 32px; }
+      .er-savings-card { max-width: 340px; margin: 0 auto; }
+      /* Steps */
+      .er-steps-grid { grid-template-columns: repeat(2, 1fr); }
+      /* Benefits */
+      .er-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      /* Not Ready */
+      .er-not-ready-inner { grid-template-columns: 1fr; gap: 32px; }
+      .er-not-ready-visual { min-height: 220px; }
     }
+
     @media (max-width: 640px) {
-      .er-hero { padding: 44px 20px 52px; }
-      .er-hero-visual { order: 0; }
-      .er-section { padding: 28px 20px; }
-      .er-steps-grid { grid-template-columns: 1fr; }
-      .er-benefits-grid { grid-template-columns: 1fr; }
-      .er-discount-grid { grid-template-columns: 1fr; }
-      .er-not-ready-card { padding: 28px 22px; }
-      .er-help-card { padding: 28px 20px; }
-      .er-form-card { padding: 24px 20px; }
-      .er-hero-btns { flex-direction: column; align-items: center; }
+      /* Hero */
+      .er-hero { padding: 32px 20px 40px; }
+      .er-hero-visual { order: 0; justify-content: center; }
+      .er-hero-img { max-width: 320px; }
+      .er-hero-btns { flex-direction: column; align-items: stretch; }
       .er-hero-btns .btn-er-primary,
       .er-hero-btns .btn-er-outline { width: 100%; justify-content: center; }
+      /* Global section padding */
+      .er-section { padding: 36px 20px; }
+      /* Discounts */
+      .er-discount-grid { grid-template-columns: 1fr; }
+      .er-discount-card { padding: 24px 20px; }
+      .er-discount-pct { font-size: 48px; }
+      /* Savings */
+      .er-savings-card-contact { padding: 26px 22px; }
+      /* Steps */
+      .er-steps-grid { grid-template-columns: 1fr; }
+      /* Benefits */
+      .er-benefits-grid { grid-template-columns: 1fr; }
+      .er-benefits-fineprint { flex-wrap: nowrap; gap: 12px; padding: 16px 16px; }
+      .er-benefits-fineprint-shield { display: none; }
+      /* Not Ready */
+      .er-not-ready-card { padding: 28px 22px; }
+      .er-not-ready-visual { display: none; }
+      .er-not-ready-icon-heading { gap: 12px; }
+      .er-not-ready-heading-icon { width: 44px; height: 44px; }
+      .er-not-ready-fineprint { align-items: flex-start; }
+      /* CTA */
+      .er-cta { padding: 52px 20px; }
+      .btn-er-orange { width: 100%; justify-content: center; text-align: center; }
+      .er-cta-fineprint { justify-content: flex-start; }
+      /* FAQ */
+      .er-faq-question { padding: 16px 18px; font-size: 14px; }
+      .er-faq-answer { padding: 0 18px; }
+      .er-faq-item.open .er-faq-answer { padding: 0 18px 16px; }
+      /* Form card */
+      .er-form-card { padding: 24px 20px; }
     }
+
+    @media (max-width: 480px) {
+      /* Hero */
+      .er-hero-badge { font-size: 10px; }
+      /* Discounts */
+      .er-discount-note { font-size: 13px; }
+      /* Savings */
+      .er-savings-heading { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .er-savings-card-contact { padding: 22px 18px; }
+      /* Not Ready */
+      .er-not-ready-card { padding: 24px 18px; }
+      .er-not-ready-note { flex-direction: column; gap: 10px; }
+      .er-not-ready-note-icon { width: 32px; height: 32px; }
+      /* Benefits fineprint */
+      .er-benefits-fineprint { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .er-benefits-fineprint-divider { width: 100%; height: 1.5px; align-self: auto; }
+      /* CTA */
+      .er-cta h2 { font-size: 28px; }
+      .er-cta-fineprint { gap: 10px; }
+    }
+
     @media (max-width: 390px) {
       .er-hero h1 { font-size: 26px; }
-      .er-discount-pct { font-size: 44px; }
+      .er-discount-pct { font-size: 42px; }
+      .er-step-card { padding: 20px 16px; }
+      .er-benefit-card { padding: 22px 18px; }
+      .er-savings-sub { font-size: 16px; }
+      .er-not-ready-content h2 { font-size: 20px; }
     }
   </style>
 </head>
@@ -749,42 +1100,47 @@
     <section class="er-hero" aria-labelledby="er-hero-title">
       <div class="er-hero-inner">
         <div class="animate-up delay-1">
-          <h1 id="er-hero-title">GoLoans Early<br><span>Repayment Program</span></h1>
-          <p class="er-hero-tagline">Repay Early – Pay Less</p>
+
+          <!-- Badge -->
+          <div class="er-hero-badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            Early Repayment Savings
+          </div>
+
+          <h1 id="er-hero-title">GoLoans Early Repayment<br>Savings Program</h1>
+          <p class="er-hero-tagline">Repay Early. Save More.</p>
           <p class="er-hero-lead">
-            GoLoans rewards responsible borrowing. When you repay your loan early, you may save on your guarantor / surety fees — the sooner you repay, the more you save.
+            Eligible GoLoans-approved lenders may offer savings on the surety / guarantor fee when you repay your loan early. The sooner you repay, the more you may save, subject to the lender's offer terms.
           </p>
+
+          <!-- Disclaimer note -->
+          <div class="er-hero-note">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            GoLoans is not the lender. Early repayment savings are offered and confirmed by participating or GoLoans-approved lenders.
+          </div>
+
           <div class="er-hero-btns">
             <a href="#ready-to-repay" class="btn-er-primary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
               Request Your Early Payoff Quote
             </a>
-            <a href="#discounts" class="btn-er-outline">See Discounts ↓</a>
+            <a href="#discounts" class="btn-er-outline">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4zm2 2H5V5h14v14zm0-16H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+              See Savings
+            </a>
           </div>
         </div>
 
+        <!-- Right: hero image -->
         <div class="er-hero-visual animate-up delay-3">
-          <div class="er-savings-card">
-            <div class="er-card-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-            </div>
-            <div class="er-card-title">Early Repayment Savings</div>
-            <div class="er-card-sub">Repay sooner, save more</div>
-            <div class="er-card-discounts">
-              <div class="er-card-discount-row top-row">
-                <span class="timeframe">Within 7 days</span>
-                <span class="pct">100%</span>
-              </div>
-              <div class="er-card-discount-row">
-                <span class="timeframe">Within 15 days</span>
-                <span class="pct">70%</span>
-              </div>
-              <div class="er-card-discount-row">
-                <span class="timeframe">30 days</span>
-                <span class="pct">50%</span>
-              </div>
-            </div>
-          </div>
+          <img
+            src="../img/logo/early-repayment-hero-img/early-repayment-hero-img.png"
+            alt="Early Repayment Savings — example schedule showing up to 100% fee discount within 7 days, 70% within 15 days, and 50% within 30 days"
+            class="er-hero-img"
+            width="440"
+            loading="eager"
+            decoding="async"
+          />
         </div>
       </div>
     </section>
@@ -799,18 +1155,27 @@
 
         <div class="er-discount-grid">
           <article class="er-discount-card featured animate-up delay-1">
+            <div class="er-discount-icon er-discount-icon--featured">
+              <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.31.18-.61.18-.93A3.07 3.07 0 0 0 14.93 2c-1.48 0-2.39.8-3.43 2.19C10.46 2.8 9.55 2 8.07 2A3.07 3.07 0 0 0 5 5.07c0 .32.11.62.18.93H3c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-5-2.07c.59 0 1.07.48 1.07 1.07C16.07 6 15 6 13.5 6c.04-.17 1.07-2.07 1.5-2.07zM7.93 5c0-.59.48-1.07 1.07-1.07C9.43 3.93 10.46 5.83 10.5 6 9 6 7.93 6 7.93 5.07V5zM11 19H8v-7h3v7zm5 0h-3v-7h3v7zm1-9H3V8h17v2h-3z"/></svg>
+            </div>
             <div class="er-discount-pct">100%</div>
             <div class="er-discount-label">Within 7 days</div>
             <div class="er-discount-desc">Repay within 7 days of your loan issuance and receive a full 100% discount on the guarantor / surety fee.</div>
             <div class="er-discount-bar"><div class="er-discount-bar-fill" style="width:100%"></div></div>
           </article>
           <article class="er-discount-card animate-up delay-2">
+            <div class="er-discount-icon er-discount-icon--outline">
+              <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+            </div>
             <div class="er-discount-pct">70%</div>
             <div class="er-discount-label">Within 15 days</div>
             <div class="er-discount-desc">Repay within 15 days and receive a 70% discount on the guarantor / surety fee.</div>
             <div class="er-discount-bar"><div class="er-discount-bar-fill" style="width:70%"></div></div>
           </article>
           <article class="er-discount-card animate-up delay-3">
+            <div class="er-discount-icon er-discount-icon--outline">
+              <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+            </div>
             <div class="er-discount-pct">50%</div>
             <div class="er-discount-label">30 days</div>
             <div class="er-discount-desc">Repay within 30 days and receive a 50% discount on the guarantor / surety fee.</div>
@@ -819,7 +1184,7 @@
         </div>
 
         <div class="er-discount-note">
-          Discounts apply to the guarantor / surety fee only and are subject to eligibility. Contact GoLoans to confirm your discount at the time of early repayment.
+          Discounts apply to the guarantor / surety fee only and are subject to eligibility. Contact your GoLoans Approved Lender to confirm your discount at the time of early repayment.
         </div>
       </div>
     </section>
@@ -830,27 +1195,68 @@
     <section class="er-section er-savings" aria-labelledby="er-savings-title">
       <div class="er-section-inner">
         <div class="er-savings-layout">
+
+          <!-- Left: info column -->
           <div class="er-savings-info animate-up">
-            <h2 class="er-heading" id="er-savings-title">Calculate Your Savings</h2>
-            <p>Want to know exactly how much you could save by repaying early? GoLoans calculates your personalised discounted payoff amount based on your loan details and repayment timing.</p>
-            <p>Contact us to get your exact early payoff figure — no guesswork, just your real numbers.</p>
-            <h3 style="font-family:'Sora',sans-serif;font-size:18px;font-weight:800;color:#0a1a0b;margin:20px 0 8px;">How much will I save?</h3>
-            <p>Your savings depend on when you repay. The earlier you act, the higher the discount — up to 100% on your guarantor / surety fee if repaid within 7 days.</p>
+            <div class="er-savings-heading">
+              <div class="er-savings-heading-icon">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H7v-2h5v2zm5-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              </div>
+              <h2 class="er-heading" id="er-savings-title">Calculate Your Savings</h2>
+            </div>
+
+            <p>Want to know how much you could save by repaying early?</p>
+            <p>Your early payoff savings may depend on your loan details, repayment timing, and the discount terms offered by your <a href="#">GoLoans-approved lender.</a></p>
+
+            <!-- Contact row -->
+            <div class="er-savings-contact-row">
+              <div class="er-savings-contact-icon">
+                <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+              </div>
+              <p>Contact your <a href="#">GoLoans-approved lender</a> to request your exact early payoff amount and confirm any available discount before making payment.</p>
+            </div>
+
+            <hr class="er-savings-divider">
+
+            <p class="er-savings-sub">How much will I save?</p>
+            <p>Your savings depend on when you repay and the lender's applicable offer terms. The earlier you repay, the higher the potential discount may be on eligible guarantor / surety fees.</p>
+
+            <!-- Fine print -->
+            <div class="er-savings-fineprint">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+              <span>Discounts apply to eligible guarantor / surety fees only and are subject to your lender's terms and approval.</span>
+            </div>
           </div>
 
+          <!-- Right: quote card -->
           <div class="er-savings-card-contact animate-up delay-2">
-            <h3>Get Your Payoff Quote</h3>
-            <p>Contact GoLoans and we'll calculate the discounted early payoff amount for your specific loan.</p>
+            <div class="er-savings-card-heading">
+              <div class="er-savings-card-heading-icon">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm1 9h-4v1h3c.55 0 1 .45 1 1v3c0 .55-.45 1-1 1h-1v1h-2v-1H9v-2h4v-1h-3c-.55 0-1-.45-1-1v-3c0-.55.45-1 1-1h1V8h2v1h2v2zm-3-5.5V3.5L14.5 6H12z"/></svg>
+              </div>
+              <h3>Get Your Payoff Quote</h3>
+            </div>
+
+            <p>Contact your <a href="#">GoLoans-approved lender</a> to confirm your discounted early payoff amount for your specific loan.</p>
+
             <div class="er-savings-estimate">
               <div class="er-savings-estimate-icon">
                 <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
               </div>
-              <p><strong>Personal quote required.</strong> Your actual savings depend on your loan details. Request a quote to see your exact discount.</p>
+              <p><strong>Personal quote required.</strong> Your actual savings depend on your loan details, repayment date, and your lender's approval. Request a quote to confirm your available discount.</p>
             </div>
+
             <a href="#ready-to-repay" class="btn-er-primary" style="width:100%;justify-content:center;">
-              Request Your Early Payoff Quote
+              <svg viewBox="0 0 24 24" fill="currentColor" width="17" height="17"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              Request My Early Payoff Quote
             </a>
+
+            <div class="er-savings-security">
+              <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+              Your information is secure and will only be used to process your quote request.
+            </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -861,7 +1267,7 @@
     <section class="er-section er-how" aria-labelledby="er-how-title">
       <div class="er-section-inner">
         <h2 class="er-heading" id="er-how-title">How to Repay Early</h2>
-        <p class="er-subheading">Follow these steps to request your early payoff and apply your discount.</p>
+        <p class="er-subheading">Follow these steps to request an early payoff quote and confirm any available discount with your <span style="color:#ffd166;font-weight:700;">GoLoans-approved lender</span></p>
 
         <div class="er-steps-grid">
           <article class="er-step-card">
@@ -871,18 +1277,8 @@
               </div>
               <div class="er-step-num">STEP 1</div>
             </div>
-            <h3>Contact GoLoans for Your Payoff Quote</h3>
-            <p>Reach out via email or SMS to request your discounted early payoff amount.</p>
-            <div class="er-step-contact">
-              <a href="mailto:onyx-vip@goloans.ca">
-                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                onyx-vip@goloans.ca
-              </a>
-              <a href="sms:+18252546545">
-                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-                +1 (825) 254-6545
-              </a>
-            </div>
+            <h3>Contact Your Lender</h3>
+            <p>Contact your GoLoans-approved lender to request your discounted early payoff amount.</p>
           </article>
 
           <article class="er-step-card">
@@ -892,8 +1288,8 @@
               </div>
               <div class="er-step-num">STEP 2</div>
             </div>
-            <h3>GoLoans Calculates Your Discounted Amount</h3>
-            <p>We calculate your discounted early payoff amount based on your loan details and repayment timing.</p>
+            <h3>Lender Reviews &amp; Confirms</h3>
+            <p>Your GoLoans-approved lender will review your loan details, repayment timing, and applicable offer terms to confirm your early payoff amount.</p>
           </article>
 
           <article class="er-step-card">
@@ -903,14 +1299,8 @@
               </div>
               <div class="er-step-num">STEP 3</div>
             </div>
-            <h3>Send Your E-Transfer Payment</h3>
-            <p>Send your early payoff e-transfer to the GoLoans payment email.</p>
-            <div class="er-step-contact">
-              <a href="mailto:payments@goloans.ca">
-                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                payments@goloans.ca
-              </a>
-            </div>
+            <h3>Send Your E-Transfer</h3>
+            <p>Once your quote is confirmed, send your early payoff e-transfer using the payment instructions provided.</p>
           </article>
 
           <article class="er-step-card">
@@ -920,8 +1310,8 @@
               </div>
               <div class="er-step-num">STEP 4</div>
             </div>
-            <h3>Done — Your Loan is Settled</h3>
-            <p>Once your payment is received and confirmed, your loan is considered fully repaid at the discounted amount.</p>
+            <h3>Loan Considered Repaid</h3>
+            <p>Once your payment is received and confirmed, your loan will be considered repaid according to the confirmed discounted payoff amount.</p>
           </article>
         </div>
       </div>
@@ -938,32 +1328,42 @@
         <div class="er-benefits-grid">
           <article class="er-benefit-card animate-up delay-1">
             <div class="er-benefit-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
             </div>
-            <h3>Stop Paying Future Interest</h3>
-            <p>You stop paying interest on future scheduled repayments.</p>
+            <h3>Potential Savings on Eligible Fees</h3>
+            <p>Depending on your GoLoans-approved lender's offer, repaying early may reduce eligible guarantor / surety fees.</p>
           </article>
           <article class="er-benefit-card animate-up delay-2">
             <div class="er-benefit-icon">
               <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
             </div>
-            <h3>No Pre-Termination Fees</h3>
-            <p>There are no pre-termination fees.</p>
+            <h3>No Separate Pre-Termination Fee</h3>
+            <p>Early repayment may be available without a separate pre-termination fee, subject to your lender's terms.</p>
           </article>
           <article class="er-benefit-card animate-up delay-3">
             <div class="er-benefit-icon">
-              <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M13 2.05V4.05C17.39 4.59 20.5 8.58 19.96 12.97C19.5 16.61 16.64 19.5 13 19.93V21.93C18.5 21.38 22.5 16.5 21.95 11C21.5 6.25 17.73 2.5 13 2.05M11 2.06C9.05 2.25 7.19 3 5.67 4.26L7.1 5.74C8.22 4.84 9.57 4.26 11 4.06V2.06M4.26 5.67C3 7.19 2.25 9.04 2.05 11H4.05C4.24 9.58 4.8 8.23 5.69 7.1L4.26 5.67M2.06 13C2.26 14.96 3.03 16.81 4.27 18.33L5.69 16.9C4.81 15.77 4.24 14.42 4.06 13H2.06M7.1 18.37L5.67 19.74C7.18 21 9.04 21.79 11 22V20C9.58 19.82 8.23 19.25 7.1 18.37M12 7L9 11H11V16H13V11H15L12 7Z"/></svg>
             </div>
-            <h3>Save on Guarantor Fees — Up to 100%</h3>
-            <p>You save on guarantor fees — up to 100%.</p>
+            <h3>Repay Sooner, Reduce Costs Sooner</h3>
+            <p>Settling your loan early may help you reduce eligible scheduled borrowing costs sooner, depending on your lender's offer.</p>
           </article>
           <article class="er-benefit-card animate-up delay-4">
             <div class="er-benefit-icon">
               <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
             </div>
-            <h3>May Be Eligible for a New Loan Sooner</h3>
-            <p>You may be eligible for a new loan sooner.</p>
+            <h3>May Support Future Eligibility</h3>
+            <p>Completing your loan early may support eligibility for future offers, subject to lender review and approval.</p>
           </article>
+        </div>
+        <div class="er-benefits-fineprint animate-up">
+          <div class="er-benefits-fineprint-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <div class="er-benefits-fineprint-divider"></div>
+          <p>Benefits, savings, and future eligibility depend on the participating or GoLoans-approved lender's terms, review, and approval. <strong>GoLoans is not the lender.</strong></p>
+          <div class="er-benefits-fineprint-shield" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
         </div>
       </div>
     </section>
@@ -973,14 +1373,82 @@
     ══════════════════════════════════════ -->
     <section class="er-section er-not-ready" aria-labelledby="er-not-ready-title">
       <div class="er-not-ready-card animate-up">
-        <h2 id="er-not-ready-title">Not Ready to Repay Early? No Problem.</h2>
-        <p>There is no obligation to repay your loan early. Your regular payment schedule remains unchanged — simply continue making your scheduled payments as agreed.</p>
-        <ul>
-          <li>Your original loan terms and payment schedule are not affected.</li>
-          <li>Early repayment is always optional — there are no penalties for continuing on schedule.</li>
-          <li>You can revisit the early repayment option at any time during your loan term.</li>
-        </ul>
-        <p>If you were offered a rebate on your loan, check out the <a href="../loan-cashback/">Rebate program</a> to see if you are eligible after completing your loan.</p>
+        <div class="er-not-ready-inner">
+
+        <!-- Left: content -->
+        <div class="er-not-ready-content animate-up">
+          <div class="er-not-ready-icon-heading">
+            <div class="er-not-ready-heading-icon">
+              <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10l1.41-1.41L10 10.17l4.59-4.58L16 7l-6 6z"/></svg>
+            </div>
+            <h2 id="er-not-ready-title">Not Ready to Repay Early? No Problem.</h2>
+          </div>
+
+          <p class="er-not-ready-lead">There is no obligation to repay early. If you continue with your regular payment schedule, your loan will simply continue under the terms provided by your participating or GoLoans-approved lender.</p>
+
+          <ul class="er-not-ready-list">
+            <li>
+              <div class="er-not-ready-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+              Your original loan terms and payment schedule remain unchanged.
+            </li>
+            <li>
+              <div class="er-not-ready-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+              Early repayment is optional — there is no issue with continuing on your normal schedule.
+            </li>
+            <li>
+              <div class="er-not-ready-check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+              You can revisit early repayment later, subject to your lender's terms and any available offer.
+            </li>
+          </ul>
+
+          <div class="er-not-ready-note">
+            <div class="er-not-ready-note-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.35C18 2.53 15.47 0 12.35 0c-1.7 0-3.21.72-4.27 1.86L7 3 5.92 1.86C4.86.72 3.35 0 1.65 0h-.01C.74 0 0 .73 0 1.65v.01C0 2.55.72 3.29 1.63 3.29c.88 0 1.69.36 2.28.94L6 6H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-5 3c.83 0 1.5.67 1.5 1.5S15.83 12 15 12s-1.5-.67-1.5-1.5S14.17 9 15 9zm-6 0c.83 0 1.5.67 1.5 1.5S9.83 12 9 12s-1.5-.67-1.5-1.5S8.17 9 9 9zm7 9H8v-1c0-2.66 5.33-4 8-4v1c-2.33 0-6.22.88-6.22 3H16v1z"/></svg>
+            </div>
+            <p>If your participating or GoLoans-approved lender offered an early repayment savings option or rebate opportunity, you may still explore it later or review the <a href="../loan-cashback/">rebate program</a> after completing your loan.</p>
+          </div>
+
+          <div class="er-not-ready-fineprint">
+            <div class="er-not-ready-fineprint-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </div>
+            <p><strong>GoLoans is not the lender.</strong> Loan terms, repayment options, and any savings or rebate offers are determined by the participating or GoLoans-approved lender.</p>
+          </div>
+        </div>
+
+        <!-- Right: visual -->
+        <div class="er-not-ready-visual animate-up delay-2">
+          <div class="er-not-ready-visual-glow"></div>
+          <div class="er-not-ready-dot-1"></div>
+          <div class="er-not-ready-dot-2"></div>
+          <div class="er-not-ready-cal-wrap">
+            <div class="er-not-ready-cal-card">
+              <div class="er-not-ready-cal-header">
+                <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                <span>EARLY REPAYMENT</span>
+              </div>
+              <div class="er-not-ready-cal-body">
+                <div class="er-not-ready-cal-row">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  Loan terms unchanged
+                </div>
+                <div class="er-not-ready-cal-row">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  No early repayment penalties
+                </div>
+                <div class="er-not-ready-cal-row">
+                  <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  Always optional
+                </div>
+              </div>
+            </div>
+            <div class="er-not-ready-shield-badge">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        </div>
       </div>
     </section>
 
@@ -989,12 +1457,25 @@
     ══════════════════════════════════════ -->
     <section class="er-cta" aria-labelledby="er-cta-title">
       <div class="er-cta-inner animate-up">
-        <h2 id="er-cta-title">Ready to Save?</h2>
-        <p>Contact GoLoans today and find out exactly how much you can save by repaying your loan early.</p>
+        <h2 id="er-cta-title">Ready to Explore<br>Early Payoff Savings?</h2>
+        <div class="er-cta-divider">
+          <div class="er-cta-divider-line"></div>
+          <div class="er-cta-divider-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <div class="er-cta-divider-line"></div>
+        </div>
+        <p>If your participating or GoLoans-approved lender offers an early repayment discount, you may be able to save on eligible guarantor / surety fees by repaying early.</p>
         <a href="#ready-to-repay" class="btn-er-orange">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Request Your Early Payoff Quote
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm1 9h-4v1h3c.55 0 1 .45 1 1v3c0 .55-.45 1-1 1h-1v1h-2v-1H9v-2h4v-1h-3c-.55 0-1-.45-1-1v-3c0-.55.45-1 1-1h1V8h2v1h2v2zm-3-5.5V3.5L14.5 6H12z"/></svg>
+          Request My Early Payoff Quote
         </a>
+        <div class="er-cta-fineprint">
+          <div class="er-cta-fineprint-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
+          <p>GoLoans is not the lender. Savings, payoff quotes, and eligibility are determined by your participating or GoLoans-approved lender.</p>
+        </div>
       </div>
     </section>
 
@@ -1010,31 +1491,23 @@
 
           <article class="er-faq-item">
             <div class="er-faq-question" role="button" tabindex="0" aria-expanded="false">
-              <span class="er-faq-q-text">Can I still repay early if I have an active loan?</span>
-              <span class="er-faq-toggle"><svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg></span>
-            </div>
-            <div class="er-faq-answer">
-              <p>Yes. You can request an early payoff at any time during your active loan term. Contact GoLoans via email or SMS to request your discounted early payoff quote.</p>
-            </div>
-          </article>
-
-          <article class="er-faq-item">
-            <div class="er-faq-question" role="button" tabindex="0" aria-expanded="false">
               <span class="er-faq-q-text">Is there a penalty for paying early?</span>
               <span class="er-faq-toggle"><svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg></span>
             </div>
             <div class="er-faq-answer">
-              <p>No. There are no pre-termination fees or penalties for repaying your loan early. In fact, repaying early may save you money on your guarantor / surety fee.</p>
+              <p>No. Early repayment may be available without a separate pre-termination fee or penalty, subject to your participating or GoLoans-approved lender's terms.</p>
+              <p>If your lender offers an early repayment savings option, paying early may help reduce eligible guarantor / surety fees depending on when you repay and the offer available to your account.</p>
             </div>
           </article>
 
           <article class="er-faq-item">
             <div class="er-faq-question" role="button" tabindex="0" aria-expanded="false">
-              <span class="er-faq-q-text">How do I pay early?</span>
+              <span class="er-faq-q-text">How do I repay early?</span>
               <span class="er-faq-toggle"><svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg></span>
             </div>
             <div class="er-faq-answer">
-              <p>Contact GoLoans via email at <a href="mailto:onyx-vip@goloans.ca">onyx-vip@goloans.ca</a> or SMS at <a href="sms:+18252546545">+1 (825) 254-6545</a> to request your early payoff quote. Once the discounted payoff amount is calculated, send your e-transfer payment to <a href="mailto:payments@goloans.ca">payments@goloans.ca</a>.</p>
+              <p>You can request an early payoff quote through the available early repayment request process. Your participating or GoLoans-approved lender will review your loan details, repayment timing, and applicable offer terms to confirm your discounted early payoff amount.</p>
+              <p>Once your quote is confirmed, you can complete payment using the instructions provided. Your loan will be considered settled only after payment is received and confirmed.</p>
             </div>
           </article>
 
@@ -1044,52 +1517,24 @@
               <span class="er-faq-toggle"><svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg></span>
             </div>
             <div class="er-faq-answer">
-              <p>Repaying your loan early may make you eligible for a new loan sooner. Completing your loan in good standing — including early repayment — reflects positively on your repayment history.</p>
+              <p>Paying early may support future eligibility, but approval for any future loan or offer is not guaranteed.</p>
+              <p>Future eligibility depends on the participating or GoLoans-approved lender's review, approval criteria, repayment history, and applicable terms at the time of your next application or offer.</p>
             </div>
           </article>
 
           <article class="er-faq-item">
             <div class="er-faq-question" role="button" tabindex="0" aria-expanded="false">
-              <span class="er-faq-q-text">I was offered a rebate, can I still claim that when I pay off my loan early?</span>
+              <span class="er-faq-q-text">If I was offered a rebate, can I still claim it if I repay early?</span>
               <span class="er-faq-toggle"><svg viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg></span>
             </div>
             <div class="er-faq-answer">
-              <p>Only one promotion can be applied at a time. If you choose to use the Early Repayment Program discount, you will not be able to claim a rebate under the Loan Cashback program for the same loan. Please review the <a href="../loan-cashback/">Rebate program</a> terms to determine which option is best for you.</p>
+              <p>It depends on the terms of the offer made available by your participating or GoLoans-approved lender.</p>
+              <p>In some cases, only one promotion, discount, rebate, or savings offer may apply to the same loan. If you use an early repayment discount, you may not be eligible to claim a separate rebate on that same loan unless the lender's offer terms allow it.</p>
+              <p>Review the <a href="../loan-cashback/">rebate program</a> terms or confirm with your GoLoans-approved lender before choosing which option to use.</p>
             </div>
           </article>
 
         </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         9. NEED HELP
-    ══════════════════════════════════════ -->
-    <section class="er-help" aria-labelledby="er-help-title">
-      <div class="er-help-card animate-up">
-        <h2 id="er-help-title">Need Help?</h2>
-        <p>Our team is available to answer your questions and help you get your early payoff quote. Reach us by email or SMS.</p>
-        <div class="er-help-btns">
-          <a href="mailto:onyx-vip@goloans.ca" class="er-help-btn er-help-btn--email">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            onyx-vip@goloans.ca
-          </a>
-          <a href="sms:+18252546545" class="er-help-btn er-help-btn--sms">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-            +1 (825) 254-6545
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════════════════════════════════
-         10. LEGAL
-    ══════════════════════════════════════ -->
-    <section class="er-legal" aria-labelledby="er-legal-title">
-      <div class="er-legal-inner">
-        <h3 id="er-legal-title">Legal &amp; Terms</h3>
-        <p>The Early Repayment Program discounts apply to the guarantor / surety fee only, subject to eligibility and program conditions. GoLoans reserves the right to modify or withdraw this program at any time without prior notice, subject to applicable Canadian laws.</p>
-        <a href="../early-repayment-terms/" aria-label="View Terms and Conditions of Early Repayment">Terms &amp; Conditions of Early Repayment &rarr;</a>
       </div>
     </section>
 
