@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Loan Cashback | GoLoans.ca</title>
-  <meta name="description" content="Learn how GoLoans.ca rewards responsible repayment through the Loan Cashback program, including eligibility, how to claim, timelines, and terms." />
+  <meta name="description" content="Learn about VIP lender rebate opportunities for eligible GoLoans VIP clients, including eligibility, claim steps, timelines, and terms." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
@@ -20,300 +20,637 @@
     /* ── CASHBACK HERO ── */
     .cb-hero {
       background:
-        linear-gradient(135deg, rgba(247,253,248,0.60) 0%, rgba(237,247,239,0.60) 60%, rgba(240,250,242,0.60) 100%),
-        url('../img/logo/loan-casback-img-assets/cashback-hero-img.png') center / cover no-repeat;
-      padding: 64px 24px 72px;
+        radial-gradient(circle at 12% 22%, rgba(152, 215, 92, 0.18) 0%, transparent 28%),
+        radial-gradient(circle at 84% 24%, rgba(119, 205, 92, 0.22) 0%, transparent 24%),
+        linear-gradient(135deg, #f8fbf4 0%, #eff8ea 48%, #f6faf2 100%);
+      padding: 36px 24px 44px;
       overflow: hidden;
       position: relative;
     }
     .cb-hero::before {
       content: '';
       position: absolute;
-      width: 500px;
-      height: 500px;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(83, 170, 44, 0.08), transparent 38%),
+        repeating-linear-gradient(90deg, transparent, transparent 118px, rgba(0, 141, 5, 0.03) 118px, rgba(0, 141, 5, 0.03) 119px);
+      pointer-events: none;
+    }
+    .cb-hero::after {
+      content: '';
+      position: absolute;
+      width: 560px;
+      height: 560px;
+      right: -200px;
+      top: -120px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,141,5,0.07) 0%, transparent 70%);
-      top: -160px;
-      right: -120px;
+      background: radial-gradient(circle, rgba(118, 205, 96, 0.40) 0%, rgba(118, 205, 96, 0.12) 42%, transparent 70%);
       pointer-events: none;
     }
     .cb-hero-inner {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 52px;
+      grid-template-columns: minmax(0, 1fr) 470px;
+      gap: 56px;
       align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .cb-hero-content {
+      max-width: 560px;
     }
     .cb-hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background: rgba(0,141,5,0.09);
-      color: #006b04;
+      gap: 8px;
+      background: linear-gradient(180deg, rgba(155, 228, 114, 0.25), rgba(118, 205, 96, 0.14));
+      color: #2f7f15;
       font-family: 'Sora', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 6px 14px;
-      border-radius: 999px;
-      margin-bottom: 20px;
-    }
-    .cb-hero-badge svg { width: 14px; height: 14px; fill: #006b04; flex: none; }
-    .cb-hero h1 {
-      font-size: clamp(28px, 4vw, 46px);
+      font-size: 11px;
       font-weight: 800;
-      color: #0a1a0b;
-      line-height: 1.1;
-      margin-bottom: 20px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
     }
-    .cb-hero h1 span { color: var(--green); }
+    .cb-hero-badge svg { width: 14px; height: 14px; fill: currentColor; flex: none; }
+    .cb-hero h1 {
+      font-size: clamp(32px, 4.6vw, 56px);
+      font-weight: 800;
+      color: #0b1110;
+      line-height: 1.01;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+      max-width: 540px;
+      text-align: left;
+    }
+    .cb-hero h1 span {
+      display: block;
+      color: #63c40f;
+    }
+    .cb-hero-availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #202824;
+      font-family: 'Sora', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    .cb-hero-availability-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(99, 196, 15, 0.12);
+      color: #52a60b;
+      display: grid;
+      place-items: center;
+      flex: none;
+      box-shadow: inset 0 0 0 1px rgba(99, 196, 15, 0.22);
+    }
+    .cb-hero-availability-icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
     .cb-hero-lead {
       font-size: 17px;
-      color: #3d4d3e;
-      line-height: 1.65;
-      margin-bottom: 12px;
+      color: #53615b;
+      line-height: 1.7;
+      margin-bottom: 18px;
       max-width: 540px;
     }
     .cb-hero-note {
-      font-size: 13.5px;
-      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 12px;
+      color: #6f7773;
       line-height: 1.6;
-      max-width: 520px;
-      margin-bottom: 32px;
-      padding-left: 14px;
-      border-left: 3px solid rgba(0,141,5,0.25);
+      max-width: 470px;
+      margin-top: 2px;
+      margin-bottom: 30px;
+    }
+    .cb-hero-note svg {
+      width: 15px;
+      height: 15px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      flex: none;
+      margin-top: 2px;
     }
     .cb-hero-btns {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 14px;
+      margin-bottom: 30px;
     }
     .btn-primary-green {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #008d05, #006b04);
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      background: linear-gradient(180deg, #6fcf1c 0%, #49a50b 100%);
       color: #fff;
       font-family: 'Sora', sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       padding: 14px 28px;
-      border-radius: 999px;
-      border: none;
+      border-radius: 10px;
+      border: 1px solid rgba(71, 155, 12, 0.55);
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 6px 20px rgba(0,141,5,0.3);
-      transition: transform .22s ease, box-shadow .22s ease;
+      box-shadow: 0 18px 36px rgba(87, 174, 18, 0.24);
+      transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
       white-space: nowrap;
     }
     .btn-primary-green:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(0,141,5,0.38);
+      box-shadow: 0 24px 42px rgba(87, 174, 18, 0.3);
+      filter: saturate(1.05);
     }
+    .btn-primary-green svg { width: 18px; height: 18px; fill: currentColor; }
     .btn-secondary-outline {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: #006b04;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      background: rgba(255,255,255,0.75);
+      color: #348516;
       font-family: 'Sora', sans-serif;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
-      padding: 13px 26px;
-      border-radius: 999px;
-      border: 2px solid rgba(0,141,5,0.35);
+      padding: 14px 24px;
+      border-radius: 10px;
+      border: 1.5px solid rgba(85, 177, 18, 0.35);
       cursor: pointer;
       text-decoration: none;
-      transition: background .2s ease, border-color .2s ease, color .2s ease;
+      box-shadow: 0 12px 28px rgba(99, 196, 15, 0.08);
+      transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
       white-space: nowrap;
     }
     .btn-secondary-outline:hover {
-      background: rgba(0,141,5,0.07);
-      border-color: rgba(0,141,5,0.6);
+      background: #fff;
+      border-color: rgba(85, 177, 18, 0.55);
+      transform: translateY(-2px);
+    }
+    .btn-secondary-outline svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+    }
+    .cb-hero-perks {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 620px;
+    }
+    .cb-hero-perk {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-top: 2px;
+      position: relative;
+    }
+    .cb-hero-perk:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -7px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: rgba(69, 126, 37, 0.14);
+    }
+    .cb-hero-perk-icon {
+      width: 22px;
+      height: 22px;
+      color: #59b212;
+      flex: none;
+    }
+    .cb-hero-perk-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; }
+    .cb-hero-perk strong {
+      display: block;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      line-height: 1.25;
+      color: #263029;
+      margin-bottom: 2px;
+    }
+    .cb-hero-perk span {
+      display: block;
+      font-size: 11.5px;
+      line-height: 1.35;
+      color: #718079;
     }
 
-    /* ── HERO CARD ── */
+    /* ── HERO VISUAL ── */
     .cb-hero-visual {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 510px;
     }
-    /* ── Hero Card Carousel ── */
-    .cb-card-carousel {
-      width: 100%;
-      max-width: 380px;
+    .cb-visual-full-placeholder {
       position: relative;
-    }
-    .cb-card-carousel-track-wrap {
+      width: 100%;
+      min-height: 500px;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.72), rgba(241, 250, 235, 0.88)),
+        radial-gradient(circle at 50% 54%, rgba(113, 206, 69, 0.15), transparent 45%);
+      border: 1px dashed rgba(84, 177, 18, 0.38);
+      box-shadow: 0 32px 70px rgba(87, 174, 18, 0.14), inset 0 1px 0 rgba(255,255,255,0.92);
       overflow: hidden;
-      border-radius: 24px;
-    }
-    .cb-card-carousel-track {
       display: flex;
-      align-items: stretch;
-      transition: transform .5s cubic-bezier(0.4,0,0.2,1);
-      will-change: transform;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      box-sizing: border-box;
+      text-align: center;
     }
-    .cb-card-carousel-slide {
-      flex: 0 0 100%;
+    .cb-visual-full-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      border-radius: 26px;
+      border: 1px dashed rgba(84, 177, 18, 0.28);
+      pointer-events: none;
+    }
+    .cb-visual-full-placeholder::after {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(135, 217, 96, 0.22) 0%, rgba(135, 217, 96, 0.10) 40%, transparent 72%);
+      right: -48px;
+      top: 96px;
+      pointer-events: none;
+    }
+    .cb-visual-full-placeholder-content {
+      position: relative;
+      z-index: 1;
       width: 100%;
+      height: 100%;
       display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .cb-card-carousel-slide > * {
+    .cb-visual-full-placeholder img {
+      position: relative;
+      z-index: 1;
       width: 100%;
-    }
-    .cb-card-carousel-slide .cb-card-img-placeholder {
-      background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-      border: 1.5px dashed rgba(255,255,255,0.3);
+      height: 100%;
+      min-height: 464px;
+      object-fit: cover;
+      display: block;
       border-radius: 24px;
+      box-shadow: 0 20px 44px rgba(46, 96, 18, 0.16);
+    }
+    .cb-vip-stage {
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.72), rgba(241, 250, 235, 0.88)),
+        radial-gradient(circle at 50% 54%, rgba(113, 206, 69, 0.15), transparent 45%);
+      border: 1px solid rgba(255,255,255,0.75);
+      box-shadow: 0 32px 70px rgba(87, 174, 18, 0.14), inset 0 1px 0 rgba(255,255,255,0.92);
+      overflow: hidden;
+      padding: 24px;
+    }
+    .cb-vip-stage::before {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(135, 217, 96, 0.26) 0%, rgba(135, 217, 96, 0.14) 40%, transparent 72%);
+      right: -48px;
+      top: 96px;
+    }
+    .cb-vip-stage::after {
+      content: '';
+      position: absolute;
+      top: 54px;
+      right: 34px;
+      width: 68px;
+      height: 68px;
+      background-image: radial-gradient(rgba(123, 198, 88, 0.34) 1.4px, transparent 1.4px);
+      background-size: 10px 10px;
+      opacity: 0.65;
+    }
+    .cb-phone {
+      position: relative;
+      width: 222px;
+      height: 430px;
+      margin: 0 auto;
+      border-radius: 34px;
+      background: #121212;
+      padding: 10px;
+      box-shadow: 0 26px 48px rgba(0,0,0,0.22);
+      z-index: 2;
+    }
+    .cb-phone::before {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: 50%;
+      width: 84px;
+      height: 18px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: #050505;
+      z-index: 3;
+    }
+    .cb-phone-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 26px;
+      background: linear-gradient(180deg, #ffffff 0%, #f5f8f2 100%);
+      overflow: hidden;
+      padding: 20px 16px 16px;
+      box-sizing: border-box;
+    }
+    .cb-phone-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding-top: 8px;
+    }
+    .cb-phone-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #202824;
+    }
+    .cb-phone-brand-badge {
+      width: 20px;
+      height: 20px;
+      border-radius: 7px;
+      background: linear-gradient(180deg, #69c91b, #4ea60f);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 10px rgba(89, 178, 18, 0.24);
+    }
+    .cb-phone-brand-badge svg { width: 12px; height: 12px; fill: currentColor; }
+    .cb-phone-menu {
+      width: 18px;
+      height: 18px;
+      color: #7a8580;
+    }
+    .cb-phone-menu svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2; }
+    .cb-phone-panel {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(78, 166, 15, 0.08);
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .cb-phone-panel--highlight {
+      background: linear-gradient(180deg, rgba(241,248,233,0.96), rgba(229,244,216,0.96));
+    }
+    .cb-phone-panel-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .cb-phone-panel-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #69c91b, #4ea60f);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      flex: none;
+    }
+    .cb-phone-panel-icon svg { width: 18px; height: 18px; fill: currentColor; }
+    .cb-phone-panel-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #202824;
+      line-height: 1.25;
+    }
+    .cb-phone-panel-sub {
+      font-size: 10.5px;
+      color: #6a756f;
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+    .cb-phone-check {
+      width: 18px;
+      height: 18px;
+      margin-left: auto;
+      color: #5bb313;
+      flex: none;
+    }
+    .cb-phone-check svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 2.2; }
+    .cb-phone-journey {
+      font-family: 'Sora', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: #334038;
+      margin-bottom: 12px;
+    }
+    .cb-phone-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: relative;
+      margin-left: 4px;
+    }
+    .cb-phone-timeline::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      bottom: 2px;
+      left: 8px;
+      width: 1.5px;
+      background: rgba(88, 172, 18, 0.28);
+    }
+    .cb-phone-step {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-left: 18px;
+    }
+    .cb-phone-step-dot {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1.5px solid rgba(91, 179, 19, 0.55);
+      box-shadow: 0 0 0 3px rgba(91, 179, 19, 0.10);
+      box-sizing: border-box;
+    }
+    .cb-phone-step-copy {
+      font-size: 10.5px;
+      color: #4b5951;
+      line-height: 1.35;
+      padding-top: 1px;
+    }
+    .cb-phone-step-copy strong {
+      display: block;
+      font-size: 10.5px;
+      color: #233027;
+      margin-bottom: 1px;
+    }
+    .cb-phone-offer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(180deg, #eef7e2, #e3f1cf);
+      border-radius: 12px;
+      padding: 10px;
+      margin-top: 8px;
+    }
+    .cb-phone-offer-copy {
+      font-size: 10px;
+      line-height: 1.35;
+      color: #57655d;
+    }
+    .cb-phone-offer-copy strong {
+      display: block;
+      font-family: 'Sora', sans-serif;
+      font-size: 10.5px;
+      color: #1f2c23;
+      margin-bottom: 1px;
+    }
+    .cb-phone-footer {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      background: #f1f3f2;
+      border-radius: 12px;
+      padding: 10px;
+      margin-top: 10px;
+      color: #6d7772;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+    .cb-phone-footer svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      flex: none;
+      margin-top: 1px;
+    }
+    .cb-visual-badge {
+      position: absolute;
+      top: 104px;
+      left: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: 0 16px 30px rgba(87, 174, 18, 0.14);
+      z-index: 1;
+    }
+    .cb-visual-badge-inner {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #fafff6, #edf7e5);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      color: rgba(255,255,255,0.65);
+      gap: 4px;
+      color: #5ab113;
+      text-align: center;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    .cb-visual-badge-inner svg { width: 16px; height: 16px; fill: currentColor; }
+    .cb-visual-badge-inner span {
       font-family: 'Sora', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      backdrop-filter: blur(6px);
-    }
-    .cb-card-carousel-slide .cb-card-img-placeholder svg {
-      width: 38px; height: 38px;
-      opacity: 0.5;
-      stroke: rgba(255,255,255,0.7);
-      fill: none;
-      stroke-width: 1.5;
-    }
-    .cb-card-carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-      display: grid;
-      place-items: center;
-      transition: background .18s, transform .18s;
-    }
-    .cb-card-carousel-arrow:hover { background: rgba(255,255,255,0.32); transform: translateY(-50%) scale(1.1); }
-    .cb-card-carousel-arrow svg { width: 16px; height: 16px; fill: #fff; }
-    .cb-card-carousel-arrow--prev { left: -16px; }
-    .cb-card-carousel-arrow--next { right: -16px; }
-    .cb-card-carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 12px;
-    }
-    .cb-card-carousel-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      background: rgba(0,141,5,0.25);
-      transition: background .2s, transform .2s;
-      padding: 0;
-    }
-    .cb-card-carousel-dot.active { background: var(--green); transform: scale(1.3); }
-    .cb-reward-card {
-      background: linear-gradient(145deg, #006b04 0%, #008d05 55%, #00a806 100%);
-      border-radius: 24px;
-      padding: 36px 32px;
-      color: #fff;
-      width: 100%;
-      box-shadow: 0 24px 64px rgba(0,141,5,0.32), 0 4px 16px rgba(0,0,0,0.12);
-      position: relative;
-      overflow: hidden;
-    }
-    @keyframes cb-float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-    .cb-reward-card::before {
-      content: '';
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-      top: -70px;
-      right: -60px;
-    }
-    .cb-reward-card::after {
-      content: '';
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-      bottom: -40px;
-      left: -40px;
-    }
-    .cb-card-icon {
-      width: 56px;
-      height: 56px;
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 20px;
-    }
-    .cb-card-icon svg { width: 28px; height: 28px; fill: #fff; }
-    .cb-card-program {
-      font-family: 'Sora', sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-    .cb-card-sub {
-      font-size: 13px;
-      opacity: 0.78;
-      margin-bottom: 28px;
-      line-height: 1.5;
-    }
-    .cb-card-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255,120,0,0.88);
-      color: #fff;
-      font-family: 'Sora', sans-serif;
-      font-size: 12px;
+      font-size: 8px;
       font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 999px;
-      letter-spacing: .04em;
-      margin-bottom: 24px;
+      line-height: 1.15;
+      color: #5b7d50;
     }
-    .cb-card-checks { display: flex; flex-direction: column; gap: 10px; }
-    .cb-card-check {
+    .cb-visual-badge--right {
+      left: auto;
+      right: 18px;
+      top: 256px;
+    }
+    .cb-visual-placeholder {
+      position: absolute;
+      top: 94px;
+      left: 52%;
+      transform: translateX(-50%);
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 13.5px;
-      opacity: 0.9;
+      gap: 12px;
+      width: 252px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.96);
+      border: 1px dashed rgba(84, 177, 18, 0.4);
+      border-radius: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+      z-index: 3;
     }
-    .cb-card-check-icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.2);
+    .cb-visual-placeholder-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #6bc81d, #4ea60f);
       display: grid;
       place-items: center;
+      color: #fff;
       flex: none;
     }
-    .cb-card-check-icon svg { width: 12px; height: 12px; stroke: #fff; fill: none; }
+    .cb-visual-placeholder-icon svg { width: 22px; height: 22px; fill: currentColor; }
+    .cb-visual-placeholder-copy strong {
+      display: block;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      line-height: 1.25;
+      color: #202824;
+      margin-bottom: 2px;
+    }
+    .cb-visual-placeholder-copy span {
+      display: block;
+      font-size: 11px;
+      line-height: 1.45;
+      color: #68756e;
+    }
+    .cb-visual-placeholder-note {
+      font-family: 'Sora', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #57ac11;
+      margin-top: 5px;
+    }
 
     /* ── SECTION SHARED ── */
     .cb-section {
@@ -352,7 +689,16 @@
     }
 
     /* ── HOW IT WORKS ── */
-    .cb-hiw { background: linear-gradient(135deg, #006b04 0%, #008d05 60%, #00a806 100%); position: relative; overflow: hidden; padding-top: 36px; padding-bottom: 36px; }
+    .cb-hiw {
+      background:
+        radial-gradient(circle at 10% 14%, rgba(255,255,255,0.10) 0%, transparent 22%),
+        radial-gradient(circle at 88% 82%, rgba(255,255,255,0.08) 0%, transparent 20%),
+        linear-gradient(135deg, #006b04 0%, #008d05 54%, #00a806 100%);
+      position: relative;
+      overflow: hidden;
+      padding-top: 44px;
+      padding-bottom: 44px;
+    }
     .cb-hiw::before {
       content: '';
       position: absolute;
@@ -365,29 +711,60 @@
     }
     .cb-hiw .cb-section-label { color: rgba(255,255,255,0.75); }
     .cb-hiw .cb-section-label::before { background: rgba(255,255,255,0.5); }
-    .cb-hiw h2 { color: #fff; }
+    .cb-hiw h2 {
+      color: #fff;
+      margin-bottom: 28px;
+      text-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
     .cb-steps-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 18px;
       position: relative;
       z-index: 1;
     }
     .cb-step {
-      background: #fff;
-      border: 1.5px solid rgba(0,141,5,0.2);
-      border-radius: 16px;
-      padding: 16px 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,250,246,0.96));
+      border: 1px solid rgba(255,255,255,0.72);
+      border-radius: 22px;
+      padding: 18px 16px 16px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      gap: 12px;
+      min-height: 164px;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.85),
+        0 18px 36px rgba(0,0,0,0.12),
+        0 6px 16px rgba(0,85,0,0.10);
       transition: transform .28s cubic-bezier(0.34,1.56,0.64,1), box-shadow .28s ease;
       animation: fadeUp .5s ease both;
     }
+    .cb-step::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, #9de67a, #49a50b);
+    }
+    .cb-step::after {
+      content: '';
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(94, 187, 18, 0.10) 0%, transparent 72%);
+      top: -42px;
+      right: -38px;
+      pointer-events: none;
+    }
     .cb-step:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 48px rgba(0,0,0,0.14);
+      transform: translateY(-10px);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.92),
+        0 24px 54px rgba(0,0,0,0.18),
+        0 10px 26px rgba(34,129,9,0.18);
     }
     .cb-step:nth-child(1) { animation-delay: .05s; }
     .cb-step:nth-child(2) { animation-delay: .12s; }
@@ -395,39 +772,48 @@
     .cb-step:nth-child(4) { animation-delay: .26s; }
     .cb-step-num {
       font-family: 'Sora', sans-serif;
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 800;
-      color: rgba(0,141,5,0.35);
+      color: #8bcf74;
       line-height: 1;
       user-select: none;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     .cb-step-header {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .cb-step-icon {
-      width: 32px;
-      height: 32px;
-      background: linear-gradient(135deg, var(--green), #006b04);
-      border-radius: 9px;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(180deg, #14920e, #006f06);
+      border-radius: 13px;
       display: grid;
       place-items: center;
       flex-shrink: 0;
-      box-shadow: 0 3px 8px rgba(0,141,5,0.25);
+      box-shadow: 0 12px 24px rgba(0,141,5,0.24), inset 0 1px 0 rgba(255,255,255,0.22);
     }
-    .cb-step-icon svg { width: 15px; height: 15px; fill: #fff; }
+    .cb-step-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
     .cb-step h3 {
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 800;
       color: #0a1a0b;
       line-height: 1.35;
       margin: 0;
     }
     .cb-step p {
       font-size: 13px;
-      color: var(--muted);
+      color: #5d645f;
       line-height: 1.6;
       margin: 0;
     }
@@ -435,7 +821,7 @@
     /* ── HOW IT WORKS — footer strip ── */
     .cb-hiw-footer {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
       gap: 32px;
       align-items: center;
       margin-top: 40px;
@@ -452,327 +838,692 @@
     .cb-hiw-note {
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 12px;
-      padding: 14px 18px;
-      backdrop-filter: blur(6px);
+      gap: 12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 16px;
+      padding: 16px 18px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
     }
     .cb-hiw-note-icon {
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
       flex-shrink: 0;
       margin-top: 1px;
-      opacity: 0.85;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      opacity: 0.92;
     }
-    .cb-hiw-note-icon svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 2; }
+    .cb-hiw-note-icon svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2; }
     .cb-hiw-note p {
-      font-size: 13.5px;
+      font-size: 14px;
       color: rgba(255,255,255,0.88);
-      line-height: 1.55;
+      line-height: 1.65;
       margin: 0;
     }
     .cb-hiw-img-placeholder {
       aspect-ratio: 4 / 3;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.10);
-      border: 1.5px dashed rgba(255,255,255,0.28);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: rgba(255,255,255,0.55);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      overflow: hidden;
+      box-shadow: 0 22px 48px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.12);
     }
-    .cb-hiw-img-placeholder svg { width: 36px; height: 36px; opacity: 0.5; stroke: #fff; fill: none; stroke-width: 1.5; }
+    .cb-hiw-img-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     @media (max-width: 768px) {
       .cb-hiw-footer { grid-template-columns: 1fr; }
       .cb-hiw-img-placeholder { aspect-ratio: 16/9; }
     }
 
     /* ── ELIGIBILITY ── */
-    .cb-elig { background: #fff; padding-top: 36px; padding-bottom: 36px; }
+    .cb-elig {
+      background:
+        radial-gradient(circle at 6% 92%, rgba(128, 205, 92, 0.14) 0%, transparent 18%),
+        radial-gradient(circle at 94% 16%, rgba(128, 205, 92, 0.10) 0%, transparent 16%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcf9 100%);
+      padding-top: 44px;
+      padding-bottom: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cb-elig::after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      right: 42px;
+      width: 82px;
+      height: 82px;
+      background-image: radial-gradient(rgba(122, 201, 82, 0.32) 1.4px, transparent 1.4px);
+      background-size: 11px 11px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .cb-elig h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 800;
+      color: #111829;
+      margin-bottom: 34px;
+      position: relative;
+      display: inline-block;
+    }
+    .cb-elig h2::after {
+      content: '';
+      display: block;
+      width: 46px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #1aa114, #69c91b);
+      margin-top: 14px;
+    }
     .cb-elig-layout {
       display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 52px;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 420px);
+      gap: 26px;
       align-items: start;
     }
     .cb-elig-card {
-      background: var(--off-white);
-      border: 1.5px solid rgba(0,141,5,0.15);
-      border-radius: 20px;
-      padding: 32px 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,251,248,0.98));
+      border: 1px solid rgba(222, 234, 223, 0.9);
+      border-radius: 24px;
+      padding: 26px 28px 26px;
+      box-shadow: 0 22px 52px rgba(16, 39, 20, 0.10), inset 0 1px 0 rgba(255,255,255,0.92);
+      position: relative;
+      overflow: hidden;
+    }
+    .cb-elig-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0% 100%, rgba(104, 201, 27, 0.08), transparent 28%);
+      pointer-events: none;
     }
     .cb-elig-badge {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background: rgba(0,141,5,0.1);
-      color: #006b04;
+      gap: 8px;
+      background: linear-gradient(180deg, rgba(211, 242, 205, 0.8), rgba(235, 248, 231, 0.95));
+      color: #178514;
       font-family: 'Sora', sans-serif;
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .07em;
+      font-weight: 800;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      padding: 5px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
     }
-    .cb-elig-list { display: flex; flex-direction: column; gap: 14px; }
+    .cb-elig-badge svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      flex: none;
+    }
+    .cb-elig-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
     .cb-elig-item {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
+      align-items: center;
+      gap: 14px;
       font-size: 15px;
-      color: #1a2e1b;
+      color: #222a3c;
       line-height: 1.5;
+      padding: 14px 2px;
+      position: relative;
+    }
+    .cb-elig-item:not(:last-child) {
+      border-bottom: 1px solid rgba(29, 58, 36, 0.10);
     }
     .cb-check-icon {
-      width: 24px;
-      height: 24px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #008d05, #006b04);
+      background: linear-gradient(180deg, #1ba517, #0b8c11);
       display: grid;
       place-items: center;
       flex: none;
-      margin-top: 1px;
-      box-shadow: 0 3px 8px rgba(0,141,5,0.22);
+      box-shadow: 0 12px 22px rgba(19, 146, 15, 0.22), inset 0 1px 0 rgba(255,255,255,0.24);
     }
-    .cb-check-icon svg { width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.5; }
+    .cb-check-icon svg { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 2.5; }
     .cb-elig-note {
       margin-top: 22px;
-      padding: 14px 18px;
-      background: rgba(0,141,5,0.06);
-      border-left: 3px solid var(--green);
-      border-radius: 0 10px 10px 0;
-      font-size: 13.5px;
-      color: #2a4a2c;
-      line-height: 1.6;
+      padding: 18px 18px 18px 20px;
+      background: linear-gradient(180deg, #f6faf5, #eef5ec);
+      border-left: 4px solid var(--green);
+      border-radius: 16px;
+      display: grid;
+      grid-template-columns: 68px 1fr;
+      gap: 16px;
+      align-items: start;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+    }
+    .cb-elig-note-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(106, 201, 27, 0.18), rgba(106, 201, 27, 0.08));
+      display: grid;
+      place-items: center;
+      color: #169314;
+    }
+    .cb-elig-note-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cb-elig-note p {
+      margin: 0;
+      font-size: 14px;
+      color: #33403c;
+      line-height: 1.75;
+    }
+    .cb-elig-note strong {
+      color: #111829;
+      font-weight: 800;
     }
     .cb-elig-aside {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
     }
     .cb-elig-stat {
-      background: linear-gradient(135deg, #006b04, #008d05);
-      border-radius: 18px;
-      padding: 28px 24px;
+      background: linear-gradient(135deg, #006b04, #008d05 55%, #39b215 100%);
+      border-radius: 22px;
+      padding: 30px 28px;
       color: #fff;
       position: relative;
       overflow: hidden;
+      min-height: 160px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 22px 52px rgba(13, 101, 8, 0.28);
     }
     .cb-elig-stat::after {
       content: '';
       position: absolute;
-      width: 140px;
-      height: 140px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.06);
-      bottom: -40px;
-      right: -40px;
+      border: 1px solid rgba(255,255,255,0.22);
+      bottom: -36px;
+      right: -34px;
+    }
+    .cb-elig-stat::before {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.16);
+      bottom: -92px;
+      right: -78px;
+    }
+    .cb-elig-stat-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 235px;
+    }
+    .cb-elig-stat-icon {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 18px 30px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.18);
+      z-index: 1;
+    }
+    .cb-elig-stat-icon svg {
+      width: 44px;
+      height: 44px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .cb-elig-stat-value {
       font-family: 'Sora', sans-serif;
-      font-size: 38px;
+      font-size: clamp(46px, 5vw, 60px);
       font-weight: 900;
       color: #fff;
-      line-height: 1;
-      margin-bottom: 6px;
+      line-height: 0.95;
+      margin-bottom: 10px;
+      text-shadow: 0 8px 16px rgba(0,0,0,0.12);
     }
-    .cb-elig-stat-value span { color: #ffb347; }
+    .cb-elig-stat-value span { color: #fff; }
     .cb-elig-stat-label {
-      font-size: 14px;
-      opacity: 0.82;
+      font-size: 16px;
+      opacity: 0.94;
       line-height: 1.5;
+      max-width: 240px;
     }
     .cb-elig-info {
-      background: #fff;
-      border: 1.5px solid rgba(0,141,5,0.15);
-      border-radius: 18px;
-      padding: 22px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,251,248,0.98));
+      border: 1px solid rgba(222, 234, 223, 0.9);
+      border-radius: 22px;
+      padding: 22px 22px;
       display: flex;
       align-items: flex-start;
-      gap: 14px;
+      gap: 16px;
+      box-shadow: 0 20px 46px rgba(16, 39, 20, 0.08), inset 0 1px 0 rgba(255,255,255,0.92);
     }
     .cb-elig-info-icon {
-      width: 40px;
-      height: 40px;
-      background: rgba(0,141,5,0.08);
-      border-radius: 12px;
+      width: 62px;
+      height: 62px;
+      background: linear-gradient(180deg, rgba(106, 201, 27, 0.16), rgba(106, 201, 27, 0.06));
+      border-radius: 50%;
       display: grid;
       place-items: center;
       flex: none;
     }
-    .cb-elig-info-icon svg { width: 20px; height: 20px; fill: var(--green); }
-    .cb-elig-info p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+    .cb-elig-info-icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--green);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cb-elig-info p {
+      font-size: 14px;
+      color: #33403c;
+      line-height: 1.75;
+      margin: 0;
+    }
+    .cb-elig-info strong {
+      color: #111829;
+      font-weight: 800;
+    }
 
     /* ── WHAT APPLIES ── */
-    .cb-applies { background: var(--off-white); padding-top: 36px; padding-bottom: 36px; }
+    .cb-applies {
+      background:
+        radial-gradient(circle at 10% 0%, rgba(119, 199, 81, 0.08) 0%, transparent 18%),
+        linear-gradient(180deg, #ffffff 0%, #fbfcfa 100%);
+      padding-top: 36px;
+      padding-bottom: 34px;
+      position: relative;
+    }
+    .cb-applies h2 {
+      font-size: clamp(28px, 3.4vw, 42px);
+      font-weight: 800;
+      color: #111829;
+      margin-bottom: 22px;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
     .cb-applies-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 26px;
     }
     .cb-applies-card {
-      border-radius: 20px;
-      padding: 30px 26px;
+      border-radius: 24px;
+      padding: 24px 24px 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(250,251,250,0.98));
+      box-shadow: 0 22px 52px rgba(17, 34, 23, 0.08), inset 0 1px 0 rgba(255,255,255,0.92);
     }
     .cb-applies-card.eligible {
-      background: #fff;
-      border: 1.5px solid rgba(0,141,5,0.2);
+      border: 1px solid rgba(180, 222, 181, 0.95);
     }
     .cb-applies-card.not-eligible {
-      background: #fff;
-      border: 1.5px solid rgba(220,50,50,0.15);
+      border: 1px solid rgba(246, 194, 194, 0.95);
     }
     .cb-applies-card-header {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 22px;
+      gap: 16px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(22, 46, 31, 0.12);
     }
     .cb-applies-card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      flex: none;
-    }
-    .cb-applies-card.eligible .cb-applies-card-icon { background: rgba(0,141,5,0.1); }
-    .cb-applies-card.not-eligible .cb-applies-card-icon { background: rgba(220,50,50,0.08); }
-    .cb-applies-card-icon svg { width: 20px; height: 20px; }
-    .cb-applies-card.eligible .cb-applies-card-icon svg { fill: var(--green); }
-    .cb-applies-card.not-eligible .cb-applies-card-icon svg { fill: #cc3333; }
-    .cb-applies-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #0a1a0b;
-    }
-    .cb-applies-list { display: flex; flex-direction: column; gap: 12px; }
-    .cb-applies-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 14px;
-      color: #2a3a2b;
-      line-height: 1.5;
-    }
-    .cb-applies-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex: none;
-      margin-top: 6px;
-    }
-    .eligible .cb-applies-dot { background: var(--green); }
-    .not-eligible .cb-applies-dot { background: #cc3333; }
-    .cb-applies-note {
-      margin-top: 28px;
-      padding: 16px 20px;
-      background: #fff;
-      border: 1.5px solid rgba(0,141,5,0.15);
-      border-radius: 14px;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-      text-align: center;
-    }
-
-    /* ── REMINDER ── */
-    .cb-reminder { background: #fff; padding-top: 36px; padding-bottom: 36px; }
-    .cb-reminder-card {
-      background: linear-gradient(135deg, #fffbf5 0%, #fff8ee 100%);
-      border: 2px solid rgba(255,122,0,0.2);
-      border-radius: 24px;
-      padding: 40px 36px;
-      position: relative;
-      overflow: hidden;
-    }
-    .cb-reminder-card::before {
-      content: '';
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,122,0,0.06) 0%, transparent 70%);
-      top: -100px;
-      right: -80px;
-      pointer-events: none;
-    }
-    .cb-reminder-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-      margin-bottom: 28px;
-    }
-    .cb-reminder-icon-wrap {
-      width: 52px;
-      height: 52px;
-      background: rgba(255,122,0,0.12);
+      width: 50px;
+      height: 50px;
       border-radius: 16px;
       display: grid;
       place-items: center;
       flex: none;
     }
-    .cb-reminder-icon-wrap svg { width: 26px; height: 26px; fill: #ff7a00; }
-    .cb-reminder-title {
-      font-family: 'Sora', sans-serif;
-      font-size: 22px;
-      font-weight: 800;
-      color: #0a1a0b;
-      margin-bottom: 4px;
+    .cb-applies-card.eligible .cb-applies-card-icon {
+      background: linear-gradient(180deg, rgba(106, 201, 27, 0.16), rgba(106, 201, 27, 0.06));
+      color: #119712;
     }
-    .cb-reminder-sub { font-size: 14px; color: var(--muted); }
-    .cb-reminder-points { display: flex; flex-direction: column; gap: 20px; }
-    .cb-reminder-point {
+    .cb-applies-card.not-eligible .cb-applies-card-icon {
+      background: linear-gradient(180deg, rgba(227, 42, 42, 0.14), rgba(227, 42, 42, 0.05));
+      color: #c61f1f;
+    }
+    .cb-applies-card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cb-applies-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #141d2b;
+      margin: 0;
+    }
+    .cb-applies-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .cb-applies-item {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
-      padding: 18px 20px;
-      background: #fff;
-      border-radius: 14px;
-      border: 1px solid rgba(255,122,0,0.15);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      gap: 14px;
+      font-size: 14px;
+      color: #28323e;
+      line-height: 1.55;
     }
-    .cb-reminder-point-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+    .cb-applies-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex: none;
+      margin-top: 2px;
+      display: grid;
+      place-items: center;
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+    }
+    .eligible .cb-applies-dot {
+      background: linear-gradient(180deg, #1aa114, #118a10);
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(18, 145, 15, 0.18);
+    }
+    .eligible .cb-applies-dot::before { content: '\2713'; }
+    .not-eligible .cb-applies-dot {
+      background: linear-gradient(180deg, #d92525, #bc1717);
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(194, 31, 31, 0.16);
+    }
+    .not-eligible .cb-applies-dot::before { content: '\00d7'; }
+    .cb-applies-note {
+      margin-top: 22px;
+      padding: 16px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,248,0.98));
+      border: 1px solid rgba(226, 233, 227, 0.95);
+      border-radius: 20px;
+      font-size: 14px;
+      color: #33403c;
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 18px 44px rgba(17, 34, 23, 0.06), inset 0 1px 0 rgba(255,255,255,0.92);
+    }
+    .cb-applies-note-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(106, 201, 27, 0.16), rgba(106, 201, 27, 0.05));
+      color: #119712;
       display: grid;
       place-items: center;
       flex: none;
     }
-    .cb-reminder-point-icon.orange { background: rgba(255,122,0,0.1); }
-    .cb-reminder-point-icon.green { background: rgba(0,141,5,0.1); }
-    .cb-reminder-point-icon svg { width: 18px; height: 18px; }
-    .cb-reminder-point-icon.orange svg { fill: #ff7a00; }
-    .cb-reminder-point-icon.green svg { fill: var(--green); }
+    .cb-applies-note-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cb-applies-note p {
+      margin: 0;
+    }
+    .cb-applies-note strong {
+      color: #161f2c;
+      font-weight: 800;
+    }
+
+    /* ── REMINDER ── */
+    .cb-reminder {
+      background: linear-gradient(180deg, #ffffff 0%, #fffdfa 100%);
+      padding-top: 42px;
+      padding-bottom: 42px;
+    }
+    .cb-reminder h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: #16211f;
+      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+    }
+    .cb-reminder-card {
+      background: linear-gradient(180deg, #fffdf9 0%, #fffaf2 100%);
+      border: 1.5px solid rgba(255, 184, 117, 0.45);
+      border-radius: 24px;
+      padding: 26px 28px 18px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 56px rgba(44, 34, 15, 0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+    }
+    .cb-reminder-card::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,177,89,0.14) 0%, rgba(255,177,89,0.05) 42%, transparent 72%);
+      top: -120px;
+      right: -70px;
+      pointer-events: none;
+    }
+    .cb-reminder-card::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      right: 34px;
+      width: 74px;
+      height: 74px;
+      background-image: radial-gradient(rgba(255, 190, 122, 0.42) 1.4px, transparent 1.4px);
+      background-size: 12px 12px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    .cb-reminder-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed rgba(255, 190, 122, 0.45);
+      position: relative;
+      z-index: 1;
+    }
+    .cb-reminder-head-main {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .cb-reminder-icon-wrap {
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(180deg, rgba(255,144,35,0.14), rgba(255,144,35,0.06));
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      flex: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+    }
+    .cb-reminder-icon-wrap svg {
+      width: 30px;
+      height: 30px;
+      stroke: #ff7a00;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cb-reminder-title {
+      font-family: 'Sora', sans-serif;
+      font-size: clamp(24px, 2.4vw, 34px);
+      font-weight: 800;
+      color: #16211f;
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+    }
+    .cb-reminder-sub {
+      font-size: 15px;
+      color: #5d6367;
+      line-height: 1.65;
+      max-width: 520px;
+    }
+    .cb-reminder-hero-art {
+      justify-self: end;
+      width: 210px;
+      height: 108px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cb-reminder-hero-art svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      filter: drop-shadow(0 16px 24px rgba(222, 122, 37, 0.12));
+    }
+    .cb-reminder-points {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .cb-reminder-point {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      align-items: start;
+      gap: 18px;
+      padding: 20px 18px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 18px;
+      border: 1px solid rgba(238, 228, 210, 0.9);
+      box-shadow: 0 16px 34px rgba(44, 34, 15, 0.05), inset 0 1px 0 rgba(255,255,255,0.92);
+    }
+    .cb-reminder-point-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      flex: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+    }
+    .cb-reminder-point-icon.orange { background: linear-gradient(180deg, rgba(255,144,35,0.16), rgba(255,144,35,0.06)); }
+    .cb-reminder-point-icon.green { background: linear-gradient(180deg, rgba(112,181,61,0.16), rgba(112,181,61,0.06)); }
+    .cb-reminder-point-icon.blue { background: linear-gradient(180deg, rgba(78,154,233,0.16), rgba(78,154,233,0.06)); }
+    .cb-reminder-point-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cb-reminder-point-icon.orange svg { stroke: #ff7a00; }
+    .cb-reminder-point-icon.green svg { stroke: #5f9630; }
+    .cb-reminder-point-icon.blue svg { stroke: #2a84de; }
     .cb-reminder-point h4 {
       font-family: 'Sora', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: #0a1a0b;
+      font-size: 15px;
+      font-weight: 800;
+      color: #16211f;
       margin-bottom: 4px;
     }
-    .cb-reminder-point p { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
-    .cb-reminder-point strong { color: #d96500; }
+    .cb-reminder-point p {
+      font-size: 14px;
+      color: #4f5b60;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .cb-reminder-point strong { color: #ff7a00; font-weight: 800; }
+    .cb-reminder-point.green strong { color: #256b19; }
+    .cb-reminder-point.blue strong { color: #1b65c2; }
     .cb-reminder-closing {
-      margin-top: 24px;
-      padding: 16px 20px;
-      background: linear-gradient(135deg, rgba(0,141,5,0.06), rgba(0,141,5,0.03));
-      border-radius: 12px;
+      margin-top: 18px;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, rgba(111, 180, 63, 0.16), rgba(111, 180, 63, 0.07));
+      border-radius: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      color: #256b19;
+      position: relative;
+      z-index: 1;
+    }
+    .cb-reminder-closing-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.7);
+      display: grid;
+      place-items: center;
+      flex: none;
+      color: #2d7d22;
+    }
+    .cb-reminder-closing-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cb-reminder-closing-copy {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #2e6d26;
+    }
+    .cb-reminder-closing-copy strong {
+      display: block;
       font-family: 'Sora', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: #006b04;
-      text-align: center;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 2px;
     }
 
     /* ── FINAL CTA ── */
@@ -798,39 +1549,101 @@
       max-width: 560px;
       margin: 0 auto;
     }
+    .cb-cta-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .cb-cta-heading-icon {
+      width: 58px;
+      height: 58px;
+      color: #63e246;
+      flex: none;
+      filter: drop-shadow(0 10px 24px rgba(50, 197, 46, 0.22));
+    }
+    .cb-cta-heading-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .cb-cta-heading-copy {
+      max-width: 640px;
+    }
     .cb-cta h2 {
       font-size: clamp(26px, 3.5vw, 38px);
+      font-family: 'Sora', sans-serif;
       font-weight: 800;
       color: #fff;
-      margin-bottom: 14px;
+      margin: 0;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
     }
     .cb-cta p {
       font-size: 16px;
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.86);
       margin-bottom: 36px;
-      line-height: 1.6;
+      line-height: 1.65;
     }
     .btn-orange-glow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
-      background: linear-gradient(135deg, #ff7a00, #d96500);
+      justify-content: center;
+      gap: 12px;
+      min-width: min(100%, 420px);
+      background: linear-gradient(135deg, #ff8a00, #ff6a00);
       color: #fff;
       font-family: 'Sora', sans-serif;
       font-size: 16px;
-      font-weight: 700;
-      padding: 16px 36px;
+      font-weight: 800;
+      padding: 20px 36px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 8px 28px rgba(255,122,0,0.45);
+      box-shadow: 0 18px 34px rgba(255,122,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25);
       transition: transform .22s ease, box-shadow .22s ease;
       white-space: nowrap;
     }
+    .btn-orange-glow svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: none;
+    }
     .btn-orange-glow:hover {
       transform: translateY(-3px);
-      box-shadow: 0 14px 38px rgba(255,122,0,0.55);
+      box-shadow: 0 22px 42px rgba(255,122,0,0.4), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .cb-cta-note {
+      margin-top: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.84);
+      line-height: 1.6;
+    }
+    .cb-cta-note svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex: none;
     }
 
     /* ── TERMS ── */
@@ -840,15 +1653,15 @@
       text-align: center;
     }
     .cb-terms-inner {
-      max-width: 620px;
+      max-width: 720px;
       margin: 0 auto;
     }
     .cb-terms-title {
       font-family: 'Sora', sans-serif;
-      font-size: 22px;
+      font-size: clamp(28px, 3vw, 38px);
       font-weight: 800;
       color: #0a1a0b;
-      margin-bottom: 4px;
+      margin: 0 0 12px;
     }
     .cb-terms-subtitle {
       font-family: 'Sora', sans-serif;
@@ -858,10 +1671,12 @@
       margin-bottom: 20px;
     }
     .cb-terms p {
-      font-size: 14px;
+      font-size: 13px;
       color: #2d3d2e;
-      line-height: 1.75;
-      margin-bottom: 14px;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      margin: 0 auto 16px;
+      max-width: 700px;
     }
     .cb-terms p strong {
       color: #0a1a0b;
@@ -916,30 +1731,227 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .cb-hero-inner { grid-template-columns: 1fr; gap: 40px; }
-      .cb-hero-visual { order: -1; }
-      .cb-reward-card { max-width: 340px; margin: 0 auto; }
+      .cb-hero-inner { grid-template-columns: 1fr; gap: 34px; }
+      .cb-hero-content { max-width: none; }
+      .cb-hero-visual { order: -1; min-height: 460px; }
+      .cb-visual-full-placeholder { max-width: 520px; margin: 0 auto; }
+      .cb-vip-stage { max-width: 520px; margin: 0 auto; }
+      .cb-hero-perks { max-width: none; }
       .cb-steps-grid { grid-template-columns: repeat(2, 1fr); }
       .cb-elig-layout { grid-template-columns: 1fr; gap: 28px; }
-      .cb-elig-aside { flex-direction: row; flex-wrap: wrap; }
-      .cb-elig-stat, .cb-elig-info { flex: 1 1 220px; }
+      .cb-elig h2 { margin-bottom: 28px; }
+      .cb-elig-aside { flex-direction: column; }
+      .cb-elig-stat, .cb-elig-info { flex: none; }
     }
     @media (max-width: 640px) {
-      .cb-hero { padding: 44px 20px 52px; }
+      .cb-hero { padding: 24px 20px 32px; }
       .cb-hero-visual { order: 0; }
-      .cb-steps-grid { grid-template-columns: 1fr; }
-      .cb-applies-grid { grid-template-columns: 1fr; }
-      .cb-reminder-card { padding: 28px 20px; }
-      .cb-reminder-header { flex-direction: column; gap: 12px; }
-      .cb-elig-aside { flex-direction: column; }
-      .cb-hero-btns { flex-direction: column; align-items: center; }
+      .cb-hero h1 { font-size: clamp(32px, 11vw, 48px); }
+      .cb-hero-availability { font-size: 15px; }
+      .cb-hero-btns { flex-direction: column; }
       .cb-hero-btns .btn-primary-green,
-      .cb-hero-btns .btn-outline-green { width: 100%; justify-content: center; }
+      .cb-hero-btns .btn-secondary-outline { width: 100%; }
+      .cb-hero-perks { grid-template-columns: 1fr; gap: 16px; }
+      .cb-hero-perk:not(:last-child)::after { display: none; }
+      .cb-hero-visual { min-height: 420px; }
+      .cb-visual-full-placeholder {
+        min-height: 380px;
+        padding: 14px;
+      }
+      .cb-vip-stage { min-height: 410px; padding: 18px; }
+      .cb-phone { width: 188px; height: 372px; }
+      .cb-visual-placeholder {
+        width: 214px;
+        top: 80px;
+        padding: 12px;
+      }
+      .cb-visual-badge {
+        width: 70px;
+        height: 70px;
+      }
+      .cb-visual-badge-inner {
+        width: 54px;
+        height: 54px;
+      }
+      .cb-steps-grid { grid-template-columns: 1fr; }
+      .cb-elig { padding-top: 38px; padding-bottom: 40px; }
+      .cb-elig h2 {
+        font-size: clamp(30px, 9vw, 42px);
+        margin-bottom: 24px;
+      }
+      .cb-elig-card,
+      .cb-elig-info { padding: 20px; }
+      .cb-elig-note {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .cb-elig-note-icon {
+        width: 52px;
+        height: 52px;
+      }
+      .cb-elig-stat {
+        min-height: 0;
+        padding: 24px 22px 110px;
+      }
+      .cb-elig-stat-copy { max-width: none; }
+      .cb-elig-stat-label {
+        font-size: 15px;
+        max-width: none;
+      }
+      .cb-elig-stat-icon {
+        right: 22px;
+        top: auto;
+        bottom: 18px;
+        transform: none;
+        width: 78px;
+        height: 78px;
+      }
+      .cb-applies {
+        padding-top: 32px;
+        padding-bottom: 34px;
+      }
+      .cb-applies h2 {
+        font-size: clamp(30px, 9vw, 42px);
+        margin-bottom: 20px;
+      }
+      .cb-applies-card {
+        padding: 20px 18px;
+      }
+      .cb-applies-card-header {
+        gap: 14px;
+      }
+      .cb-applies-card h3 {
+        font-size: 17px;
+      }
+      .cb-applies-note {
+        padding: 16px;
+        flex-direction: column;
+      }
+      .cb-applies-grid { grid-template-columns: 1fr; }
+      .cb-reminder {
+        padding-top: 36px;
+        padding-bottom: 38px;
+      }
+      .cb-reminder h2 {
+        font-size: clamp(30px, 9vw, 42px);
+        margin-bottom: 20px;
+      }
+      .cb-reminder-card { padding: 22px 18px 16px; }
+      .cb-reminder-header {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .cb-reminder-hero-art {
+        justify-self: start;
+        width: 180px;
+        height: 94px;
+      }
+      .cb-reminder-point {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 18px 16px;
+      }
+      .cb-reminder-closing {
+        flex-direction: column;
+      }
+      .cb-cta {
+        padding: 38px 20px;
+      }
+      .cb-cta-heading {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .cb-cta-heading-copy {
+        max-width: 100%;
+      }
+      .btn-orange-glow {
+        width: 100%;
+        min-width: 0;
+        padding-inline: 24px;
+        white-space: normal;
+      }
+      .cb-cta-note {
+        font-size: 13px;
+      }
+      .cb-terms {
+        padding: 28px 20px;
+      }
+      .cb-terms-title {
+        font-size: clamp(24px, 7vw, 30px);
+        margin-bottom: 10px;
+      }
+      .cb-terms p {
+        font-size: 12.5px;
+        line-height: 1.4;
+      }
+      .cb-elig-aside { flex-direction: column; }
     }
     @media (max-width: 390px) {
-      .cb-hero h1 { font-size: 26px; }
+      .cb-hero h1 {
+        font-size: 28px;
+        max-width: 100%;
+      }
       .cb-hero-lead { font-size: 15px; }
-      .cb-reward-card { padding: 26px 22px; }
+      .cb-visual-full-placeholder {
+        min-height: 340px;
+        padding: 12px;
+      }
+      .cb-elig-card,
+      .cb-elig-info { padding: 18px; }
+      .cb-elig-item {
+        font-size: 14px;
+        gap: 12px;
+      }
+      .cb-check-icon {
+        width: 30px;
+        height: 30px;
+      }
+      .cb-applies-card {
+        padding: 18px 16px;
+      }
+      .cb-applies-item {
+        gap: 12px;
+        font-size: 13.5px;
+      }
+      .cb-applies-dot {
+        width: 22px;
+        height: 22px;
+      }
+      .cb-reminder-head-main {
+        gap: 12px;
+      }
+      .cb-reminder-icon-wrap {
+        width: 52px;
+        height: 52px;
+      }
+      .cb-reminder-title {
+        font-size: 20px;
+      }
+      .cb-reminder-sub,
+      .cb-reminder-point p,
+      .cb-reminder-closing-copy {
+        font-size: 13.5px;
+      }
+      .cb-reminder-hero-art {
+        width: 156px;
+        height: 82px;
+      }
+      .cb-elig-stat {
+        padding: 22px 18px 100px;
+      }
+      .cb-elig-stat-value { font-size: 42px; }
+      .cb-elig-stat-icon {
+        width: 70px;
+        height: 70px;
+        right: 18px;
+      }
+      .cb-vip-stage { min-height: 390px; }
+      .cb-phone { width: 172px; height: 346px; }
+      .cb-visual-placeholder {
+        width: 196px;
+        left: 50%;
+      }
     }
   </style>
 </head>
@@ -1016,84 +2028,71 @@
     <section class="cb-hero" aria-labelledby="cb-hero-title">
       <div class="cb-hero-inner">
         <div class="cb-hero-content">
+          <div class="cb-hero-badge">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            Exclusive for VIP Clients
+          </div>
           <h1 id="cb-hero-title">
-            Get Rewarded for Completing Your Loan <span>the Right Way</span>
+            VIP Lender Rebate <span>Opportunities</span>
           </h1>
+          <div class="cb-hero-availability">
+            <div class="cb-hero-availability-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8.5-7 9-3.5-.5-7-4-7-9V6l7-3z"></path><path d="M9.5 12.5l1.8 1.8 3.7-4.1"></path></svg>
+            </div>
+            Available to eligible GoLoans VIP clients
+          </div>
           <p class="cb-hero-lead">
-            At GoLoans, we reward responsible repayment.
+            Participating lenders may offer eligible GoLoans VIP clients a rebate after the loan is completed in full and all offer conditions are met.
           </p>
           <p class="cb-hero-note">
-            If you complete your loan in full and on time, without any payment issues, you may be eligible for a rebate on a portion of your surety / guarantor fee or interest — issued after your loan is completed.
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 10v5"></path><path d="M12 7h.01"></path></svg>
+            <span>GoLoans is not a lender. Rebate eligibility is subject to participating lender offer terms.</span>
           </p>
           <div class="cb-hero-btns">
-            <!-- TODO: connect to rebate claim destination -->
             <a href="#cta" class="btn-primary-green">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              Claim Your Rebate!
+              <svg viewBox="0 0 24 24"><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"></path><path d="M22 7h-5.18a3 3 0 0 0-5.64 0H6a2 2 0 0 0-2 2v3h18V9a2 2 0 0 0-2-2z"></path><path d="M12 22V7"></path><path d="M12 7H9.5A2.5 2.5 0 0 1 12 4.5z"></path><path d="M12 7h2.5A2.5 2.5 0 0 0 12 4.5z"></path></svg>
+              Claim My Rebate
             </a>
             <a href="#eligibility" class="btn-secondary-outline">
               View Eligibility
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
             </a>
+          </div>
+          <div class="cb-hero-perks" aria-label="VIP rebate highlights">
+            <div class="cb-hero-perk">
+              <div class="cb-hero-perk-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8.5-7 9-3.5-.5-7-4-7-9V6l7-3z"></path><path d="M8.5 12.5l2.2 2.2 4.8-5"></path></svg>
+              </div>
+              <div>
+                <strong>Lender Rebates</strong>
+                <span>From participating lenders</span>
+              </div>
+            </div>
+            <div class="cb-hero-perk">
+              <div class="cb-hero-perk-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 21c4.97 0 9-4.03 9-9"></path><path d="M12 21c-4.97 0-9-4.03-9-9"></path><path d="M12 3a9 9 0 0 1 8.49 6"></path><path d="M8 12l2.5 2.5L16 9"></path></svg>
+              </div>
+              <div>
+                <strong>VIP Exclusive</strong>
+                <span>Special offers for VIP clients</span>
+              </div>
+            </div>
+            <div class="cb-hero-perk">
+              <div class="cb-hero-perk-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+              </div>
+              <div>
+                <strong>Secure &amp; Private</strong>
+                <span>Your information is protected</span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="cb-hero-visual">
-          <div class="cb-card-carousel" id="cbCardCarousel">
-            <div class="cb-card-carousel-track-wrap">
-              <div class="cb-card-carousel-track" id="cbCardTrack">
-
-                <!-- Slide 1: reward card -->
-                <div class="cb-card-carousel-slide">
-                  <div class="cb-reward-card" aria-hidden="true">
-                    <div class="cb-card-icon">
-                      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    </div>
-                    <div class="cb-card-program">Loan Cashback Program</div>
-                    <div class="cb-card-sub">Rewarded after successful completion</div>
-                    <div class="cb-card-tag">
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                      Responsible Repayment Reward
-                    </div>
-                    <div class="cb-card-checks">
-                      <div class="cb-card-check">
-                        <div class="cb-card-check-icon"><svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor" fill="none"/></svg></div>
-                        Paid in full &amp; on time
-                      </div>
-                      <div class="cb-card-check">
-                        <div class="cb-card-check-icon"><svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor" fill="none"/></svg></div>
-                        No payment issues
-                      </div>
-                      <div class="cb-card-check">
-                        <div class="cb-card-check-icon"><svg viewBox="0 0 12 12" stroke-width="2.5"><polyline points="2,6 5,9 10,3" stroke="currentColor" fill="none"/></svg></div>
-                        Claim within 90 days
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 2: image -->
-                <div class="cb-card-carousel-slide">
-                  <div class="cb-card-img-placeholder">
-                    <img src="../img/logo/loan-casback-img-assets/cashback-hero.png" alt="Loan Cashback" style="width:100%;height:100%;object-fit:cover;border-radius:24px;display:block;">
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            <!-- Arrows -->
-            <button class="cb-card-carousel-arrow cb-card-carousel-arrow--prev" id="cbCardPrev" aria-label="Previous slide">
-              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            </button>
-            <button class="cb-card-carousel-arrow cb-card-carousel-arrow--next" id="cbCardNext" aria-label="Next slide">
-              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-            </button>
-
-            <!-- Dots -->
-            <div class="cb-card-carousel-dots" id="cbCardDots">
-              <button class="cb-card-carousel-dot active" aria-label="Slide 1"></button>
-              <button class="cb-card-carousel-dot" aria-label="Slide 2"></button>
+          <div class="cb-visual-full-placeholder" aria-hidden="true">
+            <div class="cb-visual-full-placeholder-content">
+              <img src="../img/logo/loan-casback-img-assets/rebate-page-hero-img.png" alt="VIP lender rebate opportunities" />
             </div>
           </div>
         </div>
@@ -1114,6 +2113,7 @@
               <div class="cb-step-num">STEP 1</div>
             </div>
             <h3>Complete Your Loan in Full</h3>
+            <p>Finish the full repayment cycle successfully before submitting any rebate request.</p>
           </article>
 
           <article class="cb-step">
@@ -1124,6 +2124,7 @@
               <div class="cb-step-num">STEP 2</div>
             </div>
             <h3>Make All Payments on Time</h3>
+            <p>Keep the account in good standing with no missed, delayed, or failed scheduled payments.</p>
           </article>
 
           <article class="cb-step">
@@ -1134,6 +2135,7 @@
               <div class="cb-step-num">STEP 3</div>
             </div>
             <h3>Request Your Rebate Within 90 Days</h3>
+            <p>Submit your claim inside the 90-day eligibility window after the loan is fully completed.</p>
           </article>
 
           <article class="cb-step">
@@ -1144,6 +2146,7 @@
               <div class="cb-step-num">STEP 4</div>
             </div>
             <h3>We Review &amp; Confirm Eligibility</h3>
+            <p>Our team validates the account details and confirms whether the participating offer applies.</p>
           </article>
 
         </div>
@@ -1161,7 +2164,7 @@
             </div>
           </div>
           <div class="cb-hiw-img-placeholder" role="img" aria-label="How it Works image">
-            <img src="../img/logo/loan-casback-img-assets/how-it-works-img.png" alt="How it Works" style="width:100%;height:100%;object-fit:cover;border-radius:20px;display:block;">
+            <img src="../img/logo/loan-casback-img-assets/how-it-works-rebate-page.png?v=2" alt="How rebate claims work" style="width:100%;height:100%;object-fit:cover;border-radius:20px;display:block;">
           </div>
         </div>
 
@@ -1177,7 +2180,7 @@
             <div class="cb-elig-card">
               <div class="cb-elig-badge">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                Responsible Repayment Reward
+                GoLoans VIP Eligibility
               </div>
               <ul class="cb-elig-list" role="list">
                 <li class="cb-elig-item">
@@ -1206,21 +2209,29 @@
                 </li>
               </ul>
               <div class="cb-elig-note">
-                Validated claims of rebates are given after loan completion. This rebate is a post-completion benefit and does not change your loan terms or payment schedule.
+                <div class="cb-elig-note-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 3h6l5 5v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M14 3v5h5"></path><path d="M9 14l2 2 4-4"></path><circle cx="18" cy="18" r="4"></circle></svg>
+                </div>
+                <p>Validated rebate claims are only issued after loan completion. This rebate is a post-completion benefit offered by participating or GoLoans-approved lenders and does not change your loan terms, payment schedule, or repayment obligations. <strong>GoLoans is not the lender.</strong></p>
               </div>
             </div>
           </div>
 
           <div class="cb-elig-aside">
             <div class="cb-elig-stat">
-              <div class="cb-elig-stat-value"><span>90</span> Days</div>
-              <div class="cb-elig-stat-label">to submit your rebate claim after loan completion — don't miss the window</div>
+              <div class="cb-elig-stat-copy">
+                <div class="cb-elig-stat-value"><span>90</span> Days</div>
+                <div class="cb-elig-stat-label">to submit your rebate claim after loan completion — don't miss the window</div>
+              </div>
+              <div class="cb-elig-stat-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M8 3v4"></path><path d="M16 3v4"></path><rect x="4" y="6" width="16" height="14" rx="2"></rect><path d="M4 10h16"></path><path d="M9 15l2 2 4-4"></path></svg>
+              </div>
             </div>
             <div class="cb-elig-info">
               <div class="cb-elig-info-icon">
-                <svg viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M8 3v4"></path><path d="M16 3v4"></path><rect x="4" y="6" width="16" height="14" rx="2"></rect><path d="M4 10h16"></path><path d="M15 16l2 2 4-4"></path></svg>
               </div>
-              <p>Rebates are processed and issued on <strong>Wednesdays</strong>. Submit your claim before the processing day to avoid a one-week delay.</p>
+              <p>Rebate payouts depend on the participating lender's review, approval, and payout timelines. <strong>GoLoans is not the lender</strong> and does not issue the rebate directly.</p>
             </div>
           </div>
         </div>
@@ -1292,39 +2303,84 @@
         <h2 id="cb-reminder-title">Important Reminder</h2>
         <div class="cb-reminder-card">
           <div class="cb-reminder-header">
-            <div class="cb-reminder-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+            <div class="cb-reminder-head-main">
+              <div class="cb-reminder-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 4v8"></path><path d="M12 16h.01"></path><path d="M4.93 19h14.14a2 2 0 0 0 1.73-3L13.73 3.77a2 2 0 0 0-3.46 0L3.2 16a2 2 0 0 0 1.73 3z"></path></svg>
+              </div>
+              <div>
+                <div class="cb-reminder-title">Don't Miss Your Claim Window</div>
+                <div class="cb-reminder-sub">There are two important things to know before submitting your rebate claim.</div>
+              </div>
             </div>
-            <div>
-              <div class="cb-reminder-title">Don't Miss Your Window</div>
-              <div class="cb-reminder-sub">Two things you need to know before claiming</div>
+            <div class="cb-reminder-hero-art" aria-hidden="true">
+              <svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="reminderPad" x1="0" x2="1">
+                    <stop offset="0%" stop-color="#fff6eb"/>
+                    <stop offset="100%" stop-color="#ffe3c5"/>
+                  </linearGradient>
+                  <linearGradient id="reminderLeaf" x1="0" x2="1">
+                    <stop offset="0%" stop-color="#9ccf62"/>
+                    <stop offset="100%" stop-color="#6fa83d"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="132" cy="42" r="42" fill="rgba(255,177,89,0.16)"/>
+                <rect x="86" y="18" width="74" height="76" rx="14" fill="url(#reminderPad)" stroke="#f6c68e"/>
+                <rect x="94" y="34" width="58" height="46" rx="8" fill="#fffaf4"/>
+                <path d="M98 22v12M112 22v12M126 22v12M140 22v12" stroke="#d6934f" stroke-width="3" stroke-linecap="round"/>
+                <path d="M100 46h10M116 46h10M132 46h10M100 58h10M116 58h10M132 58h10M100 70h10M116 70h10M132 70h10" stroke="#f3c48f" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+                <path d="M132 70h10" stroke="#ff962b" stroke-width="6" stroke-linecap="round"/>
+                <path d="M173 28c18 4 26 16 26 32-20-4-27-17-26-32z" fill="url(#reminderLeaf)"/>
+                <path d="M162 40c14 5 20 14 18 26-15-4-20-15-18-26z" fill="#b6da86"/>
+                <circle cx="178" cy="72" r="18" fill="#fff3e2" stroke="#f3b06a" stroke-width="3"/>
+                <circle cx="178" cy="72" r="3" fill="#f08a2b"/>
+                <path d="M178 72V62M178 72l7 4" stroke="#f08a2b" stroke-width="3" stroke-linecap="round"/>
+                <path d="M198 22l3 5 6 1-4 4 1 6-6-3-5 3 1-6-4-4 6-1z" fill="#ffd9ac" opacity=".8"/>
+                <path d="M202 54l2 4 4 1-3 3 1 4-4-2-4 2 1-4-3-3 4-1z" fill="#ffd9ac" opacity=".7"/>
+              </svg>
             </div>
           </div>
 
           <div class="cb-reminder-points">
-            <div class="cb-reminder-point">
+            <div class="cb-reminder-point orange">
               <div class="cb-reminder-point-icon orange" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M8 3v4"></path><path d="M16 3v4"></path><rect x="4" y="6" width="16" height="14" rx="2"></rect><path d="M4 10h16"></path><path d="M8 14h8"></path><path d="M8 17h6"></path></svg>
               </div>
               <div>
                 <h4>90-Day Claim Deadline</h4>
-                <p>Rebates must be claimed within <strong>90 days</strong> from the date your loan is completed. If not claimed within this period, the rebate will be <strong>forfeited</strong>.</p>
+                <p>Rebate claims must be submitted within <strong>90 days</strong> from the date your loan is completed. Claims submitted after this period may no longer be eligible under the participating lender's rebate offer terms.</p>
               </div>
             </div>
 
-            <div class="cb-reminder-point">
+            <div class="cb-reminder-point green">
               <div class="cb-reminder-point-icon green" aria-hidden="true">
-                <svg viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V9l7-4 7 4v12"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg>
               </div>
               <div>
-                <h4>Wednesday Processing Schedule</h4>
-                <p>Rebates are sent every <strong style="color:#006b04;">Wednesday</strong>. Claims should be submitted before the processing day. Otherwise, the rebate may be sent the following Wednesday.</p>
+                <h4>Lender Review &amp; Payout Timing</h4>
+                <p>Rebate payout timing depends on the participating GoLoans-approved lender's review, approval, and processing timelines. GoLoans is not the lender and does not issue rebates directly.</p>
+              </div>
+            </div>
+
+            <div class="cb-reminder-point blue">
+              <div class="cb-reminder-point-icon blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.5 8.5-7 9-3.5-.5-7-4-7-9V6l7-3z"></path><path d="M9.5 12.5l1.8 1.8 3.7-4.1"></path></svg>
+              </div>
+              <div>
+                <h4>Claim Accuracy Matters</h4>
+                <p>Ensure your information and supporting documents are accurate and complete to help avoid delays during the lender's review process.</p>
               </div>
             </div>
           </div>
 
           <div class="cb-reminder-closing">
-            Here at GoLoans, good customers are rewarded. 🎉
+            <div class="cb-reminder-closing-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.47 6.03.88-4.36 4.24 1.03 5.98L12 16.73 6.6 19.57l1.03-5.98L3.27 9.35l6.03-.88z"></path></svg>
+            </div>
+            <div class="cb-reminder-closing-copy">
+              <strong>Rebate offers are subject to the participating lender's approval, terms, and payout process.</strong>
+              GoLoans is not the lender.
+            </div>
           </div>
         </div>
       </div>
@@ -1333,22 +2389,32 @@
     <!-- ─── FINAL CTA ─── -->
     <section id="cta" class="cb-cta" aria-labelledby="cb-cta-title">
       <div class="cb-cta-inner">
-        <h2 id="cb-cta-title">Ready to Claim your Rebate?</h2>
-        <p>You've done the hard part — complete your loan the right way and let us take care of the rest.</p>
-        <!-- TODO: connect href to rebate claim destination -->
-        <a href="#" class="btn-orange-glow" aria-label="Claim your rebate now">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          Claim Your Rebate!
+        <div class="cb-cta-heading">
+          <div class="cb-cta-heading-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3 5.4 5.8v5.3c0 4.5 2.8 8.7 6.6 10.2 3.8-1.5 6.6-5.7 6.6-10.2V5.8L12 3z"></path><path d="m9.2 12.3 2 2 4-4.4"></path></svg>
+          </div>
+          <div class="cb-cta-heading-copy">
+            <h2 id="cb-cta-title">Ready to Check Your Rebate Eligibility?</h2>
+          </div>
+        </div>
+        <p>If you completed your loan successfully, you may be eligible for a rebate offer from a participating GoLoans-approved lender.</p>
+        <a href="#" class="btn-orange-glow" aria-label="Submit your rebate claim">
+          <svg viewBox="0 0 24 24"><path d="M8 3h6l5 5v13H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg>
+          Submit Your Rebate Claim
         </a>
+        <div class="cb-cta-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+          <span>Your information is secure and will only be used for rebate processing.</span>
+        </div>
       </div>
     </section>
 
     <!-- ─── TERMS ─── -->
     <section class="cb-terms" aria-labelledby="cb-terms-title">
       <div class="cb-terms-inner">
-        <h3 id="cb-terms-title">Terms &amp; Conditions</h3>
-        <p>This rebate program is subject to eligibility requirements and limitations. Approval is not guaranteed and is determined by GoLoans upon review of your account.</p>
-        <a href="../rebate-terms/" aria-label="View Rebate Program Terms and Conditions">Rebate Program Terms &amp; Conditions &rarr;</a>
+        <h3 id="cb-terms-title" class="cb-terms-title">Terms &amp; Conditions</h3>
+        <p>Rebate offers are subject to eligibility requirements, offer limitations, and the participating GoLoans-approved lender's review and approval. GoLoans is not the lender and does not guarantee rebate approval, rebate amount, payout timing, or payment.</p>
+        <a href="../rebate-terms/" aria-label="View Rebate Program Terms and Conditions">View Rebate Program Terms &amp; Conditions &rarr;</a>
       </div>
     </section>
 
@@ -1385,7 +2451,7 @@
             <a href="../faq/">FAQs</a>
             <a href="../privacy-policy/">Privacy Policy</a>
             <a href="../terms-of-service/">Terms of Service</a>
-          </div>
+        </div>
         </div>
 
         <div>
@@ -1413,28 +2479,6 @@
   </footer>
 
   <script>
-    // ── Hero Card Carousel ──
-    (function () {
-      const track = document.getElementById('cbCardTrack');
-      const dots  = document.querySelectorAll('#cbCardDots .cb-card-carousel-dot');
-      const total = track ? track.children.length : 0;
-      let current = 0, timer;
-
-      function goTo(idx) {
-        current = (idx + total) % total;
-        track.style.transform = 'translateX(-' + (current * 100) + '%)';
-        dots.forEach(function(d, i) { d.classList.toggle('active', i === current); });
-      }
-
-      if (track && total > 1) {
-        document.getElementById('cbCardPrev').addEventListener('click', function() { clearInterval(timer); goTo(current - 1); startAuto(); });
-        document.getElementById('cbCardNext').addEventListener('click', function() { clearInterval(timer); goTo(current + 1); startAuto(); });
-        dots.forEach(function(d, i) { d.addEventListener('click', function() { clearInterval(timer); goTo(i); startAuto(); }); });
-        function startAuto() { timer = setInterval(function() { goTo(current + 1); }, 5000); }
-        startAuto();
-      }
-    })();
-
     // Hamburger / mobile drawer
     const hamburger = document.querySelector('.hamburger');
     const siteHeader = document.querySelector('.site-header');
