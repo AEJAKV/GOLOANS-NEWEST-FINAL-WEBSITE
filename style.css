@@ -343,7 +343,7 @@ h1, h2, h3, h4 {
   top: calc(100% + 5px);
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
+  display: none;
   align-items: center;
   gap: 6px;
   background: rgba(255,255,255,0.92);
@@ -384,6 +384,59 @@ h1, h2, h3, h4 {
 /* Hero BBB badge — mobile only */
 .hero-bbb {
   display: none;
+}
+
+.hero-image-bbb {
+  position: absolute;
+  top: -12px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.94);
+  border: 1px solid rgba(27,78,139,0.16);
+  border-radius: 9px;
+  padding: 5px 10px 5px 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  white-space: nowrap;
+  z-index: 3;
+}
+.hero-image-bbb-img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+.hero-image-bbb-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  line-height: 1;
+}
+.hero-image-bbb-stars {
+  font-size: 9px;
+  color: #e8a000;
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+}
+.hero-image-bbb-score {
+  font-family: 'Sora', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: #1b4e8b;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+@media (min-width: 761px) and (max-width: 1040px) {
+  .hero-image-bbb {
+    top: -10px;
+    right: 14px;
+    padding: 4px 9px 4px 6px;
+  }
+  .hero-image-bbb-img { height: 20px; }
+  .hero-image-bbb-stars,
+  .hero-image-bbb-score { font-size: 8.5px; }
 }
 
 /* Hamburger — hidden on desktop */
@@ -658,6 +711,16 @@ h1 .highlight {
   border-radius: 50%;
 }
 .product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,100,5,.32); }
+
+.product-card--soft {
+  opacity: 0.86;
+  filter: saturate(0.88) brightness(0.98);
+}
+
+.product-card--faded {
+  opacity: 0.72;
+  filter: saturate(0.72) brightness(0.96);
+}
 
 .product-icon {
   width: 46px;
@@ -2521,6 +2584,7 @@ footer { background: var(--navy); color: #fff; }
   .nav-links { display: none; }
   .nav-actions { gap: 8px; }
   .nav-bbb { display: none; }
+  .hero-image-bbb { display: none; }
   .hero-bbb {
     display: flex;
     align-items: center;
