@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "GoLoans Canada static website",
   "scripts": {
-    "dev": "npx live-server --port=3000 --open=goloans-web.html"
+    "dev": "npx live-server --port=3000 --open=goloans-web.html",
+    "images:preview": "node scripts/compress-images.js --dry-run",
+    "images:optimize": "node scripts/compress-images.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.1"
   }
 }
