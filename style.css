@@ -984,6 +984,9 @@ h2 {
   background:
     linear-gradient(160deg, rgba(5,78,17,0.88) 0%, rgba(9,122,28,0.86) 30%, rgba(12,165,38,0.84) 60%, rgba(60,200,70,0.80) 85%, rgba(100,220,80,0.76) 100%),
     url('img/logo/sec-2-bg.png') center / cover no-repeat;
+  background:
+    linear-gradient(160deg, rgba(5,78,17,0.88) 0%, rgba(9,122,28,0.86) 30%, rgba(12,165,38,0.84) 60%, rgba(60,200,70,0.80) 85%, rgba(100,220,80,0.76) 100%),
+    image-set(url('optimized/img/logo/sec-2-bg.webp') type('image/webp'), url('img/logo/sec-2-bg.png') type('image/png')) center / cover no-repeat;
   padding: 36px 24px 32px;
   position: relative;
   overflow: hidden;
@@ -2062,6 +2065,9 @@ h2 {
   background:
     linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.80)),
     url('img/logo/province-section-bg.png') center / cover no-repeat;
+  background:
+    linear-gradient(rgba(255,255,255,0.80), rgba(255,255,255,0.80)),
+    image-set(url('optimized/img/logo/province-section-bg.webp') type('image/webp'), url('img/logo/province-section-bg.png') type('image/png')) center / cover no-repeat;
 }
 .areas-section h2 { text-align: center; }
 
