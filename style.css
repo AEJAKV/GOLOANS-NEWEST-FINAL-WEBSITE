@@ -429,6 +429,27 @@ h1, h2, h3, h4 {
 }
 
 @media (min-width: 761px) and (max-width: 1040px) {
+  .nav {
+    grid-template-columns: 210px 1fr auto;
+    gap: 10px;
+    padding: 10px 20px 9px;
+  }
+  .brand-logo-img { height: 34px; }
+  .nav-links {
+    gap: 28px;
+    font-size: 14px;
+  }
+  .nav-dropdown-toggle { font-size: 14px; }
+  .nav-actions { gap: 10px; }
+  .phone-link,
+  .nav-sep,
+  .nav-bbb { display: none; }
+  .nav-login { font-size: 14px; }
+  .nav-cta {
+    font-size: 13px;
+    padding: 10px 16px;
+    letter-spacing: .02em;
+  }
   .hero-image-bbb {
     top: -10px;
     right: 14px;
