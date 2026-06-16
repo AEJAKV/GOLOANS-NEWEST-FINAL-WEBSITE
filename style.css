@@ -2306,6 +2306,11 @@ h2 {
   position: relative;
   z-index: 1;
 }
+.province-img picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 .prov-icon-img {
   width: 100%;
   height: 100%;
